@@ -19,8 +19,10 @@ public class UserDaoTest {
 //		userDao.saveOrUpdate(user);
 
 		User user2 = userDao.getUserByUsername("lee");
-
 		assertEquals("lee", user2.getUsername());
+		
+		
+		//testing git commit
 
 	}
 

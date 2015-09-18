@@ -1,9 +1,15 @@
 package service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
+import dao.ItemDao;
+import dao.ItemDaoImpl;
 import dao.UserDao;
 import dao.UserDaoImpl;
+import dto.Cart;
+import dto.Item;
 import dto.User;
 import exception.UserBannedException;
 import exception.UserUnVerifiedException;
@@ -11,6 +17,7 @@ import exception.UserUnVerifiedException;
 public class UserService {
 
 	private UserDao userDao = UserDaoImpl.getInstance();
+	private ItemDao itemDao = ItemDaoImpl.getInstance();
 
 	/**
 	 * 
@@ -36,8 +43,21 @@ public class UserService {
 		return user;
 	}
 
+	public User getUserById(String id) {
+		return this.userDao.getUserById(Integer.parseInt(id));
+	}
+
+	public User getUserByUsername(String username) {
+		return this.userDao.getUserByUsername(username);
+	}
+
+	public List<User> getAllUsers() {
+		return this.userDao.getAllUsers();
+	}
+
 	/**
 	 * currently only username been taken will return false
+	 * 
 	 * @param user
 	 * @return
 	 */
@@ -68,6 +88,15 @@ public class UserService {
 			userDao.saveOrUpdate(user);
 		}
 		return user;
+	}
+
+	public List<Cart> getShoppingCart(User user) {
+		return itemDao.getShoppingCart(user.getId());
+	}
+
+	public void saveToShoppingCart(User user, String item_id, int count) {
+		this.itemDao.updateShoppingCart(user.getId(),
+		        Integer.parseInt(item_id), count);
 	}
 
 }

@@ -2,7 +2,10 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import dto.User;
 
@@ -20,9 +23,10 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
 	@Override
 	public void saveOrUpdate(User user) {
+		Connection connection = getConnection();
+
 		// if it's new user, the do insert
 		if (user.getId() == 0) {
-			Connection connection = getConnection();
 			try {
 
 				String sql = "INSERT INTO user (username, password, firstname, lastname, email, birthyear, address, creditcard, ban, verified, uuid) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
@@ -46,24 +50,161 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+		} else {
+			try {
+				String sql = "UPDATE user SET username=?, password=?, firstname=?, lastname=?, email=?, birthyear=?, address=?, creditcard=?, ban=?, verified=?, uuid=? WHERE id=?";
+
+				PreparedStatement preparedStatement = connection
+				        .prepareStatement(sql);
+				preparedStatement.setString(1, user.getUsername());
+				preparedStatement.setString(2, user.getPassword());
+				preparedStatement.setString(3, user.getFirstname());
+				preparedStatement.setString(4, user.getLastname());
+				preparedStatement.setString(5, user.getEmail());
+				preparedStatement.setInt(6, user.getBirthyear());
+				preparedStatement.setString(7, user.getAddress());
+				preparedStatement.setString(8, user.getCreditcard());
+				preparedStatement.setBoolean(9, user.isBan());
+				preparedStatement.setBoolean(10, user.isVerified());
+				preparedStatement.setString(11, user.getUuid());
+				preparedStatement.setInt(12, user.getId());
+
+				preparedStatement.executeUpdate();
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
 	@Override
 	public User getLoginUser(String username, String password) {
+		Connection connection = getConnection();
+		String sql = "SELECT * FROM user WHERE username = ? AND password = ?";
+
+		try {
+			PreparedStatement preparedStatement = connection
+			        .prepareStatement(sql);
+			preparedStatement.setString(1, username);
+			preparedStatement.setString(2, password);
+
+			ResultSet rs = preparedStatement.executeQuery();
+			if (rs.next()) {
+				return convertUser(rs);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 		return null;
 	}
 
 	@Override
 	public User getUserByUuid(String uuid) {
-		// TODO Auto-generated method stub
+		Connection connection = getConnection();
+		String sql = "SELECT * FROM user WHERE uuid = ?";
+
+		try {
+			PreparedStatement preparedStatement = connection
+			        .prepareStatement(sql);
+			preparedStatement.setString(1, uuid);
+
+			ResultSet rs = preparedStatement.executeQuery();
+			if (rs.next()) {
+				return convertUser(rs);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 		return null;
 	}
 
 	@Override
-    public User getUserByUsername(String username) {
-	    // TODO Auto-generated method stub
-	    return null;
-    }
+	public User getUserByUsername(String username) {
+		Connection connection = getConnection();
+		String sql = "SELECT * FROM user WHERE username = ?";
+
+		try {
+			PreparedStatement preparedStatement = connection
+			        .prepareStatement(sql);
+			preparedStatement.setString(1, username);
+
+			ResultSet rs = preparedStatement.executeQuery();
+			if (rs.next()) {
+				return convertUser(rs);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+	@Override
+	public User getUserById(int id) {
+		Connection connection = getConnection();
+		String sql = "SELECT * FROM user WHERE id = ?";
+
+		try {
+			PreparedStatement preparedStatement = connection
+			        .prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+
+			ResultSet rs = preparedStatement.executeQuery();
+			if (rs.next()) {
+				return convertUser(rs);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+	
+	@Override
+	public List<User> getAllUsers() {
+		List<User> users = new ArrayList<User>();
+
+		Connection connection = getConnection();
+		String sql = "SELECT * FROM user";
+
+		try {
+			PreparedStatement preparedStatement = connection
+			        .prepareStatement(sql);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				User user = convertUser(rs);
+				users.add(user);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return users;
+	}
+
+	private User convertUser(ResultSet rs) throws SQLException {
+		User user = new User();
+		user.setId(rs.getInt("id"));
+		user.setUsername(rs.getString("username"));
+		user.setPassword(rs.getString("password"));
+		user.setFirstname(rs.getString("firstname"));
+		user.setLastname(rs.getString("lastname"));
+		user.setEmail(rs.getString("email"));
+		user.setBirthyear(rs.getInt("birthyear"));
+		user.setAddress(rs.getString("address"));
+		user.setCreditcard(rs.getString("creditcard"));
+		user.setBan(rs.getBoolean("ban"));
+		user.setVerified(rs.getBoolean("verified"));
+		user.setUuid(rs.getString("uuid"));
+		return user;
+	}
 
 }

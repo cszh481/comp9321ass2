@@ -10,8 +10,8 @@ public class Item {
 	private Date publication_date;
 	private String venue;
 	private double price;
-	private boolean pause;
-	private boolean sold;
+	private boolean paused;
+	private int quantity;
 	private int seller_id;
 	private User seller;
 
@@ -71,20 +71,12 @@ public class Item {
 		this.price = price;
 	}
 
-	public boolean isPause() {
-		return pause;
+	public boolean isPaused() {
+		return paused;
 	}
 
-	public void setPause(boolean pause) {
-		this.pause = pause;
-	}
-
-	public boolean isSold() {
-		return sold;
-	}
-
-	public void setSold(boolean sold) {
-		this.sold = sold;
+	public void setPaused(boolean paused) {
+		this.paused = paused;
 	}
 
 	public int getSeller_id() {
@@ -102,5 +94,13 @@ public class Item {
 	public void setSeller(User seller) {
 		this.seller = seller;
 	}
+
+	public int getQuantity() {
+	    return quantity;
+    }
+
+	public void setQuantity(int quantity) {
+	    this.quantity = quantity;
+    }
 
 }

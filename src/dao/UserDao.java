@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import dto.User;
 
 public interface UserDao {
@@ -37,5 +39,9 @@ public interface UserDao {
 	 * @return
 	 */
 	public User getUserByUuid(String uuid);
+	
+	public User getUserById(int id);
+
+	public List<User> getAllUsers();
 
 }

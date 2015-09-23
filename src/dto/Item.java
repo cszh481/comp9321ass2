@@ -14,6 +14,8 @@ public class Item {
 	private int quantity;
 	private int seller_id;
 	private User seller;
+	private String imageURL;
+	
 
 	public int getId() {
 		return id;
@@ -101,6 +103,14 @@ public class Item {
 
 	public void setQuantity(int quantity) {
 	    this.quantity = quantity;
+    }
+
+	public String getImageURL() {
+	    return imageURL;
+    }
+
+	public void setImageURL(String imageURL) {
+	    this.imageURL = imageURL;
     }
 
 }

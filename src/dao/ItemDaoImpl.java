@@ -31,7 +31,7 @@ public class ItemDaoImpl extends BaseDao implements ItemDao {
 		if (item.getId() == 0) {
 			try {
 
-				String sql = "INSERT INTO item (title, authors, type, publication_date, venue, price, paused, quantity, seller_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				String sql = "INSERT INTO item (title, authors, type, publication_date, venue, price, paused, quantity, seller_id, imageURL) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 				PreparedStatement preparedStatement = connection
 				        .prepareStatement(sql);
@@ -47,6 +47,7 @@ public class ItemDaoImpl extends BaseDao implements ItemDao {
 				preparedStatement.setBoolean(7, item.isPaused());
 				preparedStatement.setInt(8, item.getQuantity());
 				preparedStatement.setInt(9, item.getSeller_id());
+				preparedStatement.setString(10, item.getImageURL());
 
 				preparedStatement.executeUpdate();
 				connection.close();
@@ -56,7 +57,7 @@ public class ItemDaoImpl extends BaseDao implements ItemDao {
 		} else {
 			try {
 
-				String sql = "UPDATE item SET title=?, authors=?, type=?, publication_date=?, venue=?, price=?, paused=?, quantity=?, seller_id=? WHERE id=?";
+				String sql = "UPDATE item SET title=?, authors=?, type=?, publication_date=?, venue=?, price=?, paused=?, quantity=?, seller_id=?, imageURL=? WHERE id=?";
 
 				PreparedStatement preparedStatement = connection
 				        .prepareStatement(sql);
@@ -71,7 +72,8 @@ public class ItemDaoImpl extends BaseDao implements ItemDao {
 				preparedStatement.setBoolean(7, item.isPaused());
 				preparedStatement.setInt(8, item.getQuantity());
 				preparedStatement.setInt(9, item.getSeller_id());
-				preparedStatement.setInt(10, item.getId());
+				preparedStatement.setString(10, item.getImageURL());
+				preparedStatement.setInt(11, item.getId());
 
 				preparedStatement.executeUpdate();
 				connection.close();

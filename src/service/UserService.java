@@ -1,15 +1,10 @@
 package service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import dao.ItemDao;
-import dao.ItemDaoImpl;
 import dao.UserDao;
 import dao.UserDaoImpl;
-import dto.Cart;
-import dto.Item;
 import dto.User;
 import exception.UserBannedException;
 import exception.UserUnVerifiedException;
@@ -17,7 +12,6 @@ import exception.UserUnVerifiedException;
 public class UserService {
 
 	private UserDao userDao = UserDaoImpl.getInstance();
-	private ItemDao itemDao = ItemDaoImpl.getInstance();
 
 	/**
 	 * 
@@ -43,19 +37,35 @@ public class UserService {
 		return user;
 	}
 
+	/**
+	 * helper
+	 * @param id
+	 * @return
+	 */
 	public User getUserById(String id) {
 		return this.userDao.getUserById(Integer.parseInt(id));
 	}
 
+	/**
+	 * helper
+	 * @param username
+	 * @return
+	 */
 	public User getUserByUsername(String username) {
 		return this.userDao.getUserByUsername(username);
 	}
 
+	/**
+	 * for admin page
+	 * @return
+	 */
 	public List<User> getAllUsers() {
 		return this.userDao.getAllUsers();
 	}
 
 	/**
+	 * for user register page
+	 * 
 	 * currently only username been taken will return false
 	 * 
 	 * @param user
@@ -73,11 +83,16 @@ public class UserService {
 		userDao.saveOrUpdate(user);
 
 		// if success, then send email
-		// TODO: SEND EMAIL
+		// TODO: SEND EMAIL with UUID link
 
 		return true;
 	}
 
+	/**
+	 * for verify user page
+	 * @param uuid
+	 * @return
+	 */
 	public User verifyUserEmail(String uuid) {
 		User user = userDao.getUserByUuid(uuid);
 
@@ -90,13 +105,5 @@ public class UserService {
 		return user;
 	}
 
-	public List<Cart> getShoppingCart(User user) {
-		return itemDao.getShoppingCart(user.getId());
-	}
-
-	public void saveToShoppingCart(User user, String item_id, int count) {
-		this.itemDao.updateShoppingCart(user.getId(),
-		        Integer.parseInt(item_id), count);
-	}
 
 }

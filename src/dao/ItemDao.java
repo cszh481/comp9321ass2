@@ -2,7 +2,6 @@ package dao;
 
 import java.util.List;
 
-import dto.Cart;
 import dto.Item;
 
 public interface ItemDao {
@@ -13,8 +12,6 @@ public interface ItemDao {
 
 	public List<Item> getAllItems();
 
-	public List<Cart> getShoppingCart(int user_id);
-	
-	public void updateShoppingCart(int user_id, int item_id, int count);
+	public List<Item> getAllItemsBySellerId(int seller_id);
 
 }

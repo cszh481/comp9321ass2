@@ -11,11 +11,11 @@ public class Item {
 	private String venue;
 	private double price;
 	private boolean paused;
+	private boolean ban;
 	private int quantity;
-	private int seller_id;
 	private User seller;
 	private String imageURL;
-	
+	private int seller_id;
 
 	public int getId() {
 		return id;
@@ -98,19 +98,27 @@ public class Item {
 	}
 
 	public int getQuantity() {
-	    return quantity;
-    }
+		return quantity;
+	}
 
 	public void setQuantity(int quantity) {
-	    this.quantity = quantity;
-    }
+		this.quantity = quantity;
+	}
 
 	public String getImageURL() {
-	    return imageURL;
-    }
+		return imageURL;
+	}
 
 	public void setImageURL(String imageURL) {
-	    this.imageURL = imageURL;
-    }
+		this.imageURL = imageURL;
+	}
+
+	public boolean isBan() {
+		return ban;
+	}
+
+	public void setBan(boolean ban) {
+		this.ban = ban;
+	}
 
 }

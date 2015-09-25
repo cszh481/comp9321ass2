@@ -14,7 +14,9 @@ public class User {
 	private boolean ban;
 	private boolean verified;
 	private String uuid;
-
+	
+	
+	
 	public int getId() {
 		return id;
 	}

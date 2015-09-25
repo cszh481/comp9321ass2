@@ -1,19 +1,14 @@
 package dto;
 
+import java.util.Date;
+
 public class Cart {
-	private int id;
 	private int user_id;
 	private int item_id;
 	private int count;
+	private Date added;
+	private Date removed;
 	private Item Item;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public int getUser_id() {
 		return user_id;
@@ -45,6 +40,26 @@ public class Cart {
 
 	public void setItem(Item item) {
 		Item = item;
+	}
+
+	public Date getAdded() {
+		return added;
+	}
+
+	public void setAdded(Date added) {
+		this.added = added;
+	}
+
+	public Date getRemoved() {
+		return removed;
+	}
+
+	public void setRemoved(Date removed) {
+		this.removed = removed;
+	}
+
+	public boolean isRemoved() {
+		return this.removed != null;
 	}
 
 }

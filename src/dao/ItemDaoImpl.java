@@ -7,9 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import dto.Cart;
 import dto.Item;
-import dto.User;
 
 public class ItemDaoImpl extends BaseDao implements ItemDao {
 
@@ -31,7 +29,7 @@ public class ItemDaoImpl extends BaseDao implements ItemDao {
 		if (item.getId() == 0) {
 			try {
 
-				String sql = "INSERT INTO item (title, authors, type, publication_date, venue, price, paused, quantity, seller_id, imageURL) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				String sql = "INSERT INTO item (title, authors, type, publication_date, venue, price, paused, ban, quantity, imageURL, seller_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 				PreparedStatement preparedStatement = connection
 				        .prepareStatement(sql);
@@ -45,9 +43,10 @@ public class ItemDaoImpl extends BaseDao implements ItemDao {
 				preparedStatement.setString(5, item.getVenue());
 				preparedStatement.setDouble(6, item.getPrice());
 				preparedStatement.setBoolean(7, item.isPaused());
-				preparedStatement.setInt(8, item.getQuantity());
-				preparedStatement.setInt(9, item.getSeller_id());
+				preparedStatement.setBoolean(8, item.isBan());
+				preparedStatement.setInt(9, item.getQuantity());
 				preparedStatement.setString(10, item.getImageURL());
+				preparedStatement.setInt(11, item.getSeller_id());
 
 				preparedStatement.executeUpdate();
 				connection.close();
@@ -57,7 +56,7 @@ public class ItemDaoImpl extends BaseDao implements ItemDao {
 		} else {
 			try {
 
-				String sql = "UPDATE item SET title=?, authors=?, type=?, publication_date=?, venue=?, price=?, paused=?, quantity=?, seller_id=?, imageURL=? WHERE id=?";
+				String sql = "UPDATE item SET title=?, authors=?, type=?, publication_date=?, venue=?, price=?, paused=?, ban=?, quantity=?, imageURL=?, seller_id=? WHERE id=?";
 
 				PreparedStatement preparedStatement = connection
 				        .prepareStatement(sql);
@@ -70,10 +69,11 @@ public class ItemDaoImpl extends BaseDao implements ItemDao {
 				preparedStatement.setString(5, item.getVenue());
 				preparedStatement.setDouble(6, item.getPrice());
 				preparedStatement.setBoolean(7, item.isPaused());
-				preparedStatement.setInt(8, item.getQuantity());
-				preparedStatement.setInt(9, item.getSeller_id());
+				preparedStatement.setBoolean(8, item.isBan());
+				preparedStatement.setInt(9, item.getQuantity());
 				preparedStatement.setString(10, item.getImageURL());
-				preparedStatement.setInt(11, item.getId());
+				preparedStatement.setInt(11, item.getSeller_id());
+				preparedStatement.setInt(12, item.getId());
 
 				preparedStatement.executeUpdate();
 				connection.close();
@@ -129,49 +129,35 @@ public class ItemDaoImpl extends BaseDao implements ItemDao {
 		return items;
 	}
 
-	@Override
-	public void updateShoppingCart(int user_id, int item_id, int count) {
-
-		// TODO: select first, to decide whehter use insert or update
-		
-		
-		
-	}
-
-	@Override
-	public List<Cart> getShoppingCart(int user_id) {
-		List<Cart> cartItems = new ArrayList<Cart>();
+	public List<Item> getAllItemsBySellerId(int seller_id) {
+		List<Item> items = new ArrayList<Item>();
 
 		Connection connection = getConnection();
-		String sql = "SELECT i.*, c.count FROM "
-		        + "item i, user u, cart c where "
-		        + "c.user_id = u.id and c.item_id = i.id and u.id = ?";
+		String sql = "SELECT * FROM item where seller_id = ?";
 
 		try {
 			PreparedStatement preparedStatement = connection
 			        .prepareStatement(sql);
-			preparedStatement.setInt(1, user_id);
+			preparedStatement.setInt(1, seller_id);
+
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-				Cart c = new Cart();
 				Item item = convertItem(rs);
-				c.setItem(item);
-				c.setItem_id(item.getId());
-				c.setCount(rs.getInt("count"));
-				c.setUser_id(user_id);
-
-				cartItems.add(c);
+				items.add(item);
 			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		return cartItems;
+		return items;
 	}
 
-	private Item convertItem(ResultSet rs) throws SQLException {
+
+
+
+	protected Item convertItem(ResultSet rs) throws SQLException {
 		Item item = new Item();
 		item.setId(rs.getInt("id"));
 		item.setTitle(rs.getString("title"));

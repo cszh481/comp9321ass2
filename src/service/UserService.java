@@ -66,7 +66,7 @@ public class UserService {
 	/**
 	 * for user register page
 	 * 
-	 * currently only username been taken will return false
+	 * currently if and only if username is taken, this will return false
 	 * 
 	 * @param user
 	 * @return

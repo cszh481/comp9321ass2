@@ -14,7 +14,7 @@ public class User {
 	private boolean ban;
 	private boolean verified;
 	private String uuid;
-	
+	private String salt;
 	
 	
 	public int getId() {
@@ -112,5 +112,13 @@ public class User {
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
+
+	public String getSalt() {
+	    return salt;
+    }
+
+	public void setSalt(String salt) {
+	    this.salt = salt;
+    }
 
 }

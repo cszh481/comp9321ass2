@@ -29,7 +29,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 		if (user.getId() == 0) {
 			try {
 
-				String sql = "INSERT INTO user (username, password, firstname, lastname, email, birthyear, address, creditcard, ban, verified, uuid) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+				String sql = "INSERT INTO user (username, password, firstname, lastname, email, birthyear, address, creditcard, ban, verified, uuid, salt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 				PreparedStatement preparedStatement = connection
 				        .prepareStatement(sql);
 
@@ -44,6 +44,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 				preparedStatement.setBoolean(9, user.isBan());
 				preparedStatement.setBoolean(10, user.isVerified());
 				preparedStatement.setString(11, user.getUuid());
+				preparedStatement.setString(12, user.getSalt());
 
 				preparedStatement.executeUpdate();
 				connection.close();
@@ -52,7 +53,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 			}
 		} else {
 			try {
-				String sql = "UPDATE user SET username=?, password=?, firstname=?, lastname=?, email=?, birthyear=?, address=?, creditcard=?, ban=?, verified=?, uuid=? WHERE id=?";
+				String sql = "UPDATE user SET username=?, password=?, firstname=?, lastname=?, email=?, birthyear=?, address=?, creditcard=?, ban=?, verified=?, uuid=?, salt=? WHERE id=?";
 
 				PreparedStatement preparedStatement = connection
 				        .prepareStatement(sql);
@@ -67,7 +68,8 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 				preparedStatement.setBoolean(9, user.isBan());
 				preparedStatement.setBoolean(10, user.isVerified());
 				preparedStatement.setString(11, user.getUuid());
-				preparedStatement.setInt(12, user.getId());
+				preparedStatement.setString(12, user.getSalt());
+				preparedStatement.setInt(13, user.getId());
 
 				preparedStatement.executeUpdate();
 				connection.close();
@@ -165,7 +167,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
 		return null;
 	}
-	
+
 	@Override
 	public List<User> getAllUsers() {
 		List<User> users = new ArrayList<User>();

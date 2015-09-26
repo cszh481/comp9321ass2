@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import dto.Order;
 import dto.OrderItem;
 
 public class OrderItemDaoImpl extends BaseDao implements OrderItemDao {

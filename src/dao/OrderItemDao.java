@@ -2,7 +2,6 @@ package dao;
 
 import java.util.List;
 
-import dto.Order;
 import dto.OrderItem;
 
 public interface OrderItemDao {

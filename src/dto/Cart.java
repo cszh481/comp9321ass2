@@ -7,7 +7,7 @@ public class Cart {
 	private int item_id;
 	private int count;
 	private Date added;
-	private Date removed;
+	private Date removed = null;
 	private Item Item;
 
 	public int getUser_id() {

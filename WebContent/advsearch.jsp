@@ -22,6 +22,8 @@
 		<!-- after login -->
 		<!-- <jsp:include page="customerheader.jsp" /> -->
 		
+		
+		
        
         
         <div class="jumbotron">
@@ -42,6 +44,7 @@
         <form action="control" method="GET">
         
         	<div class="container">
+        	
         		<div class="row">  
         			<div class="col-md-4 col-md-offset-4">  
         		    	<label for="who">Author</label> 
@@ -49,19 +52,98 @@
 						<div></div> 
                 	</div>
             	</div>
-
-
-
-   
+            	
+            	<div class="row">  
+        			<div class="col-md-4 col-md-offset-4">  
+        		    	<label for="keywords">Title</label> 
+						<input type="text" id="keywords" name="keywords" class="form-control" placeholder="Search...">
+						<div></div>
+                	</div>
+            	</div>
+ 			
+ 			
+				<div class="row">  
+        			<div class="col-md-4 col-md-offset-4">  
+        		    	<label for="when">Year</label> 
+						<input type="text" id="when" name="when" class="form-control" placeholder="Search...">
+						<div></div>
+                	</div>
+            	</div>
+				
+				<div class="row">  
+        			<div class="col-md-4 col-md-offset-4">  
+        		    	<label for="editor">Editor</label> 
+						<input type="text" id="editor" name="editor" class="form-control" placeholder="Search...">
+						<div></div>
+                	</div>
+            	</div>
+			
+				<div class="row">  
+					<div class="col-md-4 col-md-offset-4">  
+        				<label for="booktitle">Booktitle</label> 
+						<input type="text" id="booktitle" name="booktitle" class="form-control" placeholder="Search...">
+						<div></div>
+                	</div>
+            	</div>
+			
+				<div class="row">  
+					<div class="col-md-4 col-md-offset-4">  
+        				<label for="publisher">Publisher</label> 
+						<input type="text" id="publisher" name="publisher" class="form-control" placeholder="Search...">
+						<div></div>
+                	</div>
+            	</div>
+			
+				<div class="row"> 
+					<div class="col-md-4 col-md-offset-4">   
+        				<label for="isbn">ISBN</label> 
+						<input type="text" id="isbn" name="isbn" class="form-control" placeholder="Search...">
+						<div></div>
+					</div>
+            	</div>
+				
+				<div class="row">  
+					<div class="col-md-4 col-md-offset-4">  
+        				<label for="school">School</label> 
+						<input type="text" id="school" name="school" class="form-control" placeholder="Search...">
+						<div></div>
+					</div>
+            	</div>
+			
+			
+			
+			<!------- type search bar --------->
+	
+			<div class="row">  
+			<div class="col-md-4 col-md-offset-4">  
+			
+			<label for="typesearch">Type</label> 
+			<select name="typesearch" id="searchaction" class="form-control">
+				<option value="article">journal</option>
+				<option value="inproceedings">conference</option>
+				<option value="proceedings">editorship</option>
+				<option value="book">book</option>
+				<option value="incollection">collection</option>
+				<option value="phdthesis">phdthesis</option>
+				<option value="mastersthesis">masterthesis</option>
+				<option value="www">webpage</option>
+				
+			</select>
+			
+			</div>
+			</div>
+			
+			<div class="row" style="padding-top: 40px">
+			<div class="col-md-4 col-md-offset-4" align="center"> 
+			<button type="submit" class="btn btn-success">Search</button>
+			</div>
+			</div>
+			
         
     		</div>
     	
     	</form>
-    	
-    	
-    	
-    	
-    	
+
     	</div>
 
    

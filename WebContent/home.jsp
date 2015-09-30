@@ -37,7 +37,7 @@
                                     <input type="text" class="form-control" placeholder="search...">
                                     <button type="submit" class="btn btn-success">Search</button>
                                
-                                    <a class="btn btn-primary" href="#" title="">
+                                    <a class="btn btn-primary" href="advsearch.jsp" title="">
                                         <span class="icon"></span>
                                         <span class="text">Adv Search</span>
                                     </a>

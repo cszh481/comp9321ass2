@@ -14,37 +14,15 @@
 </head>
 <body>
 
+		<!-- CHOOSE JSP DEPENDS ON AUTHORITY -->
 
-
-        
-        <nav class="navbar navbar-inverse navbar-fixed-top"> 
-            <div class="container-fluid"> 
-                <div class="navbar-header"> 
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> 
-                        <span class="sr-only">Toggle navigation</span> 
-                        <splan class="icon-bar"></splan> 
-                        <splan class="icon-bar"></splan> 
-                        <splan class="icon-bar"></splan> 
-                    </button> 
-                    <a class="navbar-brand" href="#">Home</a> 
-                    <a class="navbar-brand" href="#">Advance Search</a>
-                    <form class="navbar-form navbar-right"> 
-                        <input type="text" class="form-control" placeholder="search..."> 
-                        <button type="submit" class="btn btn-success">Search</button> 
-                    </form>
-                </div>
-            
-                <div id="navbar" class="navbar-collapse collapse"> 
-                    <ul class="nav navbar-nav navbar-right"> 
-                        <li><a href="#" data-toggle="modal" data-target="#myModal">Sign in</a></li> 
-                        <li><a href="#">Sign up</a></li> 
-                        
-                    </ul> 
-                
-                    
-                </div>
-            </div> 
-        </nav>
+		<!-- before login -->
+		<jsp:include page="homeloginheader.jsp" />
+	
+		<!-- after login -->
+		<!-- <jsp:include page="homecustomerheader.jsp" /> -->
+		
+       
         
         <div class="jumbotron">
             <div class="container">
@@ -153,68 +131,14 @@
         
         </div>
       
-    
-    
-    
-        <!-- Modal -->
-        <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Sign in</h4>
-                    </div>
-
-                    <form>
-                        <div class="modal-body">
-                            
-                            <div class="form-group">
-                                <label for="InputUsername">Username</label>
-                                <input type="password" class="form-control" id="InputUsername" placeholder="Username">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="InputPassword">Password</label>
-                                <input type="password" class="form-control" id="InputPassword" placeholder="Password">
-                            </div>
-  
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-default">Submit</button>
-                        </div>
-                    </form>
-
-
-                </div>
-            </div>
-        </div>
-        
-       
-        
-      
-        
+   
         
     </div>
 
    
 
     <!-- Footer -->
-    <footer>
-
-        <div class="jumbotron">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-right">
-                        @Copyright
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    </footer>
-
+	<jsp:include page="footer.jsp" />
 
 
 

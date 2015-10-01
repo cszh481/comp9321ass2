@@ -8,6 +8,8 @@ import dao.UserDaoImpl;
 import dto.User;
 import exception.UserBannedException;
 import exception.UserUnVerifiedException;
+import javax.servlet.http.HttpServletRequest;
+import javax.mail.MessagingException;
 
 public class UserService {
 
@@ -71,7 +73,7 @@ public class UserService {
 	 * @param user
 	 * @return
 	 */
-	public boolean register(User user) {
+	public boolean register(User user) throws MessagingException {
 
 		// verify username unique
 		User exist_user = userDao.getUserByUsername(user.getUsername());
@@ -83,7 +85,7 @@ public class UserService {
 		userDao.saveOrUpdate(user);
 
 		// if success, then send email
-		// TODO: SEND EMAIL with UUID link
+        SendEmail.sendEmail();
 
 		return true;
 	}
@@ -105,5 +107,20 @@ public class UserService {
 		return user;
 	}
 
+    public User makeUserbyRequest (HttpServletRequest request){
+        User user = new User();
+        user.setId(Integer.parseInt(request.getParameter("id")));
+        user.setUsername(request.getParameter("username"));
+        user.setPassword(request.getParameter("password"));
+        user.setFirstname(request.getParameter("firstname"));
+        user.setLastname(request.getParameter("lastname"));
+        user.setEmail(request.getParameter("email"));
+        user.setBirthyear(Integer.parseInt(request.getParameter("birthyear")));
+        user.setAddress(request.getParameter("address"));
+        user.setCreditcard(request.getParameter("creditcard"));
+        user.setBan(false);
+        user.setVerified(false);
+        return user;
+    }
 
 }

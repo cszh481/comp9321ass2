@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-    <!-- Bootstrap Core CSS -->
+	<!-- Bootstrap Core CSS -->
 	<link type="text/css" rel="stylesheet" href="CSS/bootstrap.min">
 	<link type="text/css" rel="stylesheet" href="CSS/bootstrap.css">
 	
@@ -135,7 +135,7 @@
 			
 			<div class="row" style="padding-top: 40px">
 			<div class="col-md-4 col-md-offset-4" align="center"> 
-			<button type="submit" class="btn btn-success">Search</button>
+				<button type="submit" class="btn btn-success">Search</button>
 			</div>
 			</div>
 			
@@ -148,9 +148,11 @@
 
    
 
-    <!-- Footer -->
-    <jsp:include page="loginheader.jsp" />
 
+
+
+    <!-- Footer -->
+	<jsp:include page="footer.jsp" />
 
 
 

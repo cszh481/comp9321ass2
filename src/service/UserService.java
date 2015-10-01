@@ -109,7 +109,6 @@ public class UserService {
 
     public User makeUserbyRequest (HttpServletRequest request){
         User user = new User();
-        user.setId(Integer.parseInt(request.getParameter("id")));
         user.setUsername(request.getParameter("username"));
         user.setPassword(request.getParameter("password"));
         user.setFirstname(request.getParameter("firstname"));

@@ -40,16 +40,9 @@ public class SendEmail {
         message.setFrom(form);
 
         // 设置收件人
-        InternetAddress to = new InternetAddress("d380896882@gmail.com");
+        InternetAddress to = new InternetAddress("380896882@qq.com");
         message.setRecipient(RecipientType.TO, to);
-
-        // 设置抄送
-//        InternetAddress cc = new InternetAddress("luo_aaaaa@yeah.net");
-//        message.setRecipient(RecipientType.CC, cc);
-
-//        // 设置密送，其他的收件人不能看到密送的邮件地址
-//        InternetAddress bcc = new InternetAddress("aaaaa@163.com");
-//        message.setRecipient(RecipientType.CC, bcc);
+        
 
         // 设置邮件标题
         message.setSubject("测试邮件");

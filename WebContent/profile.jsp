@@ -15,12 +15,7 @@
 <body>
 
 		<!-- CHOOSE JSP DEPENDS ON AUTHORITY -->
-
-		<!-- before login -->
-		<jsp:include page="loginheader.jsp" />
-	
-		<!-- after login -->
-		<!-- <jsp:include page="customerheader.jsp" /> -->
+		<jsp:include page="customerheader.jsp" />
 		
        
         
@@ -29,7 +24,7 @@
                 <div class="row">  
                     <div class="col-md-8 col-md-offset-4">
                         <br>
-                        <h1>Registration</h1>                 
+                        <h1>My Profile</h1>                 
                     </div>
                 </div>
             </div>
@@ -53,7 +48,7 @@
             	<div class="row">  
         			<div class="col-md-4 col-md-offset-4">  
         		    	<label for="#">Password</label> 
-						<input type="text" id="#" name="#" class="form-control" placeholder="password...">
+						<input type="password" id="#" name="#" class="form-control" placeholder="password...">
 						<div></div>
                 	</div>
             	</div>

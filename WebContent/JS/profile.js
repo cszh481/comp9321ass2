@@ -16,15 +16,8 @@ $(document)
 											alert("Password can not be empty");
 											return false;
 										}
-										var password2 = $('#password2').val();
-
-										if (password != password2) {
-											alert("Passowrd are not identical");
-											return false;
-										}
 
 										var email = $('#email').val();
-
 										if (email == "") {
 											alert("Email can not be empty");
 											return false;

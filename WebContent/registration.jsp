@@ -42,7 +42,7 @@
 				<div class="form-group form-group-md">
 					<label class="col-md-4 control-label">Username</label>
 					<div class="col-md-3">
-						<input class="form-control" type="text" id="#" name="#"
+						<input class="form-control" type="text" id="username" name="#"
 							placeholder="Input...">
 					</div>
 				</div>
@@ -51,7 +51,7 @@
 				<div class="form-group form-group-md">
 					<label class="col-md-4 control-label">New Password</label>
 					<div class="col-md-3">
-						<input class="form-control" type="text" id="password" name="#"
+						<input class="form-control" type="password" id="password" name="#"
 							placeholder="Input...">
 					</div>
 				</div>
@@ -59,7 +59,7 @@
 				<div class="form-group form-group-md">
 					<label class="col-md-4 control-label">Confirm Password</label>
 					<div class="col-md-3">
-						<input class="form-control" type="text" id="password2" name="#"
+						<input class="form-control" type="password" id="password2" name="#"
 							placeholder="Input...">
 					</div>
 				</div>
@@ -76,7 +76,7 @@
 				<div class="form-group form-group-md">
 					<label class="col-md-4 control-label">First Name</label>
 					<div class="col-md-3">
-						<input class="form-control" type="text" id="#" name="#"
+						<input class="form-control" type="text" id="firstname" name="#"
 							placeholder="Input...">
 					</div>
 				</div>
@@ -84,7 +84,7 @@
 				<div class="form-group form-group-md">
 					<label class="col-md-4 control-label">Last Name</label>
 					<div class="col-md-3">
-						<input class="form-control" type="text" id="#" name="#"
+						<input class="form-control" type="text" id="lastname" name="#"
 							placeholder="Input...">
 					</div>
 				</div>
@@ -92,7 +92,7 @@
 				<div class="form-group form-group-md">
 					<label class="col-md-4 control-label">Nickname</label>
 					<div class="col-md-3">
-						<input class="form-control" type="text" id="#" name="#"
+						<input class="form-control" type="text" id="nickname" name="#"
 							placeholder="Input...">
 					</div>
 				</div>
@@ -100,7 +100,7 @@
 				<div class="form-group form-group-md">
 					<label class="col-md-4 control-label">Year of Birth</label>
 					<div class="col-md-3">
-						<input class="form-control" type="text" id="#" name="#"
+						<input class="form-control" type="text" id="yob" name="#"
 							placeholder="Input...">
 					</div>
 				</div>
@@ -108,7 +108,7 @@
 				<div class="form-group form-group-md">
 					<label class="col-md-4 control-label">Address</label>
 					<div class="col-md-3">
-						<input class="form-control" type="text" id="#" name="#"
+						<input class="form-control" type="text" id="address" name="#"
 							placeholder="Input...">
 					</div>
 				</div>

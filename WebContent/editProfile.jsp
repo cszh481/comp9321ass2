@@ -6,11 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
     <!-- Bootstrap Core CSS -->
-	<link type="text/css" rel="stylesheet" href="CSS/bootstrap.min.css">
+	<link type="text/css" rel="stylesheet" href="CSS/bootstrap.min">
 	<link type="text/css" rel="stylesheet" href="CSS/bootstrap.css">
 	
 	
-<title>The Book Store - My Profile</title>
+<title>The Book Store - Edit Profile</title>
 </head>
 <body>
 
@@ -33,12 +33,12 @@
         
         <div class="container theme-showcase" role="main">
         
-        <form action="#" method="GET">
+        <form action="#" method="GET" class="form-inline" style="text-align:right;">
         
         	<div class="container">
         	
         		<div class="row">  
-        			<div class="col-md-4 col-md-offset-4">  
+        			<div class="col-md-4 col-md-offset-3">  
         		    	<label for="#">Username</label> 
 						<input type="text" id="#" name="#" class="form-control" placeholder="username...">
 						<div></div> 
@@ -46,7 +46,7 @@
             	</div>
             	
             	<div class="row">  
-        			<div class="col-md-4 col-md-offset-4">  
+        			<div class="col-md-4 col-md-offset-3">  
         		    	<label for="#">Password</label> 
 						<input type="password" id="#" name="#" class="form-control" placeholder="password...">
 						<div></div>
@@ -55,7 +55,7 @@
  			
  			
 				<div class="row">  
-        			<div class="col-md-4 col-md-offset-4">  
+        			<div class="col-md-4 col-md-offset-3">  
         		    	<label for="#">E-mail</label> 
 						<input type="text" id="#" name="#" class="form-control" placeholder="e-mail...">
 						<div></div>
@@ -63,7 +63,7 @@
             	</div>
 				
 				<div class="row">  
-        			<div class="col-md-4 col-md-offset-4">  
+        			<div class="col-md-4 col-md-offset-3">  
         		    	<label for="#">Nickname</label> 
 						<input type="text" id="#" name="#" class="form-control" placeholder="nickname...">
 						<div></div>
@@ -71,7 +71,7 @@
             	</div>
 			
 				<div class="row">  
-        			<div class="col-md-4 col-md-offset-4">  
+        			<div class="col-md-4 col-md-offset-3">  
         		    	<label for="#">First Name</label> 
 						<input type="text" id="#" name="#" class="form-control" placeholder="first name...">
 						<div></div>
@@ -79,7 +79,7 @@
             	</div>
             	
             	<div class="row">  
-        			<div class="col-md-4 col-md-offset-4">  
+        			<div class="col-md-4 col-md-offset-3">  
         		    	<label for="#">Last Name</label> 
 						<input type="text" id="#" name="#" class="form-control" placeholder="last name...">
 						<div></div>
@@ -87,7 +87,7 @@
             	</div>
             	
             	<div class="row">  
-        			<div class="col-md-4 col-md-offset-4">  
+        			<div class="col-md-4 col-md-offset-3">  
         		    	<label for="#">Year of Birth</label> 
 						<input type="text" id="#" name="#" class="form-control" placeholder="year of birth...">
 						<div></div>
@@ -95,7 +95,7 @@
             	</div>
             	
             	<div class="row">  
-        			<div class="col-md-4 col-md-offset-4">  
+        			<div class="col-md-4 col-md-offset-3">  
         		    	<label for="#">Address</label> 
 						<input type="text" id="#" name="#" class="form-control" placeholder="address...">
 						<div></div>
@@ -103,7 +103,7 @@
             	</div>
 			
 				<div class="row">  
-        			<div class="col-md-4 col-md-offset-4">  
+        			<div class="col-md-4 col-md-offset-3">  
         		    	<label for="#">Credit Card Number</label> 
 						<input type="text" id="#" name="#" class="form-control" placeholder="credit card number...">
 						<div></div>

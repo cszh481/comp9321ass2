@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 	<!-- Bootstrap Core CSS -->
-	<link type="text/css" rel="stylesheet" href="CSS/bootstrap.min">
+	<link type="text/css" rel="stylesheet" href="CSS/bootstrap.min.css">
 	<link type="text/css" rel="stylesheet" href="CSS/bootstrap.css">
 	
 	
@@ -46,12 +46,12 @@
         <div class="container theme-showcase" role="main">
         
         
-        <form action="control" method="GET">
+        <form action="control" method="GET" class="form-inline" style="text-align:right;">
         
         	<div class="container">
         	
         		<div class="row">  
-        			<div class="col-md-4 col-md-offset-4">  
+        			<div class="col-md-4 col-md-offset-3">  
         		    	<label for="who">Author</label> 
 						<input type="text" id="who" name="who" class="form-control" placeholder="Search...">
 						<div></div> 
@@ -59,7 +59,7 @@
             	</div>
             	
             	<div class="row">  
-        			<div class="col-md-4 col-md-offset-4">  
+        			<div class="col-md-4 col-md-offset-3">  
         		    	<label for="keywords">Title</label> 
 						<input type="text" id="keywords" name="keywords" class="form-control" placeholder="Search...">
 						<div></div>
@@ -68,7 +68,7 @@
  			
  			
 				<div class="row">  
-        			<div class="col-md-4 col-md-offset-4">  
+        			<div class="col-md-4 col-md-offset-3">  
         		    	<label for="when">Year</label> 
 						<input type="text" id="when" name="when" class="form-control" placeholder="Search...">
 						<div></div>
@@ -76,7 +76,7 @@
             	</div>
 				
 				<div class="row">  
-        			<div class="col-md-4 col-md-offset-4">  
+        			<div class="col-md-4 col-md-offset-3">  
         		    	<label for="editor">Editor</label> 
 						<input type="text" id="editor" name="editor" class="form-control" placeholder="Search...">
 						<div></div>
@@ -84,7 +84,7 @@
             	</div>
 			
 				<div class="row">  
-					<div class="col-md-4 col-md-offset-4">  
+					<div class="col-md-4 col-md-offset-3">  
         				<label for="booktitle">Booktitle</label> 
 						<input type="text" id="booktitle" name="booktitle" class="form-control" placeholder="Search...">
 						<div></div>
@@ -92,7 +92,7 @@
             	</div>
 			
 				<div class="row">  
-					<div class="col-md-4 col-md-offset-4">  
+					<div class="col-md-4 col-md-offset-3">  
         				<label for="publisher">Publisher</label> 
 						<input type="text" id="publisher" name="publisher" class="form-control" placeholder="Search...">
 						<div></div>
@@ -100,7 +100,7 @@
             	</div>
 			
 				<div class="row"> 
-					<div class="col-md-4 col-md-offset-4">   
+					<div class="col-md-4 col-md-offset-3">   
         				<label for="isbn">ISBN</label> 
 						<input type="text" id="isbn" name="isbn" class="form-control" placeholder="Search...">
 						<div></div>
@@ -108,7 +108,7 @@
             	</div>
 				
 				<div class="row">  
-					<div class="col-md-4 col-md-offset-4">  
+					<div class="col-md-4 col-md-offset-3">  
         				<label for="school">School</label> 
 						<input type="text" id="school" name="school" class="form-control" placeholder="Search...">
 						<div></div>
@@ -120,7 +120,7 @@
 			<!------- type search bar --------->
 	
 			<div class="row">  
-			<div class="col-md-4 col-md-offset-4">  
+			<div class="col-md-4 col-md-offset-3">  
 			
 			<label for="typesearch">Type</label> 
 			<select name="typesearch" id="searchaction" class="form-control">

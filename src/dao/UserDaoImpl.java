@@ -29,22 +29,23 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 		if (user.getId() == 0) {
 			try {
 
-				String sql = "INSERT INTO user (username, password, firstname, lastname, email, birthyear, address, creditcard, ban, verified, uuid, salt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+				String sql = "INSERT INTO user (username, password, nickname, firstname, lastname, email, birthyear, address, creditcard, ban, verified, uuid, salt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 				PreparedStatement preparedStatement = connection
 				        .prepareStatement(sql);
 
 				preparedStatement.setString(1, user.getUsername());
 				preparedStatement.setString(2, user.getPassword());
-				preparedStatement.setString(3, user.getFirstname());
-				preparedStatement.setString(4, user.getLastname());
-				preparedStatement.setString(5, user.getEmail());
-				preparedStatement.setInt(6, user.getBirthyear());
-				preparedStatement.setString(7, user.getAddress());
-				preparedStatement.setString(8, user.getCreditcard());
-				preparedStatement.setBoolean(9, user.isBan());
-				preparedStatement.setBoolean(10, user.isVerified());
-				preparedStatement.setString(11, user.getUuid());
-				preparedStatement.setString(12, user.getSalt());
+				preparedStatement.setString(3, user.getNickname());
+				preparedStatement.setString(4, user.getFirstname());
+				preparedStatement.setString(5, user.getLastname());
+				preparedStatement.setString(6, user.getEmail());
+				preparedStatement.setInt(7, user.getBirthyear());
+				preparedStatement.setString(8, user.getAddress());
+				preparedStatement.setString(9, user.getCreditcard());
+				preparedStatement.setBoolean(10, user.isBan());
+				preparedStatement.setBoolean(11, user.isVerified());
+				preparedStatement.setString(12, user.getUuid());
+				preparedStatement.setString(13, user.getSalt());
 
 				preparedStatement.executeUpdate();
 				connection.close();
@@ -53,23 +54,24 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 			}
 		} else {
 			try {
-				String sql = "UPDATE user SET username=?, password=?, firstname=?, lastname=?, email=?, birthyear=?, address=?, creditcard=?, ban=?, verified=?, uuid=?, salt=? WHERE id=?";
+				String sql = "UPDATE user SET username=?, password=?, nickname=?, firstname=?, lastname=?, email=?, birthyear=?, address=?, creditcard=?, ban=?, verified=?, uuid=?, salt=? WHERE id=?";
 
 				PreparedStatement preparedStatement = connection
 				        .prepareStatement(sql);
 				preparedStatement.setString(1, user.getUsername());
 				preparedStatement.setString(2, user.getPassword());
-				preparedStatement.setString(3, user.getFirstname());
-				preparedStatement.setString(4, user.getLastname());
-				preparedStatement.setString(5, user.getEmail());
-				preparedStatement.setInt(6, user.getBirthyear());
-				preparedStatement.setString(7, user.getAddress());
-				preparedStatement.setString(8, user.getCreditcard());
-				preparedStatement.setBoolean(9, user.isBan());
-				preparedStatement.setBoolean(10, user.isVerified());
-				preparedStatement.setString(11, user.getUuid());
-				preparedStatement.setString(12, user.getSalt());
-				preparedStatement.setInt(13, user.getId());
+				preparedStatement.setString(3, user.getNickname());
+				preparedStatement.setString(4, user.getFirstname());
+				preparedStatement.setString(5, user.getLastname());
+				preparedStatement.setString(6, user.getEmail());
+				preparedStatement.setInt(7, user.getBirthyear());
+				preparedStatement.setString(8, user.getAddress());
+				preparedStatement.setString(9, user.getCreditcard());
+				preparedStatement.setBoolean(10, user.isBan());
+				preparedStatement.setBoolean(11, user.isVerified());
+				preparedStatement.setString(12, user.getUuid());
+				preparedStatement.setString(13, user.getSalt());
+				preparedStatement.setInt(14, user.getId());
 
 				preparedStatement.executeUpdate();
 				connection.close();

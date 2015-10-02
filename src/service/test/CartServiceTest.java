@@ -36,13 +36,36 @@ public class CartServiceTest extends BaseTest {
 		cartService.clearCartByUserId(user.getId());
 		assertEquals(0, cartService.getExistedCart(user.getId()).size());
 		assertEquals(0, cartService.getRemovedCart(user.getId()).size());
+		
 	}
 
 	@Test
-	public void testSaveToCart() {
+	public void testSaveAndUpdate() {
 		cartService.clearCartByUserId(user.getId());
 		cartService.saveToCart(user.getId(), item1.getId(), 2);
 		assertEquals(1, cartService.getExistedCart(user.getId()).size());
+
+		cartService.saveToCart(user.getId(), item1.getId(), 5);
+		assertEquals(1, cartService.getExistedCart(user.getId()).size());
+		assertEquals(5, cartService.getCartByUserIdAndItemId(user.getId(), item1.getId()).getCount());
+
+		cartService.saveToCart(user.getId(), item2.getId(), 3);
+		assertEquals(2, cartService.getExistedCart(user.getId()).size());
+
+	}
+
+	@Test
+	public void testRemoveCart() {
+		cartService.clearCartByUserId(user.getId());
+		cartService.saveToCart(user.getId(), item1.getId(), 2);
+		assertEquals(1, cartService.getExistedCart(user.getId()).size());
+
+		// remove the item
+		cartService.removeCart(user.getId(), item1.getId());
+		assertEquals(0, cartService.getExistedCart(user.getId()).size());
+		assertEquals(1, cartService.getRemovedCart(user.getId()).size());
+	
+	
 	}
 
 }

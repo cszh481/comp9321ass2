@@ -1,13 +1,14 @@
 package dto;
 
-import java.util.Date;
+import java.sql.Timestamp;
+
 
 public class Cart {
 	private int user_id;
 	private int item_id;
 	private int count;
-	private Date added;
-	private Date removed = null;
+	private Timestamp added;
+	private Timestamp removed = null;
 	private Item Item;
 
 	public int getUser_id() {
@@ -42,19 +43,19 @@ public class Cart {
 		Item = item;
 	}
 
-	public Date getAdded() {
+	public Timestamp getAdded() {
 		return added;
 	}
 
-	public void setAdded(Date added) {
+	public void setAdded(Timestamp added) {
 		this.added = added;
 	}
 
-	public Date getRemoved() {
+	public Timestamp getRemoved() {
 		return removed;
 	}
 
-	public void setRemoved(Date removed) {
+	public void setRemoved(Timestamp removed) {
 		this.removed = removed;
 	}
 

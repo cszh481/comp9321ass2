@@ -50,8 +50,8 @@ CREATE TABLE `cart` (
   `user_id` int(11) NOT NULL,
   `item_id` int(11) NOT NULL,
   `count` int(11) DEFAULT NULL,
-  `added` datetime DEFAULT NULL,
-  `removed` datetime DEFAULT NULL,
+  `added` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `removed` timestamp(6) NULL DEFAULT NULL,
   PRIMARY KEY (`item_id`,`user_id`),
   KEY `fk_Cart_user1_idx` (`user_id`),
   KEY `fk_cart_item1_idx` (`item_id`),
@@ -113,13 +113,13 @@ DROP TABLE IF EXISTS `order`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `order` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `created` datetime DEFAULT NULL,
+  `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `fk_user_has_OrderItem_user1_idx` (`user_id`),
   CONSTRAINT `fk_user_has_OrderItem_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,6 +128,7 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
+INSERT INTO `order` VALUES (1,2,'2015-10-02 10:21:23'),(2,2,'2015-10-02 10:24:10');
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -139,7 +140,7 @@ DROP TABLE IF EXISTS `orderItem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `orderItem` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `count` int(11) DEFAULT NULL,
   `item_id` int(11) NOT NULL,
   `order_id` int(11) DEFAULT NULL,
@@ -147,8 +148,8 @@ CREATE TABLE `orderItem` (
   KEY `fk_OrderItem_Item1_idx` (`item_id`),
   KEY `fk_OrderItem_Order1_idx` (`order_id`),
   CONSTRAINT `fk_OrderItem_Item1` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_OrderItem_Order1` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_OrderItem_order1` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -157,6 +158,7 @@ CREATE TABLE `orderItem` (
 
 LOCK TABLES `orderItem` WRITE;
 /*!40000 ALTER TABLE `orderItem` DISABLE KEYS */;
+INSERT INTO `orderItem` VALUES (1,2,1,1),(2,3,2,1),(3,2,1,2),(4,3,2,2);
 /*!40000 ALTER TABLE `orderItem` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -185,7 +187,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`),
   UNIQUE KEY `uuid_UNIQUE` (`uuid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -194,7 +196,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'user1','user1','user1','user1','user1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `user` VALUES (1,'user1','user1','user1','user1','user1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(2,'testuser','xxx',NULL,NULL,NULL,NULL,0,NULL,NULL,0,0,'f990299c-ffea-4514-8563-2c9c941eb56c',NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -207,4 +209,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-10-02 19:11:18
+-- Dump completed on 2015-10-02 20:25:34

@@ -34,9 +34,7 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
 			try {
 				preparedStatement = connection.prepareStatement(sql);
 				preparedStatement.setInt(1, order.getUser_id());
-				preparedStatement.setDate(2,
-				        order.getCreated() != null ? new java.sql.Date(order
-				                .getCreated().getTime()) : null);
+				preparedStatement.setTimestamp(2, order.getCreated());
 				preparedStatement.setInt(3, order.getId());
 				preparedStatement.executeUpdate();
 			} catch (SQLException e) {
@@ -45,15 +43,12 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
 
 		} else {
 			// save
-			String sql = "INSERT INTO `order` (`user_id`, `created`) VALUES (?, ?)";
+			String sql = "INSERT INTO `order` (`user_id`) VALUES (?)";
 			PreparedStatement preparedStatement;
 			try {
 				preparedStatement = connection.prepareStatement(sql,
 				        PreparedStatement.RETURN_GENERATED_KEYS);
 				preparedStatement.setInt(1, order.getUser_id());
-				preparedStatement.setDate(2,
-				        order.getCreated() != null ? new java.sql.Date(order
-				                .getCreated().getTime()) : null);
 				preparedStatement.executeUpdate();
 
 				ResultSet rs = preparedStatement.getGeneratedKeys();
@@ -85,7 +80,7 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
 				Order o = new Order();
 				o.setId(rs.getInt("id"));
 				o.setUser_id(rs.getInt("user_id"));
-				o.setCreated(rs.getDate("created"));
+				o.setCreated(rs.getTimestamp("created"));
 				resultList.add(o);
 			}
 
@@ -111,7 +106,7 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
 				Order o = new Order();
 				o.setId(rs.getInt("id"));
 				o.setUser_id(rs.getInt("user_id"));
-				o.setCreated(rs.getDate("created"));
+				o.setCreated(rs.getTimestamp("created"));
 				return o;
 			}
 

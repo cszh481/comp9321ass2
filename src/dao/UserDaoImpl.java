@@ -85,8 +85,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 		String sql = "SELECT * FROM user WHERE username = ? AND password = ?";
 
 		try {
-			PreparedStatement preparedStatement = connection
-			        .prepareStatement(sql);
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, username);
 			preparedStatement.setString(2, password);
 

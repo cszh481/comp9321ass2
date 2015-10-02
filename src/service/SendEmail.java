@@ -1,5 +1,7 @@
 package service;
 
+import dto.User;
+
 import java.util.Properties;
 import javax.mail.Authenticator;
 import javax.mail.Message.RecipientType;
@@ -15,12 +17,14 @@ import javax.mail.internet.MimeMessage;
  * Created by icmonkeypc on 2015/10/2.
  */
 public class SendEmail {
-    public static void sendEmail() throws MessagingException {
+    public static void sendEmail(String toAddress, String title, String Content) throws MessagingException {
         final Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.host", "smtp.ym.163.com");
-        props.put("mail.user", "yuheng.du@jumacc.com");
-        props.put("mail.password", "dyh1990");
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.host", "smtp.live.com");
+        props.put("mail.user", "a781796392@hotmail.com");
+        props.put("mail.password", "COMP_1992");
+        props.put("mail.smtp.starttls.enable", "true");
 
         Authenticator authenticator = new Authenticator() {
             @Override
@@ -30,27 +34,26 @@ public class SendEmail {
                 return new PasswordAuthentication(userName, password);
             }
         };
-        // 使用环境属性和授权信息，创建邮件会话
         Session mailSession = Session.getInstance(props, authenticator);
-        // 创建邮件消息
         MimeMessage message = new MimeMessage(mailSession);
-        // 设置发件人
-        InternetAddress form = new InternetAddress(
-                props.getProperty("mail.user"));
+        InternetAddress form = new InternetAddress(props.getProperty("mail.user"));
         message.setFrom(form);
-
-        // 设置收件人
-        InternetAddress to = new InternetAddress("380896882@qq.com");
+        InternetAddress to = new InternetAddress(toAddress);
         message.setRecipient(RecipientType.TO, to);
-        
-
-        // 设置邮件标题
-        message.setSubject("测试邮件");
-
-        // 设置邮件的内容体
-        message.setContent("<a href='http://www.fkjava.org'>测试的HTML邮件</a>", "text/html;charset=UTF-8");
-
-        // 发送邮件
+        message.setSubject(title);
+        message.setContent(Content, "text/html;charset=UTF-8");
         Transport.send(message);
+    }
+    public static void sendRegistMail(User user) throws MessagingException {
+        String to = user.getEmail();
+        String title = "test";
+        String content = "test";
+        sendEmail(to,title,content);
+    }
+    public static void sendSellMail(User user) throws MessagingException {
+        String to = user.getEmail();
+        String title = "";
+        String content = "";
+        sendEmail(to,title,content);
     }
 }

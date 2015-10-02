@@ -129,6 +129,30 @@ public class ItemDaoImpl extends BaseDao implements ItemDao {
 		return items;
 	}
 
+	@Override
+	public List<Item> getRandomten() {
+		List<Item> items = new ArrayList<Item>();
+
+		Connection connection = getConnection();
+		String sql = "select * from item order by rand() limit 10";
+
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement(sql);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				Item item = convertItem(rs);
+				items.add(item);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return items;
+	}
+
 	public List<Item> getAllItemsBySellerId(int seller_id) {
 		List<Item> items = new ArrayList<Item>();
 

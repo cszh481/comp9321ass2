@@ -85,8 +85,7 @@ public class UserService {
 		userDao.saveOrUpdate(user);
 
 		// if success, then send email
-        SendEmail.sendEmail();
-
+        SendEmail.sendRegistMail(user);
 		return true;
 	}
 

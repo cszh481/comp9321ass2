@@ -9,6 +9,5 @@
 /build/
 /build/
 *.classpath
-.idea/*
-class/*
-.idea/misc.xml
+.idea\*
+classes\*

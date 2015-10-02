@@ -149,4 +149,12 @@ public class ItemService {
 		itemDao.saveOrUpdate(item);
 	}
 
+	/**
+	 * For home page
+	 *
+	 * @param
+	 */
+	public void getRandom10(){
+		itemDao.getRandomten();
+	}
 }

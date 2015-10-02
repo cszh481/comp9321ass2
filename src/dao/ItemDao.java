@@ -12,6 +12,8 @@ public interface ItemDao {
 
 	public List<Item> getAllItems();
 
+	public List<Item> getRandomten();
+
 	public List<Item> getAllItemsBySellerId(int seller_id);
 
 }

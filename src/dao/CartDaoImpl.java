@@ -44,8 +44,8 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 				c.setItem_id(item.getId());
 				c.setCount(rs.getInt("count"));
 				c.setUser_id(user_id);
-				c.setAdded(rs.getTime("added"));
-				c.setRemoved(rs.getTime("removed"));
+				c.setAdded(rs.getTimestamp("added"));
+				c.setRemoved(rs.getTimestamp("removed"));
 				cartItems.add(c);
 			}
 
@@ -62,17 +62,14 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 		        cart.getItem_id());
 		if (exist_cart == null) {
 			// save
-			String sql = "INSERT INTO `cart` (`user_id`, `item_id`, `count`, `added`, `removed`) VALUES (?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO `cart` (`user_id`, `item_id`, `count`, `removed`) VALUES (?, ?, ?, ?)";
 			PreparedStatement preparedStatement;
 			try {
 				preparedStatement = connection.prepareStatement(sql);
 				preparedStatement.setInt(1, cart.getUser_id());
 				preparedStatement.setInt(2, cart.getItem_id());
 				preparedStatement.setInt(3, cart.getCount());
-				preparedStatement.setTime(4, new java.sql.Time(cart.getAdded()
-				        .getTime()));
-				preparedStatement.setTime(5, new java.sql.Time(cart
-				        .getRemoved().getTime()));
+				preparedStatement.setTimestamp(4, cart.getRemoved());
 
 				preparedStatement.executeUpdate();
 			} catch (SQLException e) {
@@ -82,16 +79,14 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 		} else {
 			// update
 
-			String sql = "UPDATE `cart` SET `count`=?, `added`=?, `removed`=? WHERE `item_id`=? and`user_id`=?";
+			String sql = "UPDATE `cart` SET `count`=?, `added`=?, `removed`=? WHERE `user_id`=? and `item_id`=?";
 
 			PreparedStatement preparedStatement;
 			try {
 				preparedStatement = connection.prepareStatement(sql);
 				preparedStatement.setInt(1, cart.getCount());
-				preparedStatement.setTime(2, new java.sql.Time(cart.getAdded()
-				        .getTime()));
-				preparedStatement.setTime(3, new java.sql.Time(cart
-				        .getRemoved().getTime()));
+				preparedStatement.setTimestamp(2, cart.getAdded());
+				preparedStatement.setTimestamp(3, cart.getRemoved());
 				preparedStatement.setInt(4, cart.getUser_id());
 				preparedStatement.setInt(5, cart.getItem_id());
 
@@ -140,8 +135,8 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 				c.setItem_id(item.getId());
 				c.setCount(rs.getInt("count"));
 				c.setUser_id(user_id);
-				c.setAdded(rs.getTime("added"));
-				c.setRemoved(rs.getTime("removed"));
+				c.setAdded(rs.getTimestamp("added"));
+				c.setRemoved(rs.getTimestamp("removed"));
 				return c;
 			}
 

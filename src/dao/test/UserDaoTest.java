@@ -11,64 +11,36 @@ import dao.UserDao;
 import dao.UserDaoImpl;
 import dto.User;
 
-public class UserDaoTest {
+public class UserDaoTest extends BaseTest {
 
 	UserDao userDao;
 
 	@Before
 	public void setup() {
 		userDao = UserDaoImpl.getInstance();
-	}
-
-	@Test
-	public void testSaveUser() {
-		// User user = new User();
-		// user.setUsername("lee");
-		// user.setPassword("lee");
-		// userDao.saveOrUpdate(user);
-
-		// User user2 = userDao.getUserByUsername("lee");
-		// assertEquals("lee", user2.getUsername());
-
-		// testing git commit
-
+		getTestUser();
 	}
 
 	@Test
 	public void testUpdateUser() {
-		// User user = new User();
-		// user.setId(1);
-		// user.setUsername("xxx");
-		//
-		// userDao.saveOrUpdate(user);
+		User user = getTestUser();
+		user.setPassword("xxx");
+		userDao.saveOrUpdate(user);
+		user = getTestUser();
+		assertEquals("xxx", user.getPassword());
 	}
 
 	@Test
-	public void testGetUser() {
-		User user;
-
-		user = userDao.getUserByUsername("xxx");
-		assertEquals(1, user.getId());
-
-		user = userDao.getLoginUser("xxx", "lee");
-		assertEquals(1, user.getId());
-
-		user = userDao.getLoginUser("xxx", "xx");
-		assertEquals(null, user);
-
-		user = userDao.getUserByUuid("dddddd");
-		assertEquals(1, user.getId());
-
-		user = userDao.getUserByUuid("fff");
-		assertEquals(null, user);
-
+	public void testGetUserByUUID() {
+		User user = getTestUser();
+		User user2 = userDao.getUserByUuid(user.getUuid());
+		assertEquals(user.getUsername(), user2.getUsername());
 	}
-	
+
 	@Test
 	public void testGetUsers() {
 		List<User> list = userDao.getAllUsers();
-		assertEquals(2, list.size());
-
+		assertTrue(list.size() > 0);
 	}
 
 }

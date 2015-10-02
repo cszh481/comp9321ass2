@@ -1,11 +1,12 @@
 package dto;
 
-import java.util.Date;
+import java.sql.Timestamp;
+
 
 public class Order {
 	private int id;
 	private int user_id;
-	private Date created;
+	private Timestamp created;
 
 	public int getId() {
 		return id;
@@ -23,11 +24,11 @@ public class Order {
 		this.user_id = user_id;
 	}
 
-	public Date getCreated() {
+	public Timestamp getCreated() {
 		return created;
 	}
 
-	public void setCreated(Date created) {
+	public void setCreated(Timestamp created) {
 		this.created = created;
 	}
 

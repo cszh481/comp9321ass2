@@ -6,25 +6,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
     <!-- Bootstrap Core CSS -->
-	<link type="text/css" rel="stylesheet" href="CSS/bootstrap.min">
+	<link type="text/css" rel="stylesheet" href="CSS/bootstrap.min.css">
 	<link type="text/css" rel="stylesheet" href="CSS/bootstrap.css">
 	
-	
-<title>The Book Store - Edit Profile</title>
+<title>The Book Store - Add New Item To Store</title>
 </head>
 <body>
 
 		<!-- CHOOSE JSP DEPENDS ON AUTHORITY -->
-		<jsp:include page="customerheader.jsp" />
+
+		<!-- before login -->
+		<jsp:include page="loginheader.jsp" />
 		
-       
-        
         <div class="jumbotron">
             <div class="container">
                 <div class="row">  
-                    <div class="col-md-8 col-md-offset-4">
+                    <div class="col-md-8 col-md-offset-3">
                         <br>
-                        <h1>My Profile</h1>                 
+                        <h1>Add New Item To Store</h1>                 
                     </div>
                 </div>
             </div>
@@ -39,80 +38,90 @@
         	<div class="container">
         	
         		<div class="form-group form-group-md">
-    				<label class="col-md-4 control-label">Username</label>
-    				<div class="col-md-3">
+    				<label class="col-md-3 control-label">Title</label>
+    				<div class="col-md-6">
       					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
     				</div>
     			</div>
     			
     			
     			<div class="form-group form-group-md">
-    				<label class="col-md-4 control-label">New Password</label>
-    				<div class="col-md-3">
+    				<label class="col-md-3 control-label">Author/Editor</label>
+    				<div class="col-md-6">
       					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
     				</div>
     			</div>
     			
     			<div class="form-group form-group-md">
-    				<label class="col-md-4 control-label">Confirm Password</label>
-    				<div class="col-md-3">
+    				<label class="col-md-3 control-label">Year</label>
+    				<div class="col-md-6">
       					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
     				</div>
     			</div>
     			
     			
     			<div class="form-group form-group-md">
-    				<label class="col-md-4 control-label">E-mail</label>
-    				<div class="col-md-3">
+    				<label class="col-md-3 control-label">Publication Type</label>
+    				<div class="col-md-6">
       					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
     				</div>
     			</div>
     			
     			<div class="form-group form-group-md">
-    				<label class="col-md-4 control-label">First Name</label>
-    				<div class="col-md-3">
+    				<label class="col-md-3 control-label">Publication Date</label>
+    				<div class="col-md-6">
       					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
     				</div>
     			</div>
     			
     			<div class="form-group form-group-md">
-    				<label class="col-md-4 control-label">Last Name</label>
-    				<div class="col-md-3">
+    				<label class="col-md-3 control-label">Venues</label>
+    				<div class="col-md-6">
       					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
     				</div>
     			</div>
     			
     			<div class="form-group form-group-md">
-    				<label class="col-md-4 control-label">Nickname</label>
-    				<div class="col-md-3">
+    				<label class="col-md-3 control-label">Price</label>
+    				<div class="col-md-6">
       					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
     				</div>
     			</div>
     			
     			<div class="form-group form-group-md">
-    				<label class="col-md-4 control-label">Year of Birth</label>
-    				<div class="col-md-3">
+    				<label class="col-md-3 control-label">Image</label>
+    				<div class="col-md-6">
       					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
     				</div>
     			</div>
+    			
+
+			
+			<!------- type search bar --------->
+			
 			
 				<div class="form-group form-group-md">
-    				<label class="col-md-4 control-label">Address</label>
-    				<div class="col-md-3">
-      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
-    				</div>
-    			</div>
-    			
-    			<div class="form-group form-group-md">
-    				<label class="col-md-4 control-label">Credit Card Number</label>
-    				<div class="col-md-3">
-      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				<label class="col-md-3 control-label">Title</label>
+    				<div class="col-md-6">
+      					<select name="typesearch" id="searchaction" class="form-control">
+						<option value="article">journal</option>
+						<option value="inproceedings">conference</option>
+						<option value="proceedings">editorship</option>
+						<option value="book">book</option>
+						<option value="incollection">collection</option>
+						<option value="phdthesis">phdthesis</option>
+						<option value="mastersthesis">masterthesis</option>
+						<option value="www">webpage</option>				
+						</select>
     				</div>
     			</div>
 			
+			
+			
+			
 				<div class="row" style="padding-top: 40px">
-					<div class="col-md-3 col-md-offset-4" align="center"> 
-						<button type="submit" class="btn btn-primary">Submit</button>
+					<div class="col-md-4 col-md-offset-4" align="center"> 
+						<button type="submit" class="btn btn-success">Add To Shop</button>
 					</div>
 				</div>
 			
@@ -131,6 +140,14 @@
     <!-- Footer -->
 	<jsp:include page="footer.jsp" />
 
+
+
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="CSS/bootstrap.js"></script>
+    
 
 
 

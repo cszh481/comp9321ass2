@@ -17,7 +17,7 @@
                     <a class="navbar-brand" href="advsearch.jsp">Advance Search</a>
                     <form class="navbar-form navbar-right"> 
                         <input type="text" class="form-control" placeholder="search..."> 
-                        <button type="submit" class="btn btn-success">Search</button> 
+                        <button type="submit" class="btn btn-primary">Search</button> 
                     </form>
                 </div>
             

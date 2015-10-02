@@ -8,7 +8,7 @@
 	<!-- Footer -->
     <footer>
 
-        <div class="jumbotron">
+        <div class="jumbotron" style="margin-top:20px;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-right">

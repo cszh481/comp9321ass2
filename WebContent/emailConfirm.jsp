@@ -4,9 +4,44 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+    <!-- Bootstrap Core CSS -->
+	<link type="text/css" rel="stylesheet" href="CSS/bootstrap.min.css">
+	<link type="text/css" rel="stylesheet" href="CSS/bootstrap.css">
+	
+<title>The Book Store - Email Confirmed!</title>
 </head>
 <body>
+	
+	<!-- CHOOSE JSP DEPENDS ON AUTHORITY -->
+	<jsp:include page="customerheader.jsp" /> -->
+	
+	
+	    <div class="jumbotron">
+            <div class="container">
+                <div class="row">  
+                    <div class="col-md-8 col-md-offset-4">
+                        <br>
+                        <h1>Registration Confirmed</h1>                 
+                    </div>
+                </div>
+            </div>
+        </div>
+	
+
+	<div class="container theme-showcase" role="main">
+
+			<h2>Email Confirmed!</h2>
+
+
+	</div>
+
+
+
+
+
+	<!-- Footer -->
+	<jsp:include page="footer.jsp" />
+
 
 </body>
 </html>

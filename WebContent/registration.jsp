@@ -17,12 +17,7 @@
 
 		<!-- before login -->
 		<jsp:include page="loginheader.jsp" />
-	
-		<!-- after login -->
-		<!-- <jsp:include page="customerheader.jsp" /> -->
 		
-       
-        
         <div class="jumbotron">
             <div class="container">
                 <div class="row">  
@@ -35,117 +30,107 @@
         </div>
         
         
-        <div class="container theme-showcase" role="main">
+       <div class="container theme-showcase" role="main">
         
-        <form action="control" id="enableForm" method="post" class="form-inline" style="text-align:right;">
-			<input type="hidden" name="action" value="registration">
+        
+        <form action="control" method="GET" class="form-horizontal">
+        
         	<div class="container">
         	
-        		<div class="row">  
-        			<div class="col-md-4 col-md-offset-3">  
-        		    	<label for="#">Username (*)</label> 
-						<input type="text" id="#" name="username" class="form-control" placeholder="username..." />
-						<div></div> 
-                	</div>
-            	</div>
-            	
-            	<div class="row">  
-        			<div class="col-md-4 col-md-offset-3">  
-        		    	<label for="#">New Password (*)</label> 
-						<input type="password" id="#" name="password" class="form-control" placeholder="password..." />
-						<div></div>
-                	</div>
-            	</div>
-            	
-            	<div class="row">  
-        			<div class="col-md-4 col-md-offset-3">  
-        		    	<label for="#">Confirm Password (*)</label> 
-						<input type="password" id="#" name="confirm_password" class="form-control" placeholder="password..." />
-						<div></div>
-                	</div>
-            	</div>
- 			
- 			
-				<div class="row">  
-        			<div class="col-md-4 col-md-offset-3">  
-        		    	<label for="#">E-mail (*)</label> 
-						<input type="text" id="#" name="email" class="form-control" placeholder="e-mail...">
-						<div></div>
-                	</div>
-            	</div>
-				
-				<div class="row">  
-        			<div class="col-md-4 col-md-offset-3">  
-        		    	<label for="#">Nickname</label> 
-						<input type="text" id="#" name="nickname" class="form-control" placeholder="nickname...">
-						<div></div>
-                	</div>
-            	</div>
+        		<div class="form-group form-group-md">
+    				<label class="col-md-4 control-label">Username</label>
+    				<div class="col-md-3">
+      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				</div>
+    			</div>
+    			
+    			
+    			<div class="form-group form-group-md">
+    				<label class="col-md-4 control-label">New Password</label>
+    				<div class="col-md-3">
+      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				</div>
+    			</div>
+    			
+    			<div class="form-group form-group-md">
+    				<label class="col-md-4 control-label">Confirm Password</label>
+    				<div class="col-md-3">
+      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				</div>
+    			</div>
+    			
+    			
+    			<div class="form-group form-group-md">
+    				<label class="col-md-4 control-label">E-mail</label>
+    				<div class="col-md-3">
+      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				</div>
+    			</div>
+    			
+    			<div class="form-group form-group-md">
+    				<label class="col-md-4 control-label">First Name</label>
+    				<div class="col-md-3">
+      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				</div>
+    			</div>
+    			
+    			<div class="form-group form-group-md">
+    				<label class="col-md-4 control-label">Last Name</label>
+    				<div class="col-md-3">
+      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				</div>
+    			</div>
+    			
+    			<div class="form-group form-group-md">
+    				<label class="col-md-4 control-label">Nickname</label>
+    				<div class="col-md-3">
+      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				</div>
+    			</div>
+    			
+    			<div class="form-group form-group-md">
+    				<label class="col-md-4 control-label">Year of Birth</label>
+    				<div class="col-md-3">
+      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				</div>
+    			</div>
 			
-				<div class="row">  
-        			<div class="col-md-4 col-md-offset-3">  
-        		    	<label for="#">First Name</label> 
-						<input type="text" id="#" name="firstname" class="form-control" placeholder="first name...">
-						<div></div>
-                	</div>
-            	</div>
-            	
-            	<div class="row">  
-        			<div class="col-md-4 col-md-offset-3">  
-        		    	<label for="#">Last Name</label> 
-						<input type="text" id="#" name="lastname" class="form-control" placeholder="last name...">
-						<div></div>
-                	</div>
-            	</div>
-            	
-            	<div class="row">  
-        			<div class="col-md-4 col-md-offset-3">  
-        		    	<label for="#">Year of Birth</label> 
-						<input type="text" id="#" name="birthyear" class="form-control" placeholder="year of birth...">
-						<div></div>
-                	</div>
-            	</div>
-            	
-            	<div class="row">  
-        			<div class="col-md-4 col-md-offset-3">  
-        		    	<label for="#">Address</label> 
-						<input type="text" id="#" name="address" class="form-control" placeholder="address...">
-						<div></div>
-                	</div>
-            	</div>
+				<div class="form-group form-group-md">
+    				<label class="col-md-4 control-label">Address</label>
+    				<div class="col-md-3">
+      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				</div>
+    			</div>
+    			
+    			<div class="form-group form-group-md">
+    				<label class="col-md-4 control-label">Credit Card Number</label>
+    				<div class="col-md-3">
+      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				</div>
+    			</div>
 			
-				<div class="row">  
-        			<div class="col-md-4 col-md-offset-3">  
-        		    	<label for="#">Credit Card Number</label> 
-						<input type="text" id="#" name="creditcard" class="form-control" placeholder="credit card number...">
-						<div></div>
-                	</div>
-            	</div>
-	
-			<div class="row" style="padding-top: 40px">
-			<div class="col-md-4 col-md-offset-4" align="center"> 
-				<button type="submit" class="btn btn-success">Submit</button>	
-			</div>
-			</div>
+				<div class="row" style="padding-top: 40px">
+					<div class="col-md-3 col-md-offset-4" align="center"> 
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+				</div>
 			
         
     		</div>
     	
     	</form>
-        
 
-        
-    	</div>
+    </div>
 
    
+
+
+
 
     <!-- Footer -->
-    <jsp:include page="footer.jsp" />
-   
+	<jsp:include page="footer.jsp" />
 
 
 
 </body>
 </html>
-
-

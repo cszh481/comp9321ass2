@@ -30,8 +30,65 @@
 
 	<div class="container theme-showcase" role="main">
 
+		<div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Panel title</h3>
+            </div>
+            <div class="panel-body">
+             
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Title</th>
+                  <th>Author/Editor</th>
+                  <th>Year</th>
+                  <th>Action<th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1,001</td>
+                  <td>Lorem</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td><button type="submit" class="btn btn-xs btn-warning">Pause</button></td>
+                </tr>
+                <tr>
+                  <td>1,002</td>
+                  <td>amet</td>
+                  <td>consectetur</td>
+                  <td>adipiscing</td>
+                  <td><button type="submit" class="btn btn-xs btn-warning">Pause</button></td>
+                </tr>
+                <tr>
+                  <td>1,003</td>
+                  <td>Integer</td>
+                  <td>nec</td>
+                  <td>odio</td>
+                  <td><button type="submit" class="btn btn-xs btn-warning">Pause</button></td>
+                </tr>
+                <tr>
+                  <td>1,003</td>
+                  <td>libero</td>
+                  <td>Sed</td>
+                  <td>cursus</td>
+                  <td><button type="submit" class="btn btn-xs btn-warning">Pause</button></td>
+                </tr>
 
+              </tbody>
+            </table>   
+            
+        	</div>
 
+		</div>
+		
+		<div class="col-md-4 col-md-offset-4" align="center"> 
+			 <a class="btn btn-primary" href="addItem.jsp" title="">
+               	<span class="icon"></span>
+               	<span class="text">Add New Item</span>
+             </a>
+		</div>
 
 	</div>
 
@@ -41,10 +98,6 @@
 
 	<!-- Footer -->
 	<jsp:include page="footer.jsp" />
-	
-	<!-- Bootstrap Core JavaScript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="CSS/bootstrap.js"></script>
 
 
 </body>

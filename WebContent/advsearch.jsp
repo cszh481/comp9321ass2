@@ -36,120 +36,105 @@
                 <div class="row">  
                     <div class="col-md-8 col-md-offset-4">
                         <br>
-                        <h1>Registration</h1>                 
+                        <h1>Advance Search</h1>                 
                     </div>
                 </div>
             </div>
         </div>
         
         
-        <div class="container theme-showcase" role="main">
+         <div class="container theme-showcase" role="main">
         
         
-        <form action="control" method="GET" class="form-inline" style="text-align:right;">
+        <form action="control" method="GET" class="form-horizontal">
         
         	<div class="container">
         	
-        		<div class="row">  
-        			<div class="col-md-4 col-md-offset-3">  
-        		    	<label for="who">Author</label> 
-						<input type="text" id="who" name="who" class="form-control" placeholder="Search...">
-						<div></div> 
-                	</div>
-            	</div>
-            	
-            	<div class="row">  
-        			<div class="col-md-4 col-md-offset-3">  
-        		    	<label for="keywords">Title</label> 
-						<input type="text" id="keywords" name="keywords" class="form-control" placeholder="Search...">
-						<div></div>
-                	</div>
-            	</div>
- 			
- 			
-				<div class="row">  
-        			<div class="col-md-4 col-md-offset-3">  
-        		    	<label for="when">Year</label> 
-						<input type="text" id="when" name="when" class="form-control" placeholder="Search...">
-						<div></div>
-                	</div>
-            	</div>
-				
-				<div class="row">  
-        			<div class="col-md-4 col-md-offset-3">  
-        		    	<label for="editor">Editor</label> 
-						<input type="text" id="editor" name="editor" class="form-control" placeholder="Search...">
-						<div></div>
-                	</div>
-            	</div>
-			
-				<div class="row">  
-					<div class="col-md-4 col-md-offset-3">  
-        				<label for="booktitle">Booktitle</label> 
-						<input type="text" id="booktitle" name="booktitle" class="form-control" placeholder="Search...">
-						<div></div>
-                	</div>
-            	</div>
-			
-				<div class="row">  
-					<div class="col-md-4 col-md-offset-3">  
-        				<label for="publisher">Publisher</label> 
-						<input type="text" id="publisher" name="publisher" class="form-control" placeholder="Search...">
-						<div></div>
-                	</div>
-            	</div>
-			
-				<div class="row"> 
-					<div class="col-md-4 col-md-offset-3">   
-        				<label for="isbn">ISBN</label> 
-						<input type="text" id="isbn" name="isbn" class="form-control" placeholder="Search...">
-						<div></div>
-					</div>
-            	</div>
-				
-				<div class="row">  
-					<div class="col-md-4 col-md-offset-3">  
-        				<label for="school">School</label> 
-						<input type="text" id="school" name="school" class="form-control" placeholder="Search...">
-						<div></div>
-					</div>
-            	</div>
-			
-			
+        		<div class="form-group form-group-md">
+    				<label class="col-md-3 control-label">Title</label>
+    				<div class="col-md-6">
+      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				</div>
+    			</div>
+    			
+    			
+    			<div class="form-group form-group-md">
+    				<label class="col-md-3 control-label">Author/Editor</label>
+    				<div class="col-md-6">
+      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				</div>
+    			</div>
+    			
+    			<div class="form-group form-group-md">
+    				<label class="col-md-3 control-label">Year</label>
+    				<div class="col-md-6">
+      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				</div>
+    			</div>
+    			
+    			
+    			<div class="form-group form-group-md">
+    				<label class="col-md-3 control-label">Publication Type</label>
+    				<div class="col-md-6">
+      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				</div>
+    			</div>
+    			
+    			<div class="form-group form-group-md">
+    				<label class="col-md-3 control-label">Publication Date</label>
+    				<div class="col-md-6">
+      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				</div>
+    			</div>
+    			
+    			<div class="form-group form-group-md">
+    				<label class="col-md-3 control-label">Venues</label>
+    				<div class="col-md-6">
+      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				</div>
+    			</div>
+    			
+    			<div class="form-group form-group-md">
+    				<label class="col-md-3 control-label">Price</label>
+    				<div class="col-md-6">
+      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				</div>
+    			</div>
 			
 			<!------- type search bar --------->
-	
-			<div class="row">  
-			<div class="col-md-4 col-md-offset-3">  
 			
-			<label for="typesearch">Type</label> 
-			<select name="typesearch" id="searchaction" class="form-control">
-				<option value="article">journal</option>
-				<option value="inproceedings">conference</option>
-				<option value="proceedings">editorship</option>
-				<option value="book">book</option>
-				<option value="incollection">collection</option>
-				<option value="phdthesis">phdthesis</option>
-				<option value="mastersthesis">masterthesis</option>
-				<option value="www">webpage</option>
-				
-			</select>
 			
-			</div>
-			</div>
+				<div class="form-group form-group-md">
+    				<label class="col-md-3 control-label">Title</label>
+    				<div class="col-md-6">
+      					<select name="typesearch" id="searchaction" class="form-control">
+						<option value="article">journal</option>
+						<option value="inproceedings">conference</option>
+						<option value="proceedings">editorship</option>
+						<option value="book">book</option>
+						<option value="incollection">collection</option>
+						<option value="phdthesis">phdthesis</option>
+						<option value="mastersthesis">masterthesis</option>
+						<option value="www">webpage</option>				
+						</select>
+    				</div>
+    			</div>
 			
-			<div class="row" style="padding-top: 40px">
-			<div class="col-md-4 col-md-offset-4" align="center"> 
-				<button type="submit" class="btn btn-success">Search</button>
-			</div>
-			</div>
+			
+			
+			
+				<div class="row" style="padding-top: 40px">
+					<div class="col-md-4 col-md-offset-4" align="center"> 
+						<button type="submit" class="btn btn-primary">Search</button>
+					</div>
+				</div>
 			
         
     		</div>
     	
     	</form>
 
-    	</div>
+    </div>
 
    
 
@@ -159,14 +144,6 @@
     <!-- Footer -->
 	<jsp:include page="footer.jsp" />
 
-
-
-
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script type="text/javascript" src="CSS/bootstrap.js"></script>
-    
 
 
 

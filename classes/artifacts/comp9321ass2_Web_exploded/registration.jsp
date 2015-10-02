@@ -117,7 +117,7 @@
 	
 			<div class="row" style="padding-top: 40px">
 			<div class="col-md-4 col-md-offset-4" align="center"> 
-				<button type="submit" class="btn btn-success">Submit</button>
+				<button type="submit" class="btn btn-success">Submit</button>	
 			</div>
 			</div>
 			

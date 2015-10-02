@@ -1,5 +1,7 @@
 package controller;
 import dto.User;
+import exception.UserBannedException;
+import exception.UserUnVerifiedException;
 import service.UserService;
 
 import java.io.IOException;
@@ -36,6 +38,20 @@ public class controller extends HttpServlet {
             try {
                 userService.register(user);
             } catch (MessagingException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(action.equals("login")){
+            UserService userService = new UserService();
+            User user = userService.makeUserbyRequest(request);
+            try {
+                if (userService.login(user.getUsername(),user.getPassword()) != null){
+                    nextPage = "#";
+                    request.setAttribute("login","true");
+                }
+            } catch (UserBannedException e) {
+                e.printStackTrace();
+            } catch (UserUnVerifiedException e) {
                 e.printStackTrace();
             }
         }

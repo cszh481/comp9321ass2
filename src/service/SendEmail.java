@@ -46,8 +46,14 @@ public class SendEmail {
     }
     public static void sendRegistMail(User user) throws MessagingException {
         String to = user.getEmail();
-        String title = "test";
-        String content = "test";
+        String title = "Verify account";
+        String content = "<p>\n" +
+                "Hi, Dear "+user.getUsername()+"!\n" +
+                "<br>\n" +
+                "</br>\n" +
+                "Help us secure your account by verifying your email \n" +
+                "<a href=\"http://localhost:8080/emailConfim.jsp?uuid="+ user.getUuid() +"&action=verify"+"\" target=\"_top\">http://localhost:8080/emailConfim.jsp?uuid="+ user.getUuid() +"&action=verify</a>\n" +
+                "</p>";
         sendEmail(to,title,content);
     }
     public static void sendSellMail(User user) throws MessagingException {

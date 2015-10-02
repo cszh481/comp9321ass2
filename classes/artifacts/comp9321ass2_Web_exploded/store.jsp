@@ -8,7 +8,7 @@
 	<link type="text/css" rel="stylesheet" href="CSS/bootstrap.min">
 	<link type="text/css" rel="stylesheet" href="CSS/bootstrap.css">
 	
-<title>The Book Store - My Shopping Cart</title>
+<title>The Book Store - My Store</title>
 </head>
 <body>
 	
@@ -21,7 +21,7 @@
                 <div class="row">  
                     <div class="col-md-8 col-md-offset-4">
                         <br>
-                        <h1>My Shopping Cart</h1>                 
+                        <h1>My Store</h1>                 
                     </div>
                 </div>
             </div>
@@ -29,10 +29,6 @@
 	
 
 	<div class="container theme-showcase" role="main">
-
-		<div class="row" style="margin: 40px" align="center">
-    		<h1>Shopping Cart is Empty!</h1>
-		</div>
 
 
 

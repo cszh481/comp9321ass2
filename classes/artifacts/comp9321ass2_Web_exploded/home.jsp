@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+    
+<%
+	String loginBool = (String) session.getAttribute("login");
+%>
+
+    
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,15 +22,14 @@
 </head>
 <body>
 
-		<!-- CHOOSE JSP DEPENDS ON AUTHORITY -->
-
+	<!-- CHOOSE JSP DEPENDS ON AUTHORITY -->
+	<% if (loginBool == "true") {%>	
+		<!-- after login -->
+		<jsp:include page="homecustomerheader.jsp" />		
+	<%} else {%>
 		<!-- before login -->
 		<jsp:include page="homeloginheader.jsp" />
-	
-		<!-- after login -->
-		<!-- <jsp:include page="homecustomerheader.jsp" /> -->
-		
-       
+	<% } %> 
         
         <div class="jumbotron">
             <div class="container">
@@ -65,10 +72,10 @@
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
+                  <th>Type</th>
+                  <th>Title</th>
+                  <th>Author/Editor</th>
+                  <th>Year</th>
                 </tr>
               </thead>
               <tbody>

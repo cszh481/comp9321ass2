@@ -44,13 +44,14 @@
                         <div class="modal-body">
                             
                             <div class="form-group">
+                                <input type="hidden" name="action" value="login">
                                 <label for="InputUsername">Username</label>
-                                <input type="text" class="form-control" id="InputUsername" placeholder="Username">
+                                <input type="text" class="form-control" id="InputUsername" name="username" placeholder="Username">
                             </div>
                             
                             <div class="form-group">
                                 <label for="InputPassword">Password</label>
-                                <input type="password" class="form-control" id="InputPassword" placeholder="Password">
+                                <input type="password" class="form-control" id="InputPassword" name="password" placeholder="Password">
                             </div>
   
                         </div>

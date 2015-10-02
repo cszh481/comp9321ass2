@@ -69,10 +69,12 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 				preparedStatement.setInt(1, cart.getUser_id());
 				preparedStatement.setInt(2, cart.getItem_id());
 				preparedStatement.setInt(3, cart.getCount());
-				preparedStatement.setTime(4, new java.sql.Time(cart.getAdded()
-				        .getTime()));
-				preparedStatement.setTime(5, new java.sql.Time(cart
-				        .getRemoved().getTime()));
+				preparedStatement.setTime(4,
+				        cart.getAdded() != null ? new java.sql.Time(cart
+				                .getAdded().getTime()) : null);
+				preparedStatement.setTime(5,
+				        cart.getRemoved() != null ? new java.sql.Time(cart
+				                .getRemoved().getTime()) : null);
 
 				preparedStatement.executeUpdate();
 			} catch (SQLException e) {
@@ -88,10 +90,12 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 			try {
 				preparedStatement = connection.prepareStatement(sql);
 				preparedStatement.setInt(1, cart.getCount());
-				preparedStatement.setTime(2, new java.sql.Time(cart.getAdded()
-				        .getTime()));
-				preparedStatement.setTime(3, new java.sql.Time(cart
-				        .getRemoved().getTime()));
+				preparedStatement.setTime(2,
+				        cart.getAdded() != null ? new java.sql.Time(cart
+				                .getAdded().getTime()) : null);
+				preparedStatement.setTime(3,
+				        cart.getRemoved() != null ? new java.sql.Time(cart
+				                .getRemoved().getTime()) : null);
 				preparedStatement.setInt(4, cart.getUser_id());
 				preparedStatement.setInt(5, cart.getItem_id());
 

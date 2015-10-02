@@ -8,26 +8,8 @@
 <!-- Bootstrap Core CSS -->
 <link type="text/css" rel="stylesheet" href="CSS/bootstrap.min.css">
 <script src="JS/jquery.js"></script>
+<script src="JS/register.js"></script>
 
-<script>
-	$(document).ready(function() {
-
-		$('form').submit(function(e) {
-
-			var password = $('#password').val();
-			var password2 = $('#password2').val();
-
-			if (password != password2) {
-				alert("Passowrd are not identical!!");
-				return false;
-			}
-			
-			var email = $('#email').val();
-
-		});
-
-	});
-</script>
 
 <title>The Book Store - Registration</title>
 </head>
@@ -134,7 +116,7 @@
 				<div class="form-group form-group-md">
 					<label class="col-md-4 control-label">Credit Card Number</label>
 					<div class="col-md-3">
-						<input class="form-control" type="text" id="#" name="#"
+						<input class="form-control" type="text" id="creditcard" name="#"
 							placeholder="Input...">
 					</div>
 				</div>

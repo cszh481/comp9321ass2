@@ -5,3 +5,5 @@ classes/
 .classpath
 /bin/
 
+.idea/sqldialects.xml
+.idea/sqldialects.xml

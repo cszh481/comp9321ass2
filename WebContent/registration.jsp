@@ -35,14 +35,14 @@
 	<div class="container theme-showcase" role="main">
 
 
-		<form action="control" method="GET" class="form-horizontal">
+		<form action="control" method="post" class="form-horizontal">
 
 			<div class="container">
-
+				<input type="hidden" name="action" value="registration">
 				<div class="form-group form-group-md">
 					<label class="col-md-4 control-label">Username</label>
 					<div class="col-md-3">
-						<input class="form-control" type="text" id="username" name="#"
+						<input class="form-control" type="text" id="username" name="username"
 							placeholder="Input...">
 					</div>
 				</div>
@@ -51,7 +51,7 @@
 				<div class="form-group form-group-md">
 					<label class="col-md-4 control-label">New Password</label>
 					<div class="col-md-3">
-						<input class="form-control" type="password" id="password" name="#"
+						<input class="form-control" type="password" id="password" name="password"
 							placeholder="Input...">
 					</div>
 				</div>
@@ -59,7 +59,7 @@
 				<div class="form-group form-group-md">
 					<label class="col-md-4 control-label">Confirm Password</label>
 					<div class="col-md-3">
-						<input class="form-control" type="password" id="password2" name="#"
+						<input class="form-control" type="password" id="password2" name="password2"
 							placeholder="Input...">
 					</div>
 				</div>
@@ -68,7 +68,7 @@
 				<div class="form-group form-group-md">
 					<label class="col-md-4 control-label">E-mail</label>
 					<div class="col-md-3">
-						<input class="form-control" type="text" id="email" name="#"
+						<input class="form-control" type="text" id="email" name="email"
 							placeholder="Input...">
 					</div>
 				</div>
@@ -76,7 +76,7 @@
 				<div class="form-group form-group-md">
 					<label class="col-md-4 control-label">First Name</label>
 					<div class="col-md-3">
-						<input class="form-control" type="text" id="firstname" name="#"
+						<input class="form-control" type="text" id="firstname" name="firstname"
 							placeholder="Input...">
 					</div>
 				</div>
@@ -84,7 +84,7 @@
 				<div class="form-group form-group-md">
 					<label class="col-md-4 control-label">Last Name</label>
 					<div class="col-md-3">
-						<input class="form-control" type="text" id="lastname" name="#"
+						<input class="form-control" type="text" id="lastname" name="lastname"
 							placeholder="Input...">
 					</div>
 				</div>
@@ -92,7 +92,7 @@
 				<div class="form-group form-group-md">
 					<label class="col-md-4 control-label">Nickname</label>
 					<div class="col-md-3">
-						<input class="form-control" type="text" id="nickname" name="#"
+						<input class="form-control" type="text" id="nickname" name="nickname"
 							placeholder="Input...">
 					</div>
 				</div>
@@ -100,7 +100,7 @@
 				<div class="form-group form-group-md">
 					<label class="col-md-4 control-label">Year of Birth</label>
 					<div class="col-md-3">
-						<input class="form-control" type="text" id="yob" name="#"
+						<input class="form-control" type="text" id="yob" name="birthyear"
 							placeholder="Input...">
 					</div>
 				</div>
@@ -108,7 +108,7 @@
 				<div class="form-group form-group-md">
 					<label class="col-md-4 control-label">Address</label>
 					<div class="col-md-3">
-						<input class="form-control" type="text" id="address" name="#"
+						<input class="form-control" type="text" id="address" name="address"
 							placeholder="Input...">
 					</div>
 				</div>
@@ -116,7 +116,7 @@
 				<div class="form-group form-group-md">
 					<label class="col-md-4 control-label">Credit Card Number</label>
 					<div class="col-md-3">
-						<input class="form-control" type="text" id="creditcard" name="#"
+						<input class="form-control" type="text" id="creditcard" name="creditcard"
 							placeholder="Input...">
 					</div>
 				</div>

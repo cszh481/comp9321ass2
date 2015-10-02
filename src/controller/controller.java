@@ -70,6 +70,11 @@ public class controller extends HttpServlet {
             itemService.unPauseItem(request.getParameter("id"));
             nextPage = "store.jsp";
         }
+        else if(action.equals("verify")){
+            UserService userService = new UserService();
+            userService.verifyUserEmail(request.getParameter("uuid"));
+            nextPage = "emailConfirm.jsp";
+        }
         RequestDispatcher rd = request.getRequestDispatcher("/"+nextPage);
         rd.forward(request, response);
         //        try {

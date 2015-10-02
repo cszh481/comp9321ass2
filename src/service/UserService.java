@@ -134,6 +134,9 @@ public class UserService {
 		if (request.getParameter("creditcard") != null && !request.getParameter("creditcard").equals("")) {
         user.setCreditcard(request.getParameter("creditcard"));
 		}
+		if (request.getParameter("nickname") != null && !request.getParameter("nickname").equals("")) {
+            user.setNickname(request.getParameter("nickname"));
+		}
         user.setBan(false);
         user.setVerified(false);
         return user;

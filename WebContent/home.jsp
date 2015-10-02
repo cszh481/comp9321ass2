@@ -1,9 +1,13 @@
+<%@ page import="service.UserService" %>
+<%@ page import="dto.Item" %>
+<%@ page import="service.ItemService" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
     
 <%
 	String loginBool = (String) session.getAttribute("login");
+    ItemService itemService = new ItemService();
 %>
 
     
@@ -79,31 +83,14 @@
                 </tr>
               </thead>
               <tbody>
+              <% for (Item temp : itemService.getRandom10() ){%>
                 <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
+                  <td><%=temp.getType()%></td>
+                  <td><%=temp.getTitle()%></td>
+                  <td><%=temp.getAuthors()%></td>
+                  <td><%=temp.getPublication_date()%></td>
                 </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                </tr>
-
+              <% } %>
               </tbody>
             </table>   
             

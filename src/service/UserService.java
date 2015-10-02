@@ -8,6 +8,8 @@ import dao.UserDaoImpl;
 import dto.User;
 import exception.UserBannedException;
 import exception.UserUnVerifiedException;
+
+import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.mail.MessagingException;
 
@@ -107,15 +109,31 @@ public class UserService {
 	}
 
     public User makeUserbyRequest (HttpServletRequest request){
-        User user = new User();
-        user.setUsername(request.getParameter("username"));
-        user.setPassword(request.getParameter("password"));
+		User user = new User();
+		if (request.getParameter("username") != null && !request.getParameter("username").equals("")) {
+			user.setUsername(request.getParameter("username"));
+		}
+		if (request.getParameter("password") != null && !request.getParameter("password").equals("")) {
+			user.setPassword(request.getParameter("password"));
+		}
+		if (request.getParameter("firstname") != null && !request.getParameter("firstname").equals("")) {
         user.setFirstname(request.getParameter("firstname"));
+		}
+		if (request.getParameter("lastname") != null && !request.getParameter("lastname").equals("")) {
         user.setLastname(request.getParameter("lastname"));
+		}
+		if (request.getParameter("email") != null && !request.getParameter("email").equals("")) {
         user.setEmail(request.getParameter("email"));
+		}
+		if (request.getParameter("birthyear") != null && !request.getParameter("birthyear").equals("")) {
         user.setBirthyear(Integer.parseInt(request.getParameter("birthyear")));
+		}
+		if (request.getParameter("address") != null && !request.getParameter("address").equals("")) {
         user.setAddress(request.getParameter("address"));
+		}
+		if (request.getParameter("creditcard") != null && !request.getParameter("creditcard").equals("")) {
         user.setCreditcard(request.getParameter("creditcard"));
+		}
         user.setBan(false);
         user.setVerified(false);
         return user;

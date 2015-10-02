@@ -6,12 +6,14 @@ import service.UserService;
 
 import java.io.IOException;
 import javax.mail.MessagingException;
+import javax.mail.Session;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 //Servlet implementation class ControlServlet
@@ -46,8 +48,9 @@ public class controller extends HttpServlet {
             User user = userService.makeUserbyRequest(request);
             try {
                 if (userService.login(user.getUsername(),user.getPassword()) != null){
-                    nextPage = "#";
-                    request.setAttribute("login","true");
+                    HttpSession session = request.getSession();
+                    session.setAttribute("login","true");
+                    session.setMaxInactiveInterval(60*60);
                 }
             } catch (UserBannedException e) {
                 e.printStackTrace();

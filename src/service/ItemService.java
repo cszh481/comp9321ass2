@@ -154,7 +154,7 @@ public class ItemService {
 	 *
 	 * @param
 	 */
-	public void getRandom10(){
-		itemDao.getRandomten();
+	public List<Item> getRandom10(){
+		return itemDao.getRandomten();
 	}
 }

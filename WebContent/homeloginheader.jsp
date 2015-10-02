@@ -40,7 +40,7 @@
                         <h4 class="modal-title">Sign in</h4>
                     </div>
 
-                    <form>
+                    <form method="post" action="control">
                         <div class="modal-body">
                             
                             <div class="form-group">

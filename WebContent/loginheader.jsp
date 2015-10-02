@@ -42,7 +42,7 @@
                         <h4 class="modal-title">Sign in</h4>
                     </div>
 
-                    <form>
+                    <form action="control" method="post">
                         <div class="modal-body">
                             <input type="hidden" name="action" value="login">
                             <div class="form-group">

@@ -157,4 +157,12 @@ public class ItemService {
 	public List<Item> getRandom10(){
 		return itemDao.getRandomten();
 	}
+	/**
+	 * For store page
+	 *
+	 * @param userId
+	 */
+	public List<Item> getAllItemByseller(int userId){
+		return itemDao.getAllItemsBySellerId(userId);
+	}
 }

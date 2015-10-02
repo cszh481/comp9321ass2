@@ -134,7 +134,7 @@ public class ItemDaoImpl extends BaseDao implements ItemDao {
 		List<Item> items = new ArrayList<Item>();
 
 		Connection connection = getConnection();
-		String sql = "select * from item order by rand() limit 10";
+		String sql = "select * from item WHERE paused = 0 and ban = 0 order by rand() limit 10";
 
 		try {
 			PreparedStatement preparedStatement = connection

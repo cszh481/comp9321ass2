@@ -2,6 +2,7 @@ package controller;
 import dto.User;
 import exception.UserBannedException;
 import exception.UserUnVerifiedException;
+import service.ItemService;
 import service.UserService;
 
 import java.io.IOException;
@@ -47,16 +48,27 @@ public class controller extends HttpServlet {
             UserService userService = new UserService();
             User user = userService.makeUserbyRequest(request);
             try {
-                if (userService.login(user.getUsername(),user.getPassword()) != null){
+                if ((user = userService.login(user.getUsername(),user.getPassword())) != null){
                     HttpSession session = request.getSession();
                     session.setAttribute("login","true");
                     session.setMaxInactiveInterval(60*60);
+                    session.setAttribute("user", user);
                 }
             } catch (UserBannedException e) {
                 e.printStackTrace();
             } catch (UserUnVerifiedException e) {
                 e.printStackTrace();
             }
+        }
+        else if(action.equals("pauseItem")){
+            ItemService itemService = new ItemService();
+            itemService.pauseItem(request.getParameter("id"));
+            nextPage = "store.jsp";
+        }
+        else if(action.equals("unPauseItem")){
+            ItemService itemService = new ItemService();
+            itemService.unPauseItem(request.getParameter("id"));
+            nextPage = "store.jsp";
         }
         RequestDispatcher rd = request.getRequestDispatcher("/"+nextPage);
         rd.forward(request, response);

@@ -1,4 +1,3 @@
-<%@ page import="service.UserService" %>
 <%@ page import="dto.Item" %>
 <%@ page import="service.ItemService" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -69,33 +68,30 @@
         
         <div class="panel panel-default">
             <div class="panel-heading">
-              <h3 class="panel-title">Panel title</h3>
+                <h3 class="panel-title">Panel title</h3>
             </div>
             <div class="panel-body">
-             
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Type</th>
-                  <th>Title</th>
-                  <th>Author/Editor</th>
-                  <th>Year</th>
-                </tr>
-              </thead>
-              <tbody>
-              <% for (Item temp : itemService.getRandom10() ){%>
-                <tr>
-                  <td><%=temp.getType()%></td>
-                  <td><%=temp.getTitle()%></td>
-                  <td><%=temp.getAuthors()%></td>
-                  <td><%=temp.getPublication_date()%></td>
-                </tr>
-              <% } %>
-              </tbody>
-            </table>   
-            
-        </div> 
-           
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author/Editor</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% for (Item temp : itemService.getRandom10() ){%>
+                    <tr>
+                        <td><%=temp.getTitle()%></td>
+                        <td><%=temp.getAuthors()%></td>
+                        <td><%=temp.getPrice()%></td>
+                        <td><%=temp.getQuantity()%></td>
+                    </tr>
+                    <% } %>
+                    </tbody>
+                </table>
+            </div>
         </div>  
         
         

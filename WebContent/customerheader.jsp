@@ -24,9 +24,9 @@
                 <div id="navbar" class="navbar-collapse collapse"> 
                     <ul class="nav navbar-nav navbar-right"> 
                         <li><a href="profile.jsp">My Profile</a></li> 
+                        <li><a href="shoppingcart.jsp">Shopping Cart</a></li>
                         <li><a href="store.jsp">My Store</a></li>
-                        <li><a href="shoppingcart.jsp">Shopping Cart</a></li> 
-                        
+
                     </ul>  
                 </div>
             </div> 

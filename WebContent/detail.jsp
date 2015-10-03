@@ -100,6 +100,10 @@
 								<td>Price</td>
 								<td><%=detialItem.getPrice()%></td>
 							</tr>
+                            <tr>
+                                <td>Quantity</td>
+                                <td><%=detialItem.getQuantity()%></td>
+                            </tr>
 							<tr>
 								<td>Seller</td>
 								<td><%=detialItem.getSeller().getUsername()%></td>

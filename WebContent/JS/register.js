@@ -39,22 +39,22 @@ $(document)
 											return false;
 										}
 										var lastname = $().val('#lastname');
-										if (lastname == ""){
+										if (lastname == "") {
 											alert("Last name can not be empty");
 											return false;
 										}
 										var nickname = $().val('#nickname');
-										if (nickname == ""){
+										if (nickname == "") {
 											alert("Nickname can not be empty");
 											return false;
 										}
 										var yob = $().val('#yob');
-										if (yob == ""){
+										if (yob == "") {
 											alert("Year of Birth can not be empty");
 											return false;
 										}
 										var address = $().val('#address');
-										if (address == ""){
+										if (address == "") {
 											alert("Address can not be empty");
 											return false;
 										}

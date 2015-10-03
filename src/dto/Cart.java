@@ -4,12 +4,21 @@ import java.sql.Timestamp;
 
 
 public class Cart {
+	private int id;
 	private int user_id;
 	private int item_id;
 	private int count;
 	private Timestamp added;
 	private Timestamp removed = null;
 	private Item Item;
+
+	public int getId() {
+	    return id;
+    }
+
+	public void setId(int id) {
+	    this.id = id;
+    }
 
 	public int getUser_id() {
 		return user_id;

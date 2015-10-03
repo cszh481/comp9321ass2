@@ -79,7 +79,7 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 		} else {
 			// update
 
-			String sql = "UPDATE `cart` SET `count`=?, `added`=?, `removed`=? WHERE `user_id`=? and `item_id`=?";
+			String sql = "UPDATE `cart` SET `count`=?, `added`=?, `removed`=? WHERE `id`=?";
 
 			PreparedStatement preparedStatement;
 			try {
@@ -87,8 +87,8 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 				preparedStatement.setInt(1, cart.getCount());
 				preparedStatement.setTimestamp(2, cart.getAdded());
 				preparedStatement.setTimestamp(3, cart.getRemoved());
-				preparedStatement.setInt(4, cart.getUser_id());
-				preparedStatement.setInt(5, cart.getItem_id());
+				preparedStatement.setInt(4, cart.getId());
+				
 
 				preparedStatement.executeUpdate();
 			} catch (SQLException e) {

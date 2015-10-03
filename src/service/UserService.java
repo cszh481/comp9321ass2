@@ -27,8 +27,17 @@ public class UserService {
 	 */
 	public User login(String username, String password)
 	        throws UserBannedException, UserUnVerifiedException {
+        User user = userDao.getUserByUsername(username);
 
-		User user = userDao.getLoginUser(username, password);
+        if (user == null) {
+            return null;
+        } else if (user.isBan()) {
+            throw new UserBannedException();
+        } else if (!user.isVerified()) {
+            throw new UserUnVerifiedException();
+        }
+        password = MD5.MD5(password + user.getUuid());
+		user =  userDao.getLoginUser(username, password);
 
 		if (user == null) {
 			return null;
@@ -84,6 +93,7 @@ public class UserService {
 		}
 
 		user.setUuid(UUID.randomUUID().toString());
+        user.setPassword(MD5.MD5(user.getPassword()+user.getUuid()));
 		userDao.saveOrUpdate(user);
 
 		// if success, then send email

@@ -1,4 +1,5 @@
 package controller;
+import dto.Item;
 import dto.User;
 import exception.UserBannedException;
 import exception.UserUnVerifiedException;
@@ -6,6 +7,7 @@ import service.ItemService;
 import service.UserService;
 
 import java.io.IOException;
+import java.text.ParseException;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.servlet.RequestDispatcher;
@@ -74,6 +76,16 @@ public class controller extends HttpServlet {
             UserService userService = new UserService();
             userService.verifyUserEmail(request.getParameter("uuid"));
             nextPage = "emailConfirm.jsp";
+        }
+        else if(action.equals("addItem")){
+            ItemService itemService = new ItemService();
+            try {
+                Item item = itemService.makeItemByRequest(request);
+                itemService.saveOrUpdate(item);
+                nextPage = "store.jsp";
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
         }
         RequestDispatcher rd = request.getRequestDispatcher("/"+nextPage);
         rd.forward(request, response);

@@ -1,14 +1,21 @@
 package service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import dao.ItemDao;
 import dao.ItemDaoImpl;
 import dao.UserDao;
 import dao.UserDaoImpl;
 import dto.Item;
 import dto.User;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class ItemService {
 
@@ -164,5 +171,41 @@ public class ItemService {
 	 */
 	public List<Item> getAllItemByseller(int userId){
 		return itemDao.getAllItemsBySellerId(userId);
+	}
+
+	public Item makeItemByRequest (HttpServletRequest request) throws ParseException {
+		Item item = new Item();
+		item.setId(0);
+		if (request.getParameter("title") != null && !request.getParameter("title").equals("")) {
+			item.setTitle(request.getParameter("title"));
+		}
+		if (request.getParameter("author") != null && !request.getParameter("author").equals("")) {
+			item.setAuthors(request.getParameter("author"));
+		}
+		if (request.getParameter("publicationdate") != null && !request.getParameter("publicationdate").equals("")) {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			item.setPublication_date(sdf.parse(request.getParameter("publicationdate")));
+		}
+		if (request.getParameter("venues") != null && !request.getParameter("venues").equals("")) {
+			item.setVenue(request.getParameter("venues"));
+		}
+		if (request.getParameter("price") != null && !request.getParameter("price").equals("")) {
+			item.setPrice(Double.parseDouble(request.getParameter("price")));
+		}
+		if (request.getParameter("quantity") != null && !request.getParameter("quantity").equals("")) {
+			item.setQuantity(Integer.parseInt(request.getParameter("quantity")));
+		}
+		if (request.getParameter("image") != null && !request.getParameter("image").equals("")) {
+			item.setImageURL(request.getParameter("image"));
+		}
+		if (request.getParameter("typesearch") != null && !request.getParameter("typesearch").equals("")) {
+			item.setType(request.getParameter("typesearch"));
+		}
+		item.setPaused(false);
+		item.setBan(false);
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+		item.setSeller_id(user.getId());
+		return item;
 	}
 }

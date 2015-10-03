@@ -32,14 +32,14 @@
         <div class="container theme-showcase" role="main">
         
         
-        <form action="control" method="GET" class="form-horizontal">
-        
+        <form action="control" method="post" class="form-horizontal">
+        <input type="hidden" name="action" value="addItem">
         	<div class="container">
         	
         		<div class="form-group form-group-md">
     				<label class="col-md-3 control-label">Title</label>
     				<div class="col-md-6">
-      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+      					<input class="form-control" type="text" id="#" name="title" placeholder="Input...">
     				</div>
     			</div>
     			
@@ -47,14 +47,7 @@
     			<div class="form-group form-group-md">
     				<label class="col-md-3 control-label">Author/Editor</label>
     				<div class="col-md-6">
-      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
-    				</div>
-    			</div>
-    			
-    			<div class="form-group form-group-md">
-    				<label class="col-md-3 control-label">Year</label>
-    				<div class="col-md-6">
-      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+      					<input class="form-control" type="text" id="#" name="author" placeholder="Input...">
     				</div>
     			</div>
 
@@ -62,35 +55,35 @@
     			<div class="form-group form-group-md">
     				<label class="col-md-3 control-label">Publication Date</label>
     				<div class="col-md-6">
-      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+      					<input class="form-control" type="text" id="#" name="publicationdate" placeholder="Input...">
     				</div>
     			</div>
     			
     			<div class="form-group form-group-md">
     				<label class="col-md-3 control-label">Venues</label>
     				<div class="col-md-6">
-      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+      					<input class="form-control" type="text" id="#" name="venues" placeholder="Input...">
     				</div>
     			</div>
     			
     			<div class="form-group form-group-md">
     				<label class="col-md-3 control-label">Price</label>
     				<div class="col-md-6">
-      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+      					<input class="form-control" type="text" id="#" name="price" placeholder="Input...">
     				</div>
     			</div>
     			
     			<div class="form-group form-group-md">
     				<label class="col-md-3 control-label">Quantity</label>
     				<div class="col-md-6">
-      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+      					<input class="form-control" type="text" id="#" name="quantity" placeholder="Input...">
     				</div>
     			</div>
     			
     			<div class="form-group form-group-md">
     				<label class="col-md-3 control-label">Image</label>
     				<div class="col-md-6">
-      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+      					<input class="form-control" type="text" id="#" name="image" placeholder="Input...">
     				</div>
     			</div>
     			

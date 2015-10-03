@@ -62,14 +62,15 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 		        cart.getItem_id());
 		if (exist_cart == null) {
 			// save
-			String sql = "INSERT INTO `cart` (`user_id`, `item_id`, `count`, `removed`) VALUES (?, ?, ?, ?)";
+			String sql = "INSERT INTO `cart` (`user_id`, `item_id`, `count`, `added`, `removed`) VALUES (?, ?, ?, ?, ?)";
 			PreparedStatement preparedStatement;
 			try {
 				preparedStatement = connection.prepareStatement(sql);
 				preparedStatement.setInt(1, cart.getUser_id());
 				preparedStatement.setInt(2, cart.getItem_id());
 				preparedStatement.setInt(3, cart.getCount());
-				preparedStatement.setTimestamp(4, cart.getRemoved());
+				preparedStatement.setTimestamp(4, cart.getAdded());
+				preparedStatement.setTimestamp(5, cart.getRemoved());
 
 				preparedStatement.executeUpdate();
 			} catch (SQLException e) {
@@ -119,7 +120,7 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 		Connection connection = getConnection();
 		String sql = "SELECT i.*, c.* FROM "
 		        + "item i, user u, cart c where "
-		        + "c.user_id = u.id and c.item_id = i.id and u.id = ? and i.id = ?";
+		        + "c.user_id = u.id and c.item_id = i.id and u.id = ? and i.id = ? and c.removed = NULL ";
 
 		try {
 			PreparedStatement preparedStatement = connection

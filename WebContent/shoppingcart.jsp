@@ -4,13 +4,14 @@
 <%@ page import="java.util.*"%>
 <%@ page import="service.CartService" %>
 <%@ page import="dto.User" %>
+<%@ page import="dto.Cart" %>
 
 
 <%
 	String loginBool = (String) session.getAttribute("login");
 	User user = (User) session.getAttribute("user");
 	CartService cartService = new CartService();
-	List<Item> elements = cartService.getExistedItemInCart(user.getId());
+	List<Cart> elements = cartService.getExistedCart(user.getId());
 	int totalPage = (int) Math.ceil((elements.size() / 10) + 1);
 %>
  
@@ -102,19 +103,21 @@ input[type="checkbox"] {
 							<th>Title</th>
 							<th>Author/Editor</th>
 							<th>Price</th>
+							<th>Quantity</th>
 							<th>Seller</th>
 						</tr>
 					</thead>
 					<tbody>
 			<%
-				for (Item element : elements) {
+				for (Cart element : elements) {
 			%>
 			<tr class="dblp-item">
 				<td><input type="checkbox" name="pick" value="<%=element.getId()%>"></td>
-				<td><a href="detail.jsp?id=<%=element.getId()%>"> <%=element.getTitle()%></a></td>
-				<td><%=element.getAuthors().toString()%></td>
-				<td><%=element.getPrice()%></td>
-				<td><%=element.getSeller()%></td>
+				<td><a href="detail.jsp?id=<%=element.getItem_id()%>"> <%=element.getItem().getTitle()%></a></td>
+				<td><%=element.getItem().getAuthors().toString()%></td>
+				<td><%=element.getItem().getPrice()%></td>
+				<td><%=element.getCount()%></td>
+				<td><%=element.getItem().getSeller().getUsername()%></td>
 			</tr>
 		
 			<%

@@ -73,8 +73,11 @@ public class CartService {
 			cart.setUser_id(user_id);
 			cart.setItem_id(item_id);
 			cart.setCount(1);
+			cart.setAdded(new Timestamp(System.currentTimeMillis()));
 		}
-		cart.setCount(cart.getCount() + 1);
+		else {
+			cart.setCount(cart.getCount() + 1);
+		}
 		cartDao.saveOrUpdate(cart);
 	}
 	public void removeCart(int user_id, int item_id) {

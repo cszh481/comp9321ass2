@@ -84,13 +84,13 @@ input[type="checkbox"] {
 	%>
 
 
-	<form action="do" method="get">
+	<form action="do" method="get" name="myForm">
 	<div class="panel panel-info">
 			<div class="panel-heading">
 				<h3 class="panel-title">Search Result</h3>
 			</div>
 	<div class="panel-body">
-		<input type="hidden" name="servlet" value="onDel" />
+		<input type="hidden" name="action" value="edit">
 		<table class="table table-striped">
 					<col width="5%" />
 					<col width="50%" />
@@ -130,9 +130,9 @@ input[type="checkbox"] {
 	</div>
 	
 	<div class="row" style="padding-top: 40px">
-			<div class="col-md-6 col-md-offset-3" align="center">
-			<button class="btn btn-danger" type="submit">Remove from Shopping cart</button>
-			<a class="btn btn-primary" href="home.jsp">Back to search</a>
+		<div class="col-md-6 col-md-offset-3" align="center">
+			<button class="btn btn-danger" type="button" name="delBtn" value="remove" onclick="submitFun('del');">Remove from Shopping cart</button>
+			<button class="btn btn-danger" type="button" name="payBtn" value="pay" onclick="submit('pay');">Pay for Selected</button>
 		</div>
 	</div>
 
@@ -214,5 +214,13 @@ input[type="checkbox"] {
 	});
 
 	showCurrentPage();
+</script>
+
+<script type="text/javascript">
+function submitFun(act)
+{
+myForm.action.value = act;
+myForm.submit();
+}
 </script>
 

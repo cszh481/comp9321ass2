@@ -16,13 +16,12 @@
 <script src="JS/register.js"></script>
 
 
-<title>The Book Store - Admin Home</title>
+<title>The Book Store - Check on users</title>
 </head>
 <body>
 
 	<!-- CHOOSE JSP DEPENDS ON AUTHORITY -->
 
-	<!-- before login -->
 	<% if (loginBool == "true") {%>	
 		<!-- after login -->
 		<jsp:include page="adminheader.jsp" />		
@@ -36,7 +35,7 @@
 			<div class="row">
 				<div class="col-md-8 col-md-offset-4">
 					<br>
-					<h1>Admin Home</h1>
+					<h1>Check on Users</h1>
 				</div>
 			</div>
 		</div>
@@ -45,14 +44,6 @@
 
 	<div class="container theme-showcase" role="main">
 
-		<div class="row">
-			<div class="col-md-3 col-md-offset-4" align="center">
-				<a class="btn btn-primary" href="adminItems.jsp" title=""> <span
-					class="icon"></span> <span class="text">Items for Sale</span>
-				</a>
-			</div>
-		</div>
-		
 		<div class="row" style="padding-top: 40px">
 			<div class="col-md-3 col-md-offset-4" align="center">
 				<a class="btn btn-primary" href="adminUsers.jsp" title=""> <span

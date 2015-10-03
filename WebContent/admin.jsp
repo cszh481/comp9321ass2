@@ -22,10 +22,9 @@
 
 	<!-- CHOOSE JSP DEPENDS ON AUTHORITY -->
 
-	<!-- before login -->
 	<% if (loginBool == "true") {%>	
 		<!-- after login -->
-		<jsp:include page="customerheader.jsp" />		
+		<jsp:include page="adminheader.jsp" />		
 	<%} else {%>
 		<!-- before login -->
 		<jsp:include page="loginheader.jsp" />
@@ -41,8 +40,22 @@
 			</div>
 		</div>
 	</div>
+	
+	
+	<!-- after log in - same account can't see log in page again -->
+ <% if (loginBool == "true") {%>
+    <!-- after login -->
+        <div class="container theme-showcase" role="main">
+            <div class="row" style="margin: 40px" align="center">
+            	<div class="col-md-8 col-md-offset-1">
+                	<h1><span class="glyphicon glyphicon-exclamation-sign"></span> Already Log in!</h1>
+                </div>
+            </div>
+        </div>
 
+<% } else {%>
 
+	<!-- before login -->
 	<div class="container theme-showcase" role="main">
 
 
@@ -79,10 +92,7 @@
 
 	</div>
 
-
-
-
-
+<% } %>
 
 	<!-- Footer -->
 	<jsp:include page="footer.jsp" />

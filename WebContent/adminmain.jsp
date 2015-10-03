@@ -22,7 +22,6 @@
 
 	<!-- CHOOSE JSP DEPENDS ON AUTHORITY -->
 
-	<!-- before login -->
 	<% if (loginBool == "true") {%>	
 		<!-- after login -->
 		<jsp:include page="adminheader.jsp" />		

@@ -16,7 +16,7 @@
 <script src="JS/register.js"></script>
 
 
-<title>The Book Store - Admin Home</title>
+<title>The Book Store - Items for Sale</title>
 </head>
 <body>
 
@@ -36,14 +36,13 @@
 			<div class="row">
 				<div class="col-md-8 col-md-offset-4">
 					<br>
-					<h1>Admin Home</h1>
+					<h1>Items for Sale</h1>
 				</div>
 			</div>
 		</div>
 	</div>
 
-    <% if (loginBool == "true") { %>
-    <!-- after login -->
+
 	<div class="container theme-showcase" role="main">
 
 		<div class="row">
@@ -53,28 +52,12 @@
 				</a>
 			</div>
 		</div>
-		
-		<div class="row" style="padding-top: 40px">
-			<div class="col-md-3 col-md-offset-4" align="center">
-				<a class="btn btn-primary" href="adminUsers.jsp" title=""> <span
-					class="icon"></span> <span class="text">Manage Users</span>
-				</a>
-			</div>
-		</div>
+
 
 
 	</div>
 
-    <%} else {%>
-    <!-- before login -->
-        <div class="container theme-showcase" role="main">
-            <div class="row" style="margin: 40px" align="center">
-            	<div class="col-md-8 col-md-offset-1">
-                	<h1>Please Login!</h1>
-                </div>
-            </div>
-        </div>
-    <% } %>
+
 
 
 

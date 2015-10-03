@@ -115,7 +115,9 @@
 			</div>
 		</div>
 
-
+	<%
+		if (loginBool == "true") {
+	%>
 		<div class="row" style="padding-top: 40px">
 			<div class="col-md-3 col-md-offset-4" align="center">
 				<form action="control" method="get">
@@ -126,7 +128,7 @@
 			</div>
 		</div>
 
-
+	<% } %>
 
 
 	</div>

@@ -115,7 +115,7 @@
         <div class="container theme-showcase" role="main">
             <div class="row" style="margin: 40px" align="center">
             	<div class="col-md-8 col-md-offset-1">
-                	<h1>Please Login!</h1>
+                	<h1><span class="glyphicon glyphicon-exclamation-sign"></span> Please Log in!</h1>
                 </div>
             </div>
         </div>

@@ -105,7 +105,11 @@
 							</tr>
 							<tr>
 								<td>Price</td>
-								<td>Price</td>
+								<td>getPrice</td>
+							</tr>
+							<tr>
+								<td>Seller</td>
+								<td>getSeller</td>
 							</tr>
 						</table>
 					</div>

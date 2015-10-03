@@ -60,6 +60,8 @@
                             <button type="submit" class="btn btn-default">Submit</button>
                         </div>
                     </form>
+                    
+                    <p style="text-align:right; margin-right:20px;">Don't have an account? <a href="registration.jsp"> Sign up now </a> </p>
 
 
                 </div>

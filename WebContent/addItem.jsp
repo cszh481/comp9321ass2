@@ -15,7 +15,7 @@
 		<!-- CHOOSE JSP DEPENDS ON AUTHORITY -->
 
 		<!-- before login -->
-		<jsp:include page="loginheader.jsp" />
+		<jsp:include page="customerheader.jsp" />
 		
         <div class="jumbotron">
             <div class="container">

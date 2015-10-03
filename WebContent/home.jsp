@@ -17,9 +17,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
     <!-- Bootstrap Core CSS -->
-	<link type="text/css" rel="stylesheet" href="CSS/bootstrap.min.css">
-	<link type="text/css" rel="stylesheet" href="CSS/bootstrap.css">
-	
+	<jsp:include page="headerjsp.jsp" />
 	
 <title>The Book Store</title>
 </head>

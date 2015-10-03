@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <!-- Bootstrap Core CSS -->
-<link type="text/css" rel="stylesheet" href="CSS/bootstrap.min.css">
+<jsp:include page="headerjsp.jsp" />
 <script src="JS/jquery.js"></script>
 <script src="JS/register.js"></script>
 

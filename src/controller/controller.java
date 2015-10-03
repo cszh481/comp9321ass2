@@ -124,6 +124,17 @@ public class controller extends HttpServlet {
             request.setAttribute("elements", elements);
             nextPage = "result.jsp";
         }
+        else if(action.equals("advsearch")){
+            ItemService itemService = new ItemService();
+            List<Item> elements = null;
+            try {
+                elements = itemService.advSearch(request);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            request.setAttribute("elements", elements);
+            nextPage = "result.jsp";
+        }
         RequestDispatcher rd = request.getRequestDispatcher("/"+nextPage);
         rd.forward(request, response);
         //        try {

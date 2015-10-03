@@ -13,17 +13,11 @@
                         <splan class="icon-bar"></splan> 
                         <splan class="icon-bar"></splan> 
                     </button> 
-                    <a class="navbar-brand" href="home.jsp"><span class="glyphicon glyphicon-home"></span> Home</a> 
-                    <a class="navbar-brand" href="advsearch.jsp"><span class="glyphicon glyphicon-search"></span> Advance Search</a>
-                    <form class="navbar-form navbar-right"> 
-                        <input type="text" class="form-control" placeholder="search..."> 
-                        <button type="submit" class="btn btn-primary">Search</button> 
-                    </form>
+                    <a class="navbar-brand" href="adminmain.jsp"><span class="glyphicon glyphicon-home"></span> Admin Home</a> 
                 </div>
             
                 <div id="navbar" class="navbar-collapse collapse"> 
                     <ul class="nav navbar-nav navbar-right"> 
-                        <li><a href="adminmain.jsp"><span class="glyphicon glyphicon-user"></span> Admin</a></li> 
                         <li><a href="control?action=logout"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
                     </ul>  
                 </div>

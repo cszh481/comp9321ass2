@@ -19,8 +19,8 @@
             
                 <div id="navbar" class="navbar-collapse collapse"> 
                     <ul class="nav navbar-nav navbar-right"> 
-                        <li><a href="#" data-toggle="modal" data-target="#myModal">Sign in</a></li> 
-                        <li><a href="registration.jsp">Sign up</a></li> 
+                        <li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-log-in"></span> Sign in</a></li> 
+                        <li><a href="registration.jsp"><span class="glyphicon glyphicon-education"></span> Sign up</a></li> 
                         
                     </ul>  
                 </div>

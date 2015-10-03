@@ -19,10 +19,10 @@
             
                 <div id="navbar" class="navbar-collapse collapse"> 
                     <ul class="nav navbar-nav navbar-right"> 
-                        <li><a href="profile.jsp">My Profile</a></li> 
-                        <li><a href="shoppingcart.jsp">Shopping Cart</a></li>
-                        <li><a href="store.jsp">My Store</a></li>
-                        <li><a href="control?action=logout">Log Out</a></li>
+                        <li><a href="profile.jsp"><span class="glyphicon glyphicon-user"></span> My Profile</a></li> 
+                        <li><a href="shoppingcart.jsp"><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</a></li>
+                        <li><a href="store.jsp"><span class="glyphicon glyphicon-book"></span> My Store</a></li>
+                        <li><a href="control?action=logout"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
                     </ul>  
                 </div>
             </div> 

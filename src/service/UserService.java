@@ -91,7 +91,8 @@ public class UserService {
 		if (exist_user != null) {
 			return false;
 		}
-
+		user.setBan(false);
+		user.setVerified(false);
 		user.setUuid(UUID.randomUUID().toString());
         user.setPassword(MD5.MD5(user.getPassword()+user.getUuid()));
 		userDao.saveOrUpdate(user);
@@ -118,8 +119,30 @@ public class UserService {
 		return user;
 	}
 
+	public boolean editProfile(User user) throws MessagingException {
+		User originuser = userDao.getUserById(user.getId());
+		if (user.getPassword() == null || user.getPassword().equals("")){
+
+			user.setPassword(originuser.getPassword());
+		}
+		else {
+			user.setPassword(MD5.MD5(user.getPassword()+user.getUuid()));
+		}
+		user.setUsername(originuser.getUsername());
+		user.setBan(originuser.isBan());
+		user.setVerified(originuser.isVerified());
+		userDao.saveOrUpdate(user);
+		return true;
+	}
+
     public User makeUserbyRequest (HttpServletRequest request){
 		User user = new User();
+		if (request.getParameter("id") != null && !request.getParameter("id").equals("")) {
+			user.setId(Integer.parseInt(request.getParameter("id")));
+		}
+		else {
+			user.setId(0);
+		}
 		if (request.getParameter("username") != null && !request.getParameter("username").equals("")) {
 			user.setUsername(request.getParameter("username"));
 		}
@@ -147,8 +170,6 @@ public class UserService {
 		if (request.getParameter("nickname") != null && !request.getParameter("nickname").equals("")) {
             user.setNickname(request.getParameter("nickname"));
 		}
-        user.setBan(false);
-        user.setVerified(false);
         return user;
     }
 

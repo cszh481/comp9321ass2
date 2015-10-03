@@ -1,8 +1,10 @@
+<%@ page import="dto.User" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	
 <%
 	String loginBool = (String) session.getAttribute("login");
+    User user = (User) session.getAttribute("user");
 %>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -42,17 +44,17 @@
 		</div>
 	</div>
 
-
+    <% if (loginBool == "true") {%>
 	<div class="container theme-showcase" role="main">
 
-		<form action="#" method="GET">
+		<form action="control" method="post">
 
 			<div class="container">
 
 				<div class="row">
 					<div class="col-md-4 col-md-offset-4">
-						<label for="#">Username</label> <input type="text" id="username" name="#"
-							class="form-control" placeholder="username...">
+						<label for="#">Username</label>
+                        <%=user.getUsername()%>
 						<div></div>
 					</div>
 				</div>
@@ -60,24 +62,31 @@
 				<div class="row">
 					<div class="col-md-4 col-md-offset-4">
 						<label for="#">Password</label> <input type="password" id="password"
-							name="#" class="form-control" placeholder="password...">
+							name="password" class="form-control" placeholder="password...">
 						<div></div>
 					</div>
 				</div>
 
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <label for="#">Confirm Password</label>
+                        <input type="password" id="password2" name="#" class="form-control" placeholder="password...">
+                        <div></div>
+                    </div>
+                </div>
 
 				<div class="row">
 					<div class="col-md-4 col-md-offset-4">
-						<label for="#">E-mail</label> <input type="text" id="email" name="#"
-							class="form-control" placeholder="e-mail...">
+						<label for="#">E-mail</label>
+                        <input type="text" id="email" name="email" class="form-control" value="<%=user.getEmail()%>">
 						<div></div>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="col-md-4 col-md-offset-4">
-						<label for="#">Nickname</label> <input type="text" id="nickname" name="#"
-							class="form-control" placeholder="nickname...">
+						<label for="#">Nickname</label> <input type="text" id="nickname" name="nickname"
+							class="form-control" value="<%=user.getNickname()%>">
 						<div></div>
 					</div>
 				</div>
@@ -85,7 +94,7 @@
 				<div class="row">
 					<div class="col-md-4 col-md-offset-4">
 						<label for="#">First Name</label> <input type="text" id="fistname"
-							name="#" class="form-control" placeholder="first name...">
+							name="fistname" class="form-control" value="<%=user.getFirstname()%>">
 						<div></div>
 					</div>
 				</div>
@@ -93,7 +102,7 @@
 				<div class="row">
 					<div class="col-md-4 col-md-offset-4">
 						<label for="#">Last Name</label> <input type="text" id="lastname"
-							name="#" class="form-control" placeholder="last name...">
+							name="lastname" class="form-control" value="<%=user.getLastname()%>">
 						<div></div>
 					</div>
 				</div>
@@ -101,15 +110,15 @@
 				<div class="row">
 					<div class="col-md-4 col-md-offset-4">
 						<label for="#">Year of Birth</label> <input type="text" id="yob"
-							name="#" class="form-control" placeholder="year of birth...">
+							name="birthyear" class="form-control" value="<%=user.getBirthyear()%>">
 						<div></div>
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="col-md-4 col-md-offset-4">
-						<label for="#">Address</label> <input type="text" id="address" name="#"
-							class="form-control" placeholder="address...">
+						<label for="#">Address</label> <input type="text" id="address" name="address"
+							class="form-control" value="<%=user.getAddress()%>">
 						<div></div>
 					</div>
 				</div>
@@ -117,30 +126,33 @@
 				<div class="row">
 					<div class="col-md-4 col-md-offset-4">
 						<label for="#">Credit Card Number</label> <input type="text"
-							id="creditcard" name="#" class="form-control"
-							placeholder="credit card number...">
+							id="creditcard" name="creditcard" class="form-control"
+							value="<%=user.getCreditcard()%>">
 						<div></div>
 					</div>
 				</div>
 
 				<div class="row" style="padding-top: 40px">
 					<div class="col-md-4 col-md-offset-4" align="center">
+                        <input type="hidden" name="action" value="editprofile">
+                        <input type="hidden" name="id" value="<%=user.getId()%>">
 						<button type="submit" class="btn btn-warning">Edit</button>
 					</div>
 				</div>
-
-
 			</div>
 
 		</form>
-
-
-
-
-
-
 	</div>
-
+    <%} else {%>
+    <!-- before login -->
+    <div class="container theme-showcase" role="main">
+        <div class="row" style="margin: 40px" align="center">
+            <div class="col-md-8 col-md-offset-1">
+                <h1>Please Login!</h1>
+            </div>
+        </div>
+    </div>
+    <% } %>
 
 
 	<!-- Footer -->

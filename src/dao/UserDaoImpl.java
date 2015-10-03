@@ -207,6 +207,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 		user.setBan(rs.getBoolean("ban"));
 		user.setVerified(rs.getBoolean("verified"));
 		user.setUuid(rs.getString("uuid"));
+		user.setNickname(rs.getString("nickname"));
 		return user;
 	}
 

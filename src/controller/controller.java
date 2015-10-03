@@ -91,6 +91,16 @@ public class controller extends HttpServlet {
                 e.printStackTrace();
             }
         }
+        else if(action.equals("editprofile")){
+            UserService userService = new UserService();
+            User user = userService.makeUserbyRequest(request);
+            try {
+                userService.editProfile(user);
+            } catch (MessagingException e) {
+                e.printStackTrace();
+            }
+            nextPage = "profile.jsp";
+        }
         RequestDispatcher rd = request.getRequestDispatcher("/"+nextPage);
         rd.forward(request, response);
         //        try {

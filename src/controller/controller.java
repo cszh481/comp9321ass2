@@ -9,6 +9,7 @@ import service.UserService;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.List;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.servlet.RequestDispatcher;
@@ -116,6 +117,12 @@ public class controller extends HttpServlet {
             int itemId = Integer.parseInt(request.getParameter("itemId"));
             cartService.addToCart(userId,itemId);
             nextPage = "shoppingcart.jsp";
+        }
+        else if(action.equals("basicsearch")){
+            ItemService itemService = new ItemService();
+            List<Item> elements = itemService.basicSearch(request.getParameter("keyword"));
+            request.setAttribute("elements", elements);
+            nextPage = "result.jsp";
         }
         RequestDispatcher rd = request.getRequestDispatcher("/"+nextPage);
         rd.forward(request, response);

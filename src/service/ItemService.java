@@ -177,6 +177,21 @@ public class ItemService {
 		return  itemDao.getItemById(Integer.parseInt(id));
 	}
 
+	public List<Item> basicSearch (String keywords){
+		List<Item> wholeList = getAllItems();
+		List<Item> resultList = new ArrayList<>();
+		for (Item element : wholeList){
+			if(element.getTitle().toLowerCase().indexOf(keywords) != -1){
+				resultList.add(element);
+				continue;
+			}
+			if(element.getAuthors().toLowerCase().indexOf(keywords) != -1){
+				resultList.add(element);
+				continue;
+			}
+		}
+		return resultList;
+	}
 	public Item makeItemByRequest (HttpServletRequest request) throws ParseException {
 		Item item = new Item();
 		item.setId(0);

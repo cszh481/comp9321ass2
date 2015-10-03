@@ -15,8 +15,9 @@
                     </button> 
                     <a class="navbar-brand" href="home.jsp"><span class="glyphicon glyphicon-home"></span> Home</a> 
                     <a class="navbar-brand" href="advsearch.jsp"><span class="glyphicon glyphicon-search"></span> Advance Search</a>
-                    <form class="navbar-form navbar-right"> 
-                        <input type="text" class="form-control" placeholder="search..."> 
+                    <form class="navbar-form navbar-right" method="get" action="control">
+                        <input type="hidden" name="action" value="basicsearch"/>
+                        <input type="text" class="form-control" placeholder="search..."name="keyword">
                         <button type="submit" class="btn btn-primary">Search</button> 
                     </form>
                 </div>

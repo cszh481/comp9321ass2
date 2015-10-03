@@ -40,9 +40,10 @@
                         <h1>Hello World!</h1>
                         
                         <div class="row">
-                            <form class="form-inline">
+                            <form class="form-inline"method="get" action="control">
                                 <div class="col-md-10">
-                                    <input type="text" class="form-control" placeholder="search...">
+                                    <input type="hidden" name="action" value="basicsearch"/>
+                                    <input type="text" class="form-control" placeholder="search..." name="keyword">
                                     <button type="submit" class="btn btn-success">Search</button>
                                
                                     <a class="btn btn-primary" href="advsearch.jsp" title="">

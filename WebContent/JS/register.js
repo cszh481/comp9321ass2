@@ -2,7 +2,7 @@ $(document)
 		.ready(
 				function() {
 
-					$('form')
+					$('#registerform')
 							.submit(
 									function(e) {
 										var username = $('#username').val();
@@ -11,7 +11,6 @@ $(document)
 											return false;
 										}
 										var password = $('#password').val();
-
 										if (password == "") {
 											alert("Password can not be empty");
 											return false;

@@ -10,12 +10,12 @@ $(document)
 											alert("Username can not be empty");
 											return false;
 										}
-										var password = $('#password').val();
-
-										if (password == "") {
-											alert("Password can not be empty");
-											return false;
-										}
+//										var password = $('#password').val();
+//
+//										if (password == "") {
+//											alert("Password can not be empty");
+//											return false;
+//										}
 
 										var email = $('#email').val();
 										if (email == "") {

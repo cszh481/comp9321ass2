@@ -3,6 +3,7 @@ import dto.Item;
 import dto.User;
 import exception.UserBannedException;
 import exception.UserUnVerifiedException;
+import service.CartService;
 import service.ItemService;
 import service.UserService;
 
@@ -106,6 +107,15 @@ public class controller extends HttpServlet {
             Item item = itemService.getItemById(request.getParameter("id"));
             request.setAttribute("detail", item);
             nextPage = "detail.jsp";
+        }
+        else if(action.equals("addtocart")){
+            CartService cartService = new CartService();
+            HttpSession session = request.getSession();
+            User user = (User) session.getAttribute("user");
+            int userId = user.getId();
+            int itemId = Integer.parseInt(request.getParameter("itemId"));
+            cartService.addToCart(userId,itemId);
+            nextPage = "shoppingcart.jsp";
         }
         RequestDispatcher rd = request.getRequestDispatcher("/"+nextPage);
         rd.forward(request, response);

@@ -1,14 +1,17 @@
 <%@ page import="dto.Item"%>
-<%@ page import="service.ItemService"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.*"%>
+<%@ page import="service.CartService" %>
+<%@ page import="dto.User" %>
 
 
 <%
 	String loginBool = (String) session.getAttribute("login");
-	List<Item> elements = (List<Item>) request.getAttribute("shoppingcart");
-	int totalPage = (int) Math.ceil(elements.size() / 10);
+	User user = (User) session.getAttribute("user");
+	CartService cartService = new CartService();
+	List<Item> elements = cartService.getExistedItemInCart(user.getId());
+	int totalPage = (int) Math.ceil((elements.size() / 10) + 1);
 %>
  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

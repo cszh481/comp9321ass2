@@ -118,8 +118,9 @@
 
 		<div class="row" style="padding-top: 40px">
 			<div class="col-md-3 col-md-offset-4" align="center">
-				<form action="do">
-					<input type="hidden" name="servlet" value="onAdd" />
+				<form action="control" method="get">
+                    <input type="hidden" name="itemId" value="<%=detialItem.getId()%>">
+					<input type="hidden" name="action" value="addtocart" />
 					<button class="btn btn-primary" type="submit">Add to Cart</button>
 				</form>
 			</div>

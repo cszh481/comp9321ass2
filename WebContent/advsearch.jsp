@@ -99,9 +99,14 @@
 						</select>
     				</div>
     			</div>
+    			
+    			
     			<div class="form-group form-group-md">
     				<label class="col-md-3 control-label">Price</label>
-    				<div class="col-md-6">
+    				<div class="col-md-3">
+      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				</div>
+    				<div class="col-md-3">
       					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
     				</div>
     			</div>

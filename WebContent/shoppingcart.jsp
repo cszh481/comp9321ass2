@@ -131,14 +131,10 @@ input[type="checkbox"] {
 	
 	<div class="row" style="padding-top: 40px">
         <div class="col-md-6 col-md-offset-3" align="center">
-            <form action="control" method="post">
                 <input type="hidden" name="action" value="rmshoppingcart"/>
                 <button class="btn btn-danger" type="submit">Remove from Shopping cart</button>
-            </form>
-            <form action="control" method="post">
                 <input type="hidden" name="action" value="rmshoppingcart"/>
-                <button class="btn btn-danger" type="submit">Make an order</button>
-            </form>
+                <button class="btn btn-primary" type="submit">Pay for select</button>
 		</div>
 	</div>
 

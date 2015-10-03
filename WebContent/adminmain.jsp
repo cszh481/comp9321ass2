@@ -47,7 +47,7 @@
 
 		<div class="row">
 			<div class="col-md-3 col-md-offset-4" align="center">
-				<a class="btn btn-primary" href="adminItems.jsp" title=""> <span
+				<a class="btn btn-primary" href="adminItemsSearch.jsp" title=""> <span
 					class="icon"></span> <span class="text">Items for Sale</span>
 				</a>
 			</div>

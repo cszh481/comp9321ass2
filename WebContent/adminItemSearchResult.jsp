@@ -97,17 +97,12 @@ input[type="checkbox"] {
 		<form action="do" method="get">
 		<div class="panel panel-info">
 			<div class="panel-heading">
-				<h3 class="panel-title">Search Result</h3>
+				<h3 class="panel-title">Admin Search Result</h3>
 			</div>
 			<div class="panel-body">
 			
 				<input type="hidden" name="servlet" value="onAdd" />
 				<table class="table table-striped">
-					<col width="5%" />
-					<col width="60%" />
-					<col width="25%" />
-					<col width="5%" />
-					<col width="5%" />
 					<thead>
 						<tr>
 							<th>#</th>
@@ -115,6 +110,7 @@ input[type="checkbox"] {
 							<th>Author/Editor</th>
 							<th>Price</th>
 							<th>Quantity</th>
+							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -128,7 +124,9 @@ input[type="checkbox"] {
 					<td><%=element.getAuthors().toString()%></td>
 					<td><%=element.getPrice()%></td>
 					<td><%=element.getQuantity()%></td>
-
+					<input type="hidden" name="id" value="<%=element.getId()%>">
+                    <input type="hidden" name="action" value="remove">
+                    <td><button type="submit" class="btn btn-xs btn-warning">Remove</button></td>
 				</tr>
 			<%
 				}
@@ -140,14 +138,6 @@ input[type="checkbox"] {
 			</div>
 		</div>
 
-
-
-		<div class="row" style="padding-top: 40px">
-			<div class="col-md-3 col-md-offset-4" align="center">
-					<input type="hidden" name="servlet" value="onAdd" />
-					<button class="btn btn-primary" type="submit">Add to Cart</button>
-			</div>
-		</div>
 
 	</form>
 	
@@ -173,18 +163,7 @@ input[type="checkbox"] {
 	</div>
 
 	<% } %>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			
 
 	</div>
 	

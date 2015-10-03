@@ -62,6 +62,10 @@ public class controller extends HttpServlet {
                 e.printStackTrace();
             }
         }
+        else if(action.equals("logout")){
+            HttpSession session = request.getSession();
+            session.invalidate();
+        }
         else if(action.equals("pauseItem")){
             ItemService itemService = new ItemService();
             itemService.pauseItem(request.getParameter("id"));

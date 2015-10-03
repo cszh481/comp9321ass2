@@ -57,14 +57,7 @@
       					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
     				</div>
     			</div>
-    			
-    			
-    			<div class="form-group form-group-md">
-    				<label class="col-md-3 control-label">Publication Type</label>
-    				<div class="col-md-6">
-      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
-    				</div>
-    			</div>
+
     			
     			<div class="form-group form-group-md">
     				<label class="col-md-3 control-label">Publication Date</label>
@@ -88,6 +81,13 @@
     			</div>
     			
     			<div class="form-group form-group-md">
+    				<label class="col-md-3 control-label">Quantity</label>
+    				<div class="col-md-6">
+      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				</div>
+    			</div>
+    			
+    			<div class="form-group form-group-md">
     				<label class="col-md-3 control-label">Image</label>
     				<div class="col-md-6">
       					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
@@ -100,7 +100,7 @@
 			
 			
 				<div class="form-group form-group-md">
-    				<label class="col-md-3 control-label">Title</label>
+    				<label class="col-md-3 control-label">Publication Type</label>
     				<div class="col-md-6">
       					<select name="typesearch" id="searchaction" class="form-control">
 						<option value="article">journal</option>

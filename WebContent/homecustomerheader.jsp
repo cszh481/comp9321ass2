@@ -13,8 +13,8 @@
                         <splan class="icon-bar"></splan> 
                         <splan class="icon-bar"></splan> 
                     </button> 
-                    <a class="navbar-brand" href="home.jsp">Home</a> 
-                    <a class="navbar-brand" href="advsearch.jsp">Advance Search</a>
+                    <a class="navbar-brand" href="home.jsp"><span class="glyphicon glyphicon-home"></span> Home</a> 
+                    <a class="navbar-brand" href="advsearch.jsp"><span class="glyphicon glyphicon-search"></span> Advance Search</a>
                 </div>
             
                 <div id="navbar" class="navbar-collapse collapse"> 

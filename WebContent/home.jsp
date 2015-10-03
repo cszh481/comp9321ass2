@@ -64,7 +64,7 @@
        
         <div class="container theme-showcase" role="main">
         
-        <div class="panel panel-default">
+        <div class="panel panel-info">
             <div class="panel-heading">
                 <h3 class="panel-title">Panel title</h3>
             </div>

@@ -22,7 +22,7 @@
                         <li><a href="profile.jsp">My Profile</a></li> 
                         <li><a href="shoppingcart.jsp">Shopping Cart</a></li>
                         <li><a href="store.jsp">My Store</a></li>
-                        
+                        <li><a href="home.jsp">Log Out</a></li>
                     </ul>  
                 </div>
             </div> 

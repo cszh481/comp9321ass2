@@ -26,7 +26,14 @@
 <body>
 	
 	<!-- CHOOSE JSP DEPENDS ON AUTHORITY -->
-	<jsp:include page="customerheader.jsp" /> -->
+		<!-- CHOOSE JSP DEPENDS ON AUTHORITY -->
+	<% if (loginBool == "true") {%>	
+		<!-- after login -->
+		<jsp:include page="customerheader.jsp" />		
+	<%} else {%>
+		<!-- before login -->
+		<jsp:include page="loginheader.jsp" />
+	<% } %>
 	
 	
 	    <div class="jumbotron">
@@ -47,7 +54,7 @@
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Panel title</h3>
+                <h3 class="panel-title">Details</h3>
             </div>
             <div class="panel-body">
 
@@ -88,30 +95,35 @@
 
         </div>
         <%} else {%>
-        //
+        
         <div class="container theme-showcase" role="main">
             <div class="row" style="margin: 40px" align="center">
-                <h1>Store is Empty!</h1>
+                <div class="col-md-8 col-md-offset-1">
+                	<h1>Store is empty :(</h1>
+                </div>
             </div>
         </div>
+        <div class="col-md-4 col-md-offset-4" align="center"> 
+			 <a class="btn btn-primary" href="addItem.jsp" title="">
+               	<span class="icon"></span>
+               	<span class="text">Add New Item</span>
+             </a>
+		</div>
         <%}%>
     <%} else {%>
     <!-- before login -->
         <div class="container theme-showcase" role="main">
             <div class="row" style="margin: 40px" align="center">
-                <h1>Please Login!</h1>
+            	<div class="col-md-8 col-md-offset-1">
+                	<h1>Please Login!</h1>
+                </div>
             </div>
         </div>
     <% } %>
 
 
 		
-		<div class="col-md-4 col-md-offset-4" align="center"> 
-			 <a class="btn btn-primary" href="addItem.jsp" title="">
-               	<span class="icon"></span>
-               	<span class="text">Add New Item</span>
-             </a>
-		</div>
+		
 
 	</div>
 

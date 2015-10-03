@@ -81,7 +81,7 @@
                     <tbody>
                     <% for (Item temp : itemService.getRandom10() ){%>
                     <tr>
-                        <td><%=temp.getTitle()%></td>
+                        <td><a href="control?action=showDetail&id=<%=temp.getId()%>"><%=temp.getTitle()%></a></td>
                         <td><%=temp.getAuthors()%></td>
                         <td><%=temp.getPrice()%></td>
                         <td><%=temp.getQuantity()%></td>

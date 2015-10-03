@@ -101,6 +101,12 @@ public class controller extends HttpServlet {
             }
             nextPage = "profile.jsp";
         }
+        else if(action.equals("showDetail")){
+            ItemService itemService = new ItemService();
+            Item item = itemService.getItemById(request.getParameter("id"));
+            request.setAttribute("detail", item);
+            nextPage = "detail.jsp";
+        }
         RequestDispatcher rd = request.getRequestDispatcher("/"+nextPage);
         rd.forward(request, response);
         //        try {

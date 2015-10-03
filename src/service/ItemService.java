@@ -173,6 +173,10 @@ public class ItemService {
 		return itemDao.getAllItemsBySellerId(userId);
 	}
 
+	public Item getItemById(String id){
+		return  itemDao.getItemById(Integer.parseInt(id));
+	}
+
 	public Item makeItemByRequest (HttpServletRequest request) throws ParseException {
 		Item item = new Item();
 		item.setId(0);

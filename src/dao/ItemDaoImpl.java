@@ -193,6 +193,9 @@ public class ItemDaoImpl extends BaseDao implements ItemDao {
 		item.setPaused(rs.getBoolean("paused"));
 		item.setQuantity(rs.getInt("quantity"));
 		item.setSeller_id(rs.getInt("seller_id"));
+		item.setImageURL(rs.getString("imageURL"));
+		UserDao userDao = new UserDaoImpl();
+		item.setSeller(userDao.getUserById(rs.getInt("seller_id")));
 		return item;
 	}
 

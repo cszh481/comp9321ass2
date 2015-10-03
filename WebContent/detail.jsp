@@ -6,6 +6,7 @@
 
 <%
 	String loginBool = (String) session.getAttribute("login");
+	Item detialItem = (Item) request.getAttribute("detail");
 %>
 
 
@@ -62,7 +63,7 @@
 						<h3 class="panel-title">Book Image</h3>
 					</div>
 					<img
-						src="https://i.kinja-img.com/gawker-media/image/upload/f9m50ef7wllwnzwtiilb.jpg"
+						src="<%=detialItem.getImageURL()%>"
 						alt="Responsive image" class="img-responsive"> </img>
 				</div>
 			</div>
@@ -80,36 +81,28 @@
 							<col width="70%" />
 							<tr>
 								<td>Title</td>
-								<td>getTitle()</td>
+								<td><%=detialItem.getTitle()%></td>
 							</tr>
 							<tr>
 								<td>Author</td>
-								<td>getAuthors</td>
+								<td><%=detialItem.getAuthors()%></td>
 							</tr>
 
 							<tr>
-								<td>BookTitle</td>
-								<td>getBookTitle</td>
-							</tr>
-							<tr>
 								<td>Publication Type</td>
-								<td>getType</td>
-							</tr>
-							<tr>
-								<td>Page</td>
-								<td>getPage</td>
+								<td><%=detialItem.getTitle()%></td>
 							</tr>
 							<tr>
 								<td>Year</td>
-								<td>getYear</td>
+								<td><%=detialItem.getPublication_date()%></td>
 							</tr>
 							<tr>
 								<td>Price</td>
-								<td>getPrice</td>
+								<td><%=detialItem.getPrice()%></td>
 							</tr>
 							<tr>
 								<td>Seller</td>
-								<td>getSeller</td>
+								<td><%=detialItem.getSeller().getUsername()%></td>
 							</tr>
 						</table>
 					</div>

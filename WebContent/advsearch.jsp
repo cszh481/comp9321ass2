@@ -48,78 +48,77 @@
         <form action="control" method="GET" class="form-horizontal">
         
         	<div class="container">
-        	
-        		<div class="form-group form-group-md">
-    				<label class="col-md-3 control-label">Title</label>
-    				<div class="col-md-6">
-      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
-    				</div>
-    			</div>
-    			
-    			
-    			<div class="form-group form-group-md">
-    				<label class="col-md-3 control-label">Author/Editor</label>
-    				<div class="col-md-6">
-      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
-    				</div>
-    			</div>
-    			
-    			<div class="form-group form-group-md">
-    				<label class="col-md-3 control-label">Year</label>
-    				<div class="col-md-6">
-      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
-    				</div>
-    			</div>
-    			
-    			
-    			<div class="form-group form-group-md">
-    				<label class="col-md-3 control-label">Publication Type</label>
-    				<div class="col-md-6">
-      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
-    				</div>
-    			</div>
-    			
-    			<div class="form-group form-group-md">
-    				<label class="col-md-3 control-label">Publication Date</label>
-    				<div class="col-md-6">
-      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
-    				</div>
-    			</div>
-    			
-    			<div class="form-group form-group-md">
-    				<label class="col-md-3 control-label">Venues</label>
-    				<div class="col-md-6">
-      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
-    				</div>
-    			</div>
-    			
-    			<div class="form-group form-group-md">
-    				<label class="col-md-3 control-label">Price</label>
-    				<div class="col-md-6">
-      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
-    				</div>
-    			</div>
-			
-			<!------- type search bar --------->
-			
-			
 				<div class="form-group form-group-md">
-    				<label class="col-md-3 control-label">Title</label>
-    				<div class="col-md-6">
-      					<select name="typesearch" id="searchaction" class="form-control">
-						<option value="article">journal</option>
-						<option value="inproceedings">conference</option>
-						<option value="proceedings">editorship</option>
-						<option value="book">book</option>
-						<option value="incollection">collection</option>
-						<option value="phdthesis">phdthesis</option>
-						<option value="mastersthesis">masterthesis</option>
-						<option value="www">webpage</option>				
+					<label class="col-md-3 control-label">Title</label>
+					<div class="col-md-6">
+						<input class="form-control" type="text" id="#" name="title" placeholder="Input...">
+					</div>
+				</div>
+
+
+				<div class="form-group form-group-md">
+					<label class="col-md-3 control-label">Author/Editor</label>
+					<div class="col-md-6">
+						<input class="form-control" type="text" id="#" name="author" placeholder="Input...">
+					</div>
+				</div>
+
+
+				<div class="form-group form-group-md">
+					<label class="col-md-3 control-label">Publication Date</label>
+					<div class="col-md-6">
+						<input class="form-control" type="text" id="#" name="publicationdate" placeholder="Input...">
+					</div>
+				</div>
+
+				<div class="form-group form-group-md">
+					<label class="col-md-3 control-label">Venues</label>
+					<div class="col-md-6">
+						<input class="form-control" type="text" id="#" name="venues" placeholder="Input...">
+					</div>
+				</div>
+
+				<div class="form-group form-group-md">
+					<label class="col-md-3 control-label">Price</label>
+					<div class="col-md-6">
+						<input class="form-control" type="text" id="#" name="price" placeholder="Input...">
+					</div>
+				</div>
+
+				<div class="form-group form-group-md">
+					<label class="col-md-3 control-label">Quantity</label>
+					<div class="col-md-6">
+						<input class="form-control" type="text" id="#" name="quantity" placeholder="Input...">
+					</div>
+				</div>
+
+				<div class="form-group form-group-md">
+					<label class="col-md-3 control-label">Image</label>
+					<div class="col-md-6">
+						<input class="form-control" type="text" id="#" name="image" placeholder="Input...">
+					</div>
+				</div>
+
+
+
+				<!------- type search bar --------->
+
+
+				<div class="form-group form-group-md">
+					<label class="col-md-3 control-label">Publication Type</label>
+					<div class="col-md-6">
+						<select name="typesearch" id="searchaction" class="form-control">
+							<option value="article">journal</option>
+							<option value="inproceedings">conference</option>
+							<option value="proceedings">editorship</option>
+							<option value="book">book</option>
+							<option value="incollection">collection</option>
+							<option value="phdthesis">phdthesis</option>
+							<option value="mastersthesis">masterthesis</option>
+							<option value="www">webpage</option>
 						</select>
-    				</div>
-    			</div>
-			
-			
+					</div>
+				</div>
 			
 			
 				<div class="row" style="padding-top: 40px">

@@ -66,7 +66,10 @@
     			
     			<div class="form-group form-group-md">
     				<label class="col-md-3 control-label">Year</label>
-    				<div class="col-md-6">
+    				<div class="col-md-3">
+      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+    				</div>
+    				<div class="col-md-3">
       					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
     				</div>
     			</div>
@@ -89,10 +92,13 @@
     			<div class="form-group form-group-md">
     				<label class="col-md-3 control-label">Venues</label>
     				<div class="col-md-6">
-      					<input class="form-control" type="text" id="#" name="#" placeholder="Input...">
+      					<select name="typesearch" id="searchaction" class="form-control">
+						<option value="bmp">BPM</option>
+						<option value="vldb">VLDB</option>
+						<option value="www">WWW</option>			
+						</select>
     				</div>
     			</div>
-    			
     			<div class="form-group form-group-md">
     				<label class="col-md-3 control-label">Price</label>
     				<div class="col-md-6">
@@ -100,11 +106,11 @@
     				</div>
     			</div>
 			
-			<!------- type search bar --------->
+				<!------- type search bar --------->
 			
 			
 				<div class="form-group form-group-md">
-    				<label class="col-md-3 control-label">Title</label>
+    				<label class="col-md-3 control-label">Type</label>
     				<div class="col-md-6">
       					<select name="typesearch" id="searchaction" class="form-control">
 						<option value="article">journal</option>

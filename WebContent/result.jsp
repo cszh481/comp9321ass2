@@ -21,6 +21,22 @@
 <!-- Bootstrap Core CSS -->
 <jsp:include page="headerjsp.jsp" />
 
+<style>
+.dblp-item {
+	display: none;
+}
+
+#page-select {
+	display: inline-block;
+	width: 60%;
+}
+
+input[type="checkbox"] {
+  display: block;
+  margin: auto;
+}
+</style>
+
 <title>The Book Store - Search Results</title>
 </head>
 <body>
@@ -73,7 +89,7 @@
 		<form action="do" method="get">
 		<div class="panel panel-info">
 			<div class="panel-heading">
-				<h3 class="panel-title">Panel title</h3>
+				<h3 class="panel-title">Search Result</h3>
 			</div>
 			<div class="panel-body">
 			

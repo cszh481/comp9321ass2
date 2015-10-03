@@ -47,7 +47,7 @@
     <% if (loginBool == "true") {%>
 	<div class="container theme-showcase" role="main">
 
-		<form action="control" method="post">
+		<form id="profileform" action="control" method="post">
 
 			<div class="container">
 

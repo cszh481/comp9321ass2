@@ -2,7 +2,7 @@ $(document)
 		.ready(
 				function() {
 
-					$('form')
+					$('profileform')
 							.submit(
 									function(e) {
 										var username = $('#username').val();

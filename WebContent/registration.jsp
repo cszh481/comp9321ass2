@@ -46,7 +46,7 @@
 	<div class="container theme-showcase" role="main">
 
 
-		<form action="control" id=registerform method="post" class="form-horizontal">
+		<form id="registerform" action="control" method="post" class="form-horizontal">
 
 			<div class="container">
 				<input type="hidden" name="action" value="registration">

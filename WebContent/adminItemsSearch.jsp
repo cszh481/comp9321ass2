@@ -16,8 +16,6 @@
 
 <!-- Bootstrap Core CSS -->
 <jsp:include page="headerjsp.jsp" />
-<script src="JS/jquery.js"></script>
-<script src="JS/register.js"></script>
 
 
 <title>The Book Store - Items for Sale</title>

@@ -42,20 +42,20 @@
 		<form id="adminloginform" action="control" method="post" class="form-horizontal">
 
 			<div class="container">
-				<input type="hidden" name="action" value="registration">
+				<input type="hidden" name="action" value="login">
 				<div class="form-group form-group-md">
-					<label class="col-md-4 control-label">Username</label>
+					<label class="col-md-4 control-label" for="InputUsername">Username</label>
 					<div class="col-md-3">
-						<input class="form-control" type="text" id="username" name="username"
+						<input class="form-control" type="text" id="InputUsername" name="username"
 							placeholder="...">
 					</div>
 				</div>
 
 
 				<div class="form-group form-group-md">
-					<label class="col-md-4 control-label">Password</label>
+					<label class="col-md-4 control-label" for="InputPassword">Password</label>
 					<div class="col-md-3">
-						<input class="form-control" type="password" id="password" name="password"
+						<input class="form-control" type="password" id="InputPassword" name="password"
 							placeholder="...">
 					</div>
 				</div>
@@ -71,7 +71,6 @@
 		</form>
 
 	</div>
-
 
 
 	<!-- Footer -->

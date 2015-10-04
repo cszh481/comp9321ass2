@@ -73,9 +73,14 @@
     			<div class="form-group form-group-md">
     				<label class="col-md-3 control-label">Venues</label>
     				<div class="col-md-6">
-      					<input class="form-control" type="text" id="#" name="venues" placeholder="Input...">
+      					<select name="venues" id="venues" class="form-control">
+						<option value="bpm">BPM</option>
+						<option value="vldb">VLDB</option>
+						<option value="www">WWW</option>			
+						</select>
     				</div>
     			</div>
+    			
     			
     			<div class="form-group form-group-md">
     				<label class="col-md-3 control-label">Price</label>

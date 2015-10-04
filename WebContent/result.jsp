@@ -209,11 +209,7 @@ input[type="checkbox"] {
 		var btn = $(e.target);
 		var action = btn.data('action');
 		var currentIndex = parseInt($('#page-select').val());
-	    if (currentIndex > 0){
-	    	$('#prev').style.visibility = 'hidden';
-	    } else if (currentIndex == totalPage -1){
-	    	$('#next').style.visibility = 'hidden';
-	    }
+	    
 		if (action == "next") {
 			if (currentIndex < totalPage - 1) {
 				$('#page-select').val(currentIndex + 1);

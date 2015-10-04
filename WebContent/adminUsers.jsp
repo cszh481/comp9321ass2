@@ -8,10 +8,10 @@
 
 <%
 	String loginBool = (String) session.getAttribute("login");
-	String adminLogin = (String) session.getAttribute("adminLogin");
+	String adminLogin = (String) session.getAttribute("adminlogin");
 	UserService userService = new UserService();
-	List<User> elements = (List<User>) userService.getAllUsers();   //all user names
-	int totalPage = (int) Math.ceil((elements.size() / 10) + 1);
+	List<User> users = (List<User>) userService.getAllUsers();   //all user names
+	int totalPage = (int) Math.ceil((users.size() / 10) + 1);
 %>
 
 
@@ -70,8 +70,8 @@ input[type="checkbox"] {
 	<div class="container theme-showcase" role="main">
 
 	<%
-	if (loginBool == "true") {
-		if (elements.isEmpty()) {
+	if (adminLogin == "true") {
+		if (users.isEmpty()) {
 	%>
 		<div class="row" style="margin: 40px" align="center">
 			<div class="col-md-8 col-md-offset-1">
@@ -82,14 +82,12 @@ input[type="checkbox"] {
 		<%
 			} else {
 		%>
-		<form action="do" method="get">
+
 		<div class="panel panel-info">
 			<div class="panel-heading">
 				<h3 class="panel-title">Users</h3>
 			</div>
 			<div class="panel-body">
-			
-				<input type="hidden" name="servlet" value="onAdd" />
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -102,17 +100,23 @@ input[type="checkbox"] {
 					<tbody>
 
 				<%
-					for (User element : elements) {
+					for (User user : users) {
 				%>
+				<form action="control" method="get">
 				<tr class="dblp-item">
-					<td><%=element.getUsername()%></td>
-					<td><a class="btn btn-xs btn-primary" a href="control?action=showDetail&id=<%=element.getId()%>"> <span class="icon"></span> <span class="text">Bought</span></td>
-					<td><a class="btn btn-xs btn-warning" a href="control?action=showDetail&id=<%=element.getId()%>"> <span class="icon"></span> <span class="text">Removed</span></td>
-					<input type="hidden" name="id" value="<%=element.getId()%>">
-                    <input type="hidden" name="action" value="ban">
-                    <td><button type="submit" class="btn btn-xs btn-danger">Ban</button></td>
-
+					<td><%=user.getUsername()%></td>
+					<td><a class="btn btn-xs btn-primary" a href="control?action=checkbought&id=<%=user.getId()%>"> <span class="icon"></span> <span class="text">Bought</span></a></td>
+					<td><a class="btn btn-xs btn-warning" a href="control?action=checkremoved&id=<%=user.getId()%>"> <span class="icon"></span> <span class="text">Removed</span></a></td>
+					<input type="hidden" name="id" value="<%=user.getId()%>">
+					<% if (user.isBan()){%>
+					<input type="hidden" name="action" value="unbanuser">
+					<td><button type="submit" class="btn btn-xs btn-success">Unban</button></td>
+					<%} else {%>
+                    <input type="hidden" name="action" value="banuser">
+                    <td><button type="submit" class="btn btn-xs btn-danger">&nbsp&nbspBan&nbsp&nbsp&nbsp</button></td>
+					<% } %>
 				</tr>
+				</form>
 			<%
 				}
 			%>
@@ -123,7 +127,7 @@ input[type="checkbox"] {
 			</div>
 		</div>
 
-	</form>
+
 	
 		
 	<div class="pager">

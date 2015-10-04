@@ -163,7 +163,24 @@ public class controller extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("adminlogin","true");
                 session.setMaxInactiveInterval(60*60);
+                nextPage = "adminmain.jsp";
             }
+        }
+        else if(action.equals("checkbought")){
+            nextPage = "adminBought.jsp";
+        }
+        else if(action.equals("checkremoved")){
+            nextPage = "adminRemoved.jsp";
+        }
+        else if(action.equals("banuser")){
+            UserService userService = new UserService();
+            userService.banUser(request.getParameter("id"));
+            nextPage = "adminUsers.jsp";
+        }
+        else if(action.equals("unbanuser")){
+            UserService userService = new UserService();
+            userService.unBanUser(request.getParameter("id"));
+            nextPage = "adminUsers.jsp";
         }
         RequestDispatcher rd = request.getRequestDispatcher("/"+nextPage);
         rd.forward(request, response);

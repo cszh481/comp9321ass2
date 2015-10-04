@@ -3,7 +3,7 @@
 	
 <%
 	String loginBool = (String) session.getAttribute("login");
-	String adminLogin = (String) session.getAttribute("adminLogin");
+	String adminLogin = (String) session.getAttribute("adminlogin");
 %>
 	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -63,7 +63,6 @@
 		<form id="adminloginform" action="control" method="post" class="form-horizontal">
 
 			<div class="container">
-				<input type="hidden" name="action" value="registration">
 				<div class="form-group form-group-md">
 					<label class="col-md-4 control-label">Username</label>
 					<div class="col-md-3">
@@ -83,7 +82,8 @@
 				
 				<div class="row" style="padding-top: 40px">
 					<div class="col-md-3 col-md-offset-4" align="center">
-						<button type="submit" class="btn btn-primary" name="action" value="adminlogin">Log In</button>
+						<input type="hidden" name="action" value="adminlogin"/>
+						<button type="submit" class="btn btn-primary">Log In</button>
 					</div>
 				</div>
 

@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import dao.UserDao;
 import dao.UserDaoImpl;
+import dto.Item;
 import dto.User;
 import exception.UserBannedException;
 import exception.UserUnVerifiedException;
@@ -133,6 +134,18 @@ public class UserService {
 		user.setVerified(originuser.isVerified());
 		userDao.saveOrUpdate(user);
 		return true;
+	}
+
+	public void banUser(String id) {
+		User user = userDao.getUserById(Integer.parseInt(id));
+		user.setBan(true);
+		userDao.saveOrUpdate(user);
+	}
+
+	public void unBanUser(String id) {
+		User user = userDao.getUserById(Integer.parseInt(id));
+		user.setBan(false);
+		userDao.saveOrUpdate(user);
 	}
 
     public User makeUserbyRequest (HttpServletRequest request){

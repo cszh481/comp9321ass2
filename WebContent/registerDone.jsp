@@ -30,22 +30,20 @@
                 <div class="row">  
                     <div class="col-md-8 col-md-offset-3">
                         <br>
-                        <h1>Registration Done</h1>                 
+                        <h1>Registration</h1>                 
                     </div>
                 </div>
             </div>
         </div>
 	
-
 	<div class="container theme-showcase" role="main">
 		<div class="col-md-10 col-md-offset-1" align="center">
-			<h1>Email Confirmed!</h1>
+			<h1>Please check your email to verify your account!</h1>
 			<a class="btn btn-primary" href="home.jsp" title=""> <span
 				class="icon"></span> <span class="text">Home</span>
 			</a>
 		</div>
 	</div>
-
 
 
 

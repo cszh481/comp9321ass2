@@ -101,12 +101,16 @@ public class controller extends HttpServlet {
         }
         else if(action.equals("editprofile")){
             UserService userService = new UserService();
-            User user = userService.makeUserbyRequest(request);
+            HttpSession session = request.getSession();
+            User user = (User) session.getAttribute("user");
+            user = userService.makeUserbyRequest(request ,user);
             try {
                 userService.editProfile(user);
             } catch (MessagingException e) {
                 e.printStackTrace();
             }
+            user = userService.getUserById(user.getId());
+            session.setAttribute("user", user);
             nextPage = "profile.jsp";
         }
         else if(action.equals("showDetail")){

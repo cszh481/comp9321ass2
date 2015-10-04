@@ -93,8 +93,8 @@
 
 				<div class="row">
 					<div class="col-md-4 col-md-offset-4">
-						<label for="#">First Name</label> <input type="text" id="fistname"
-							name="fistname" class="form-control" value="<%=user.getFirstname()%>">
+						<label for="#">First Name</label> <input type="text" id="firstname"
+							name="firstname" class="form-control" value="<%=user.getFirstname()%>">
 						<div></div>
 					</div>
 				</div>

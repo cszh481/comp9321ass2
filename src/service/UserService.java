@@ -59,7 +59,9 @@ public class UserService {
 	public User getUserById(String id) {
 		return this.userDao.getUserById(Integer.parseInt(id));
 	}
-
+	public User getUserById(int id) {
+		return this.userDao.getUserById(id);
+	}
 	/**
 	 * helper
 	 * @param username
@@ -185,5 +187,40 @@ public class UserService {
 		}
         return user;
     }
-
+	public User makeUserbyRequest (HttpServletRequest request, User user){
+		if (request.getParameter("id") != null && !request.getParameter("id").equals("")) {
+			user.setId(Integer.parseInt(request.getParameter("id")));
+		}
+		else {
+			user.setId(0);
+		}
+		if (request.getParameter("username") != null && !request.getParameter("username").equals("")) {
+			user.setUsername(request.getParameter("username"));
+		}
+		if (request.getParameter("password") != null && !request.getParameter("password").equals("")) {
+			user.setPassword(request.getParameter("password"));
+		}
+		if (request.getParameter("firstname") != null && !request.getParameter("firstname").equals("")) {
+			user.setFirstname(request.getParameter("firstname"));
+		}
+		if (request.getParameter("lastname") != null && !request.getParameter("lastname").equals("")) {
+			user.setLastname(request.getParameter("lastname"));
+		}
+		if (request.getParameter("email") != null && !request.getParameter("email").equals("")) {
+			user.setEmail(request.getParameter("email"));
+		}
+		if (request.getParameter("birthyear") != null && !request.getParameter("birthyear").equals("")) {
+			user.setBirthyear(Integer.parseInt(request.getParameter("birthyear")));
+		}
+		if (request.getParameter("address") != null && !request.getParameter("address").equals("")) {
+			user.setAddress(request.getParameter("address"));
+		}
+		if (request.getParameter("creditcard") != null && !request.getParameter("creditcard").equals("")) {
+			user.setCreditcard(request.getParameter("creditcard"));
+		}
+		if (request.getParameter("nickname") != null && !request.getParameter("nickname").equals("")) {
+			user.setNickname(request.getParameter("nickname"));
+		}
+		return user;
+	}
 }

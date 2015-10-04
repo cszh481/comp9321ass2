@@ -3,12 +3,13 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.*"%>
 <%@ page import="service.ItemService"%>
+<%@ page import="dto.OrderItem" %>
 
 
 <%
 	String adminLogin = (String) session.getAttribute("adminlogin");
 	String loginBool = (String) session.getAttribute("login");
-	List<Item> elements = (List<Item>) request.getAttribute("elements");
+	List<OrderItem> elements = (List<OrderItem>) request.getAttribute("elements");
 	int totalPage = (int) Math.ceil((elements.size() / 10) + 1);
 	//get username
 %>

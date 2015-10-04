@@ -11,7 +11,7 @@
         <div class="jumbotron" style="margin-top:20px;">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-10 text-right">
+                    <div class="col-md-12 text-right">
                     	<br>
                     	<br>
                     	@ShimaKaze<br>
@@ -22,9 +22,7 @@
 						Zhangle Huang<br>  
                       
                     </div>
-                    <div class="col-md-2 text-right">
-                     	       <img src="IMAGES/logo.png" height="100%" width="100%">
-					</div>
+
                 </div>
             </div>
         </div>

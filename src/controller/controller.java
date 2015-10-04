@@ -174,6 +174,17 @@ public class controller extends HttpServlet {
             }
         }
         else if(action.equals("checkbought")){
+            int userId = Integer.parseInt(request.getParameter("id"));
+            OrderService orderService = new OrderService();
+            UserService userService = new UserService();
+            String username = userService.getUserById(userId)
+            List<Order> orders = orderService.getAllOrderByUserId(userId);
+            List<OrderItem> result = new ArrayList<>();
+            for (Order order : orders){
+                List<OrderItem> temp = orderService.getAllOrderItemByOrderId(order.getId());
+                result.addAll(temp);
+            }
+            request.setAttribute("elements", request);
             nextPage = "adminBought.jsp";
         }
         else if(action.equals("checkremoved")){

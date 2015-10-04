@@ -90,7 +90,8 @@ input[type="checkbox"] {
 					<thead>
 						<tr>
 							<th>Username</th>
-							<th>Details</th>
+							<th>Items Bought</th>
+							<th>Items Removed</th>
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -101,10 +102,11 @@ input[type="checkbox"] {
 				%>
 				<tr class="dblp-item">
 					<td><%=element.getUsername()%></td>
-					<td><a class="btn btn-xs btn-primary" a href="control?action=showDetail&id=<%=element.getId()%> title=""> <span class="icon"></span> <span class="text">Activities</span></td>
+					<td><a class="btn btn-xs btn-primary" a href="control?action=showDetail&id=<%=element.getId()%> title=""> <span class="icon"></span> <span class="text">Bought</span></td>
+					<td><a class="btn btn-xs btn-warning" a href="control?action=showDetail&id=<%=element.getId()%> title=""> <span class="icon"></span> <span class="text">Removed</span></td>
 					<input type="hidden" name="id" value="<%=element.getId()%>">
                     <input type="hidden" name="action" value="ban">
-                    <td><button type="submit" class="btn btn-xs btn-warning">Ban</button></td>
+                    <td><button type="submit" class="btn btn-xs btn-danger">Ban</button></td>
 
 				</tr>
 			<%

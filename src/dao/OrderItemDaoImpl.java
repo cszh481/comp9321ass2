@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dto.OrderItem;
+import service.ItemService;
 
 public class OrderItemDaoImpl extends BaseDao implements OrderItemDao {
 
@@ -57,6 +58,10 @@ public class OrderItemDaoImpl extends BaseDao implements OrderItemDao {
 				o.setItem_id(rs.getInt("item_id"));
 				o.setOrder_id(rs.getInt("order_id"));
 				o.setCount(rs.getInt("count"));
+				ItemDao itemDao = new ItemDaoImpl();
+				OrderDao orderDao = new OrderDaoImpl();
+				o.setItem(itemDao.getItemById(o.getItem_id()));
+				o.setOrder(orderDao.getOrderByOrderId(o.getOrder_id()));
 				resultList.add(o);
 			}
 

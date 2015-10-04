@@ -177,14 +177,15 @@ public class controller extends HttpServlet {
             int userId = Integer.parseInt(request.getParameter("id"));
             OrderService orderService = new OrderService();
             UserService userService = new UserService();
-            String username = userService.getUserById(userId)
+            String username = userService.getUserById(request.getParameter("id")).getUsername();
+            request.setAttribute("username", username);
             List<Order> orders = orderService.getAllOrderByUserId(userId);
             List<OrderItem> result = new ArrayList<>();
             for (Order order : orders){
                 List<OrderItem> temp = orderService.getAllOrderItemByOrderId(order.getId());
                 result.addAll(temp);
             }
-            request.setAttribute("elements", request);
+            request.setAttribute("elements", result);
             nextPage = "adminBought.jsp";
         }
         else if(action.equals("checkremoved")){

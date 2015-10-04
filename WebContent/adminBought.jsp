@@ -9,6 +9,7 @@
 <%
 	String adminLogin = (String) session.getAttribute("adminlogin");
 	String loginBool = (String) session.getAttribute("login");
+	String username = (String) request.getAttribute("username");
 	List<OrderItem> elements = (List<OrderItem>) request.getAttribute("elements");
 	int totalPage = (int) Math.ceil((elements.size() / 10) + 1);
 	//get username
@@ -89,7 +90,7 @@ input[type="checkbox"] {
 		<form action="do" method="get">
 			<div class="panel panel-info">
 				<div class="panel-heading">
-					<h3 class="panel-title"><%=getUsername()%></h3>
+					<h3 class="panel-title"><%=username%></h3>
 				</div>
 				<div class="panel-body">
 
@@ -106,16 +107,16 @@ input[type="checkbox"] {
 						<tbody>
 
 							<%
-					for (Item element : elements) {
+					for (OrderItem element : elements) {
 				%>
 							<tr class="dblp-item">
 								<!--  please link detail to 'adminDetail.jsp' -->
 								<!-- linke to adminDetail.jsp -->
 								<td><a
-									href="control?action=showDetail&id=<%=element.getId()%>"> <%=element.getTitle()%></a></td>
-								<td><%=element.getTimestamp%></td>
-								<td><%=element.getPrice()%></td>
-								<td><%=element.getSeller()%></td>
+									href="control?action=adminShowDetail&id=<%=element.getItem_id()%>"> <%=element.getItem().getTitle()%></a></td>
+								<td><%=element.getOrder().getCreated()%></td>
+								<td><%=element.getItem().getPrice()%></td>
+								<td><%=element.getItem().getSeller().getUsername()%></td>
 							</tr>
 							<%
 				}

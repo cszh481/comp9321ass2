@@ -18,7 +18,7 @@
 <jsp:include page="headerjsp.jsp" />
 
 
-<title>The Book Store - Items for Sale</title>
+<title>The Book Store - Admin - Items for Sale</title>
 </head>
 <body>
 

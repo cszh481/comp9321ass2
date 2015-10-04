@@ -9,6 +9,7 @@
 		String loginBool = (String) session.getAttribute("login");
 		List<Item> elements = (List<Item>) request.getAttribute("elements");
 		int totalPage = (int) Math.ceil((elements.size() / 10) + 1);
+		//get username
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -35,7 +36,7 @@ input[type="checkbox"] {
 }
 </style>
 
-<title>The Book Store - Admin - Search Results</title>
+<title>The Book Store - Admin - Items Removed</title>
 </head>
 <body>
 
@@ -54,7 +55,7 @@ input[type="checkbox"] {
                 <div class="row">  
                     <div class="col-md-8 col-md-offset-4">
                         <br>
-                        <h1>Items Search Results</h1>
+                        <h1>Items Removed</h1>
                         
                     </div>
                 </div>
@@ -64,26 +65,12 @@ input[type="checkbox"] {
 
 	<div class="container theme-showcase" role="main">
 
-		 <div class="row" style="margin: 40px" align="center">
-		   <div class="col-md-8 col-md-offset-3">
-			<form class="form-inline">
-				<div class="col-md-10">
-					<input type="text" class="form-control" placeholder="search...">
-					<button type="submit" class="btn btn-success">Search</button>
-				</div>
-			</form>
-			<br>
-		  </div>
-		</div>
-		
-		
-		
 	<%
 		if (elements.isEmpty()) {
 	%>
 		<div class="row" style="margin: 40px" align="center">
 			<div class="col-md-8 col-md-offset-1">
-				<h1>Sorry, no matching data found!</h1>
+				<h1>Sorry, this user hasn't removed anything from shopping cart!</h1>
 			</div>
 		</div>
 
@@ -97,7 +84,7 @@ input[type="checkbox"] {
 		<form action="do" method="get">
 		<div class="panel panel-info">
 			<div class="panel-heading">
-				<h3 class="panel-title">Admin Search Result</h3>
+				<h3 class="panel-title"><%=getUsername()%></h3>
 			</div>
 			<div class="panel-body">
 			
@@ -105,11 +92,9 @@ input[type="checkbox"] {
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Title</th>
-							<th>Author/Editor</th>
-							<th>Price</th>
-							<th>Quantity</th>
-							<th>Action</th>
+							<th>Pub-Title</th>
+							<th>added-Timestamp</th>
+							<th>removed-Timetamp</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -119,13 +104,10 @@ input[type="checkbox"] {
 				%>
 				<tr class="dblp-item">
 				<!--  please link detail to 'adminDetail.jsp' -->
+					<!-- linke to adminDetail.jsp -->
 					<td><a href="control?action=showDetail&id=<%=element.getId()%>"> <%=element.getTitle()%></a></td>
-					<td><%=element.getAuthors().toString()%></td>
-					<td><%=element.getPrice()%></td>
-					<td><%=element.getQuantity()%></td>
-					<input type="hidden" name="id" value="<%=element.getId()%>">
-                    <input type="hidden" name="action" value="remove">
-                    <td><button type="submit" class="btn btn-xs btn-warning">Remove</button></td>
+					<td><%=element.getStartTimestamp()%></td>
+					<td><%=element.getEndTimestamp()%></td>
 				</tr>
 			<%
 				}

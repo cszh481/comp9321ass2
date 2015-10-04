@@ -16,7 +16,7 @@
 <script src="JS/register.js"></script>
 
 
-<title>The Book Store - Admin Sign In</title>
+<title>The Book Store - Admin - Sign In</title>
 </head>
 <body>
 

@@ -37,7 +37,7 @@ input[type="checkbox"] {
 </style>
 
 
-<title>The Book Store - Check on users</title>
+<title>The Book Store - Admin - Check on users</title>
 </head>
 <body>
 

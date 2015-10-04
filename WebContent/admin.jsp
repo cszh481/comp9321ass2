@@ -3,6 +3,7 @@
 	
 <%
 	String loginBool = (String) session.getAttribute("login");
+	String adminLogin = (String) session.getAttribute("adminLogin");
 %>
 	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -22,7 +23,7 @@
 
 	<!-- CHOOSE JSP DEPENDS ON AUTHORITY -->
 
-	<% if (loginBool == "true") {%>	
+	<% if (adminLogin == "true") {%>	
 		<!-- after login -->
 		<jsp:include page="adminheader.jsp" />		
 	<%} else {%>
@@ -82,7 +83,7 @@
 				
 				<div class="row" style="padding-top: 40px">
 					<div class="col-md-3 col-md-offset-4" align="center">
-						<button type="submit" class="btn btn-primary">Log In</button>
+						<button type="submit" class="btn btn-primary" name="action" value="adminlogin">Log In</button>
 					</div>
 				</div>
 

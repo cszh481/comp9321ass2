@@ -5,6 +5,7 @@
 
 
 <%
+	String adminLogin = (String) session.getAttribute("adminlogin");
 	String loginBool = (String) session.getAttribute("login");
 	Item detialItem = (Item) request.getAttribute("detail");
 %>
@@ -46,7 +47,7 @@
 
 
 	<!-- after login -->
-	<% if (loginBool == "true") {%>
+	<% if (adminLogin == "true") {%>
 
 	<div class="container theme-showcase" role="main">
 
@@ -86,7 +87,7 @@
 
 							<tr>
 								<td>Publication Type</td>
-								<td><%=detialItem.getTitle()%></td>
+								<td><%=detialItem.getType()%></td>
 							</tr>
 							<tr>
 								<td>Year</td>
@@ -116,9 +117,15 @@
 	
 
 	<div class="row" style="padding-top: 40px">
+		<form action="control" method="get">
         <div class="col-md-6 col-md-offset-3" align="center">
-                <button id="clearCart" class="btn btn-danger" type="submit" name="action" value="rmshoppingcart">Remove from Store</button>
-                <button id="checkoutCart" class="btn btn-primary" type="submit" name="action" value="makeorder">Back to Search Result</button>
+			<input type="hidden" name="id" value="<%=detialItem.getId()%>"/>
+			<%if (detialItem.isBan()){%>
+			<button id="clearCart" class="btn btn-success" type="submit" name="action" value="unbanitem">Restore to Store</button>
+			<%}else {%>
+			<button id="clearCart" class="btn btn-danger" type="submit" name="action" value="banitem">Remove from Store</button>
+			<%}%>
+		</form>
 		</div>
 	</div>
 

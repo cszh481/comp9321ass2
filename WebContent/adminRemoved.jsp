@@ -108,7 +108,7 @@ input[type="checkbox"] {
 				<tr class="dblp-item">
 				<!--  please link detail to 'adminDetail.jsp' -->
 					<!-- linke to adminDetail.jsp -->
-					<td><a href="control?action=showDetail&id=<%=element.getItem().getId()%>"> <%=element.getItem().getTitle()%></a></td>
+					<td><a href="control?action=adminShowDetail&id=<%=element.getItem().getId()%>"> <%=element.getItem().getTitle()%></a></td>
 					<td><%=element.getAdded()%></td>
 					<td><%=element.getRemoved()%></td>
 				</tr>

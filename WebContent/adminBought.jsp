@@ -6,10 +6,11 @@
 
 
 <%
-		String loginBool = (String) session.getAttribute("login");
-		List<Item> elements = (List<Item>) request.getAttribute("elements");
-		int totalPage = (int) Math.ceil((elements.size() / 10) + 1);
-		//get username
+	String adminLogin = (String) session.getAttribute("adminlogin");
+	String loginBool = (String) session.getAttribute("login");
+	List<Item> elements = (List<Item>) request.getAttribute("elements");
+	int totalPage = (int) Math.ceil((elements.size() / 10) + 1);
+	//get username
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

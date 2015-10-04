@@ -190,6 +190,7 @@ public class ItemDaoImpl extends BaseDao implements ItemDao {
 		item.setPublication_date(rs.getDate("publication_date"));
 		item.setVenue(rs.getString("venue"));
 		item.setPrice(rs.getDouble("price"));
+		item.setBan(rs.getBoolean("ban"));
 		item.setPaused(rs.getBoolean("paused"));
 		item.setQuantity(rs.getInt("quantity"));
 		item.setSeller_id(rs.getInt("seller_id"));

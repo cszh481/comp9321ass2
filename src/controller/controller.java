@@ -46,6 +46,7 @@ public class controller extends HttpServlet {
             } catch (MessagingException e) {
                 e.printStackTrace();
             }
+            nextPage = "registerDone.jsp";
         }
         else if(action.equals("login")){
             UserService userService = new UserService();
@@ -205,33 +206,25 @@ public class controller extends HttpServlet {
             request.setAttribute("elements", elements);
             nextPage = "adminItemSearchResult.jsp";
         }
+        else if(action.equals("adminShowDetail")){
+            ItemService itemService = new ItemService();
+            Item item = itemService.getItemById(request.getParameter("id"));
+            request.setAttribute("detail", item);
+            nextPage = "adminDetail.jsp";
+        }
+        else if(action.equals("unbanitem")){
+            ItemService itemService = new ItemService();
+            itemService.unBanItem(request.getParameter("id"));
+            nextPage = "adminmain.jsp";
+        }
+        else if(action.equals("banitem")){
+            ItemService itemService = new ItemService();
+            itemService.banItem(request.getParameter("id"));
+            nextPage = "adminmain.jsp";
+        }
         RequestDispatcher rd = request.getRequestDispatcher("/"+nextPage);
         rd.forward(request, response);
-        //        try {
-//            if (action.equals("search")) {
-//                service.basic_search(request);
-//                nextPage = "result.jsp";
-//            } else if (action.equals("addtocart")) {
-//                service.addShoppingCart(request);
-//                nextPage = "shoppingcart.jsp";
-//            } else if (action.equals("removeFromCart")) {
-//                service.removeShoppingCart(request);
-//                nextPage = "shoppingcart.jsp";
-//            } else if (action.equals("advSearch")) {
-//                service.advSearch(request);
-//                nextPage = "result.jsp";
-//            } else if (action.equals("changpage")) {
-//                service.handlePageChange(request);
-//                nextPage = "result.jsp";
-//            } else  if(action.equals("showDetail")){
-//                service.showDetail(request);
-//                nextPage = "detail.jsp";
-//            }
-//        } catch (ParserConfigurationException e) {
-//            e.printStackTrace();
-//        } catch (SAXException e) {
-//            e.printStackTrace();
-//        }
+
     }
 }
 

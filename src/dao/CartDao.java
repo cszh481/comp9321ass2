@@ -17,4 +17,5 @@ public interface CartDao {
 	public Cart getCartById(int id);
 
 	public void deletCart(int id);
+
 }

@@ -9,6 +9,7 @@ import java.util.List;
 
 import dto.Cart;
 import dto.Item;
+import dto.User;
 
 public class CartDaoImpl extends BaseDao implements CartDao {
 
@@ -28,7 +29,7 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 		List<Cart> cartItems = new ArrayList<Cart>();
 
 		Connection connection = getConnection();
-		String sql = "SELECT i.*, c.* FROM " + "item i, user u, cart c where "
+		String sql = "SELECT i.*, c.* FROM " + "item i, user u, cart c WHERE "
 		        + "c.user_id = u.id and c.item_id = i.id and u.id = ?";
 
 		try {
@@ -115,7 +116,7 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public Cart getCartByUserIdAndItemId(int user_id, int item_id) {
 
 		Connection connection = getConnection();
@@ -149,7 +150,6 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 
 		return null;
 	}
-
 	public Cart getCartById(int id) {
 
 		Connection connection = getConnection();
@@ -164,16 +164,7 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-				Cart c = new Cart();
-				Item item = itemDao.convertItem(rs);
-				c.setItem(item);
-				c.setItem_id(item.getId());
-				c.setCount(rs.getInt("count"));
-				c.setUser_id(rs.getInt("user_id"));
-				c.setAdded(rs.getTimestamp("added"));
-				c.setRemoved(rs.getTimestamp("removed"));
-				c.setId(rs.getInt("c.id"));
-				return c;
+                return convertCart(rs);
 			}
 
 		} catch (SQLException e) {
@@ -197,4 +188,18 @@ public class CartDaoImpl extends BaseDao implements CartDao {
             e.printStackTrace();
         }
     }
+
+	private Cart convertCart(ResultSet rs) throws SQLException{
+        Cart c = new Cart();
+        Item item = itemDao.convertItem(rs);
+        c.setItem(item);
+        c.setItem_id(item.getId());
+        c.setCount(rs.getInt("count"));
+        c.setUser_id(rs.getInt("user_id"));
+        c.setAdded(rs.getTimestamp("added"));
+        c.setRemoved(rs.getTimestamp("removed"));
+        c.setId(rs.getInt("c.id"));
+        return c;
+    }
+
 }

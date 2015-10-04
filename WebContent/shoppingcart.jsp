@@ -113,7 +113,7 @@ input[type="checkbox"] {
 			%>
 			<tr class="dblp-item">
 				<td><input type="checkbox" name="pick" value="<%=element.getId()%>"></td>
-				<td><a href="detail.jsp?id=<%=element.getItem_id()%>"> <%=element.getItem().getTitle()%></a></td>
+				<td><a href="control?action=showdetail&id=<%=element.getItem().getId()%>"> <%=element.getItem().getTitle()%></a></td>
 				<td><%=element.getItem().getAuthors().toString()%></td>
 				<td><%=element.getItem().getPrice()%></td>
 				<td><%=element.getCount()%></td>

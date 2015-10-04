@@ -28,9 +28,9 @@
 		<jsp:include page="adminheader.jsp" />		
 	<%} else {%>
 		<!-- before login -->
-		<jsp:include page="loginheader.jsp" />
+		<jsp:include page="adminloginheader.jsp" />
 	<% } %>
-
+	
 	<div class="jumbotron">
 		<div class="container">
 			<div class="row">

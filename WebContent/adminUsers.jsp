@@ -47,12 +47,12 @@ input[type="checkbox"] {
 
 	<!-- CHOOSE JSP DEPENDS ON AUTHORITY -->
 
-	<% if (loginBool == "true") {%>	
+	<% if (adminLogin == "true") {%>	
 		<!-- after login -->
 		<jsp:include page="adminheader.jsp" />		
 	<%} else {%>
 		<!-- before login -->
-		<jsp:include page="loginheader.jsp" />
+		<jsp:include page="adminloginheader.jsp" />
 	<% } %>
 
 	<div class="jumbotron">

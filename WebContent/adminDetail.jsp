@@ -24,19 +24,13 @@
 <body>
 
 	<!-- CHOOSE JSP DEPENDS ON AUTHORITY -->
-	<%
-		if (loginBool == "true") {
-	%>
-	<!-- after login -->
-	<jsp:include page="customerheader.jsp" />
-	<%
-		} else {
-	%>
-	<!-- before login -->
-	<jsp:include page="homeloginheader.jsp" />
-	<%
-		}
-	%>
+	<% if (adminLogin == "true") {%>	
+		<!-- after login -->
+		<jsp:include page="adminheader.jsp" />		
+	<%} else {%>
+		<!-- before login -->
+		<jsp:include page="adminloginheader.jsp" />
+	<% } %>
 
 	<div class="jumbotron">
 		<div class="container">

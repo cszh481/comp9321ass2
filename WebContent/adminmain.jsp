@@ -3,6 +3,7 @@
 	
 <%
 	String loginBool = (String) session.getAttribute("login");
+	String adminLogin = (String) session.getAttribute("adminLogin");
 %>
 	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -22,14 +23,14 @@
 
 	<!-- CHOOSE JSP DEPENDS ON AUTHORITY -->
 
-	<% if (loginBool == "true") {%>	
+	<% if (adminLogin == "true") {%>	
 		<!-- after login -->
 		<jsp:include page="adminheader.jsp" />		
 	<%} else {%>
 		<!-- before login -->
-		<jsp:include page="loginheader.jsp" />
+		<jsp:include page="adminloginheader.jsp" />
 	<% } %>
-
+	
 	<div class="jumbotron">
 		<div class="container">
 			<div class="row">
@@ -41,7 +42,7 @@
 		</div>
 	</div>
 
-    <% if (loginBool == "true") { %>
+    <% if (adminLogin == "true") { %>
     <!-- after login -->
 	<div class="container theme-showcase" role="main">
 

@@ -1,4 +1,6 @@
 <%@ page import="dto.Item"%>
+<%@ page import="dto.User"%>
+<%@ page import="service.UserService"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.*"%>
@@ -6,7 +8,9 @@
 
 <%
 	String loginBool = (String) session.getAttribute("login");
-	List<Item> elements = (List<Item>) request.getAttribute("elements");   //all user names
+	String adminLogin = (String) session.getAttribute("adminLogin");
+	UserService userService = new UserService();
+	List<User> elements = (List<User>) userService.getAllUsers();   //all user names
 	int totalPage = (int) Math.ceil((elements.size() / 10) + 1);
 %>
 
@@ -43,12 +47,12 @@ input[type="checkbox"] {
 
 	<!-- CHOOSE JSP DEPENDS ON AUTHORITY -->
 
-	<% if (loginBool == "true") {%>	
+	<% if (adminLogin == "true") {%>	
 		<!-- after login -->
 		<jsp:include page="adminheader.jsp" />		
 	<%} else {%>
 		<!-- before login -->
-		<jsp:include page="loginheader.jsp" />
+		<jsp:include page="adminloginheader.jsp" />
 	<% } %>
 
 	<div class="jumbotron">
@@ -98,12 +102,12 @@ input[type="checkbox"] {
 					<tbody>
 
 				<%
-					for (Item element : elements) {
+					for (User element : elements) {
 				%>
 				<tr class="dblp-item">
 					<td><%=element.getUsername()%></td>
-					<td><a class="btn btn-xs btn-primary" a href="control?action=showDetail&id=<%=element.getId()%> title=""> <span class="icon"></span> <span class="text">Bought</span></td>
-					<td><a class="btn btn-xs btn-warning" a href="control?action=showDetail&id=<%=element.getId()%> title=""> <span class="icon"></span> <span class="text">Removed</span></td>
+					<td><a class="btn btn-xs btn-primary" a href="control?action=showDetail&id=<%=element.getId()%>"> <span class="icon"></span> <span class="text">Bought</span></td>
+					<td><a class="btn btn-xs btn-warning" a href="control?action=showDetail&id=<%=element.getId()%>"> <span class="icon"></span> <span class="text">Removed</span></td>
 					<input type="hidden" name="id" value="<%=element.getId()%>">
                     <input type="hidden" name="action" value="ban">
                     <td><button type="submit" class="btn btn-xs btn-danger">Ban</button></td>

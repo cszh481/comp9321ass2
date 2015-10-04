@@ -170,6 +170,12 @@ public class controller extends HttpServlet {
             nextPage = "adminBought.jsp";
         }
         else if(action.equals("checkremoved")){
+            CartService cartService = new CartService();
+            UserService userService = new UserService();
+            List<Cart> elements = cartService.getRemovedCart(Integer.parseInt(request.getParameter("id")));
+            User userRmoved = userService.getUserById(request.getParameter("id"));
+            request.setAttribute("username", userRmoved.getUsername());
+            request.setAttribute("elements", elements);
             nextPage = "adminRemoved.jsp";
         }
         else if(action.equals("banuser")){

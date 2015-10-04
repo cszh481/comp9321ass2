@@ -6,6 +6,7 @@
 
 	
 <%
+	String adminLogin = (String) session.getAttribute("adminlogin");
 	String loginBool = (String) session.getAttribute("login");
 %>
 

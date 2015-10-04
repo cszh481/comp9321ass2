@@ -3,13 +3,16 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.*"%>
 <%@ page import="service.ItemService" %>
+<%@ page import="dto.Cart" %>
 
-	
+
 <%
-		String loginBool = (String) session.getAttribute("login");
-		List<Item> elements = (List<Item>) request.getAttribute("elements");
-		int totalPage = (int) Math.ceil((elements.size() / 10) + 1);
-		//get username
+	String adminLogin = (String) session.getAttribute("adminlogin");
+	String loginBool = (String) session.getAttribute("login");
+	String userName = (String) request.getAttribute("username");
+	List<Cart> elements = (List<Cart>) request.getAttribute("elements");
+	int totalPage = (int) Math.ceil((elements.size() / 10) + 1);
+	//get username
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -84,11 +87,10 @@ input[type="checkbox"] {
 		<form action="do" method="get">
 		<div class="panel panel-info">
 			<div class="panel-heading">
-				<h3 class="panel-title"><%=getUsername()%></h3>
+				<h3 class="panel-title"><%=userName%></h3>
 			</div>
 			<div class="panel-body">
-			
-				<input type="hidden" name="servlet" value="onAdd" />
+
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -100,14 +102,14 @@ input[type="checkbox"] {
 					<tbody>
 
 				<%
-					for (Item element : elements) {
+					for (Cart element : elements) {
 				%>
 				<tr class="dblp-item">
 				<!--  please link detail to 'adminDetail.jsp' -->
 					<!-- linke to adminDetail.jsp -->
-					<td><a href="control?action=showDetail&id=<%=element.getId()%>"> <%=element.getTitle()%></a></td>
-					<td><%=element.getStartTimestamp()%></td>
-					<td><%=element.getEndTimestamp()%></td>
+					<td><a href="control?action=showDetail&id=<%=element.getItem().getId()%>"> <%=element.getItem().getTitle()%></a></td>
+					<td><%=element.getAdded()%></td>
+					<td><%=element.getRemoved()%></td>
 				</tr>
 			<%
 				}

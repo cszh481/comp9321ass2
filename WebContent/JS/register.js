@@ -48,11 +48,17 @@ $(document)
 											alert("Nickname can not be empty");
 											return false;
 										}
-										var yob = $().val('#yob');
+										var yob = $('#yob').val();
 										if (yob == "") {
 											alert("Year of Birth can not be empty");
 											return false;
 										}
+										var reyob = /^\d{4}$/i;
+										if (!reyob.test(yob)) {
+											alert("Year of Birth format invalid");
+											return false;
+										}
+										
 										var address = $().val('#address');
 										if (address == "") {
 											alert("Address can not be empty");

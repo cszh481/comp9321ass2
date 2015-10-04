@@ -158,10 +158,10 @@ input[type="checkbox"] {
         <div class="container theme-showcase" role="main">
             <div class="row" style="margin: 40px" align="center">
             	<div class="col-md-8 col-md-offset-1">
-                	<h1><span class="glyphicon glyphicon-exclamation-sign"></span> Please Log in!</h1>
+                	<h1><span class="glyphicon glyphicon-exclamation-sign"></span> No Authority: Please Log in!</h1>
                 	<a class="btn btn-primary" href="admin.jsp" title=""> <span
-					class="icon"></span> <span class="text">Log In</span>
-				</a>
+					class="icon"></span> <span class="text">Admin Home</span>
+					</a>
                 </div>
             </div>
         </div>

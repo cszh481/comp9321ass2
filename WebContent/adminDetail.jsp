@@ -45,6 +45,8 @@
 
 
 
+	<!-- after login -->
+	<% if (loginBool == "true") {%>
 
 	<div class="container theme-showcase" role="main">
 
@@ -109,9 +111,7 @@
 			</div>
 		</div>
 
-	<%
-		if (loginBool == "true") {
-	%>
+
 		<!-- remove from database!!!! -->
 	
 
@@ -121,6 +121,22 @@
                 <button id="checkoutCart" class="btn btn-primary" type="submit" name="action" value="makeorder">Back to Search Result</button>
 		</div>
 	</div>
+
+
+
+
+	<% } else { %>
+
+	<div class="container theme-showcase" role="main">
+		<div class="col-md-10 col-md-offset-1" align="center">
+			<h1> <span class="glyphicon glyphicon-exclamation-sign"></span> No authority: Please log in!</h1>
+			<a class="btn btn-primary" href="admin.jsp" title=""> <span
+				class="icon"></span> <span class="text">Admin Home</span>
+			</a>
+		</div>
+	</div>
+
+
 
 	<% } %>
 

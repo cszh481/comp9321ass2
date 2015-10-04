@@ -51,6 +51,9 @@ public class controller extends HttpServlet {
         else if(action.equals("login")){
             UserService userService = new UserService();
             User user = userService.makeUserbyRequest(request);
+            if (userService.getUserByUsername(user.getUsername()) == null){
+                nextPage = "noThisUser.jsp";
+            }
             try {
                 if ((user = userService.login(user.getUsername(),user.getPassword())) != null){
                     HttpSession session = request.getSession();
@@ -59,7 +62,7 @@ public class controller extends HttpServlet {
                     session.setAttribute("user", user);
                 }
                 else{
-                    nextPage = "noThisUser.jsp";
+                    nextPage = "wrongpassword.jsp";
                 }
             } catch (UserBannedException e) {
                 nextPage = "userIsBanned.jsp";

@@ -12,8 +12,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-right">
-                    	<br>
-                    	<br>
                     	@ShimaKaze<br>
                      	<br>
                        	Cheng Zhang<br>

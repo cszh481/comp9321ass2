@@ -84,13 +84,13 @@ input[type="checkbox"] {
 	%>
 
 
-	<form action="do" method="get">
+	<form id="cartForm" action="control"   method="get">
 	<div class="panel panel-info">
 			<div class="panel-heading">
 				<h3 class="panel-title">Search Result</h3>
 			</div>
 	<div class="panel-body">
-		<input type="hidden" name="servlet" value="onDel" />
+		<%--<input type="hidden" name="servlet" value="onDel" />--%>
 		<table class="table table-striped">
 					<col width="5%" />
 					<col width="50%" />
@@ -131,14 +131,13 @@ input[type="checkbox"] {
 	
 	<div class="row" style="padding-top: 40px">
         <div class="col-md-6 col-md-offset-3" align="center">
-                <input type="hidden" name="action" value="rmshoppingcart"/>
-                <button class="btn btn-danger" type="submit">Remove from Shopping cart</button>
-                <input type="hidden" name="action" value="rmshoppingcart"/>
-                <button class="btn btn-primary" type="submit">Pay for select</button>
+                <button id="clearCart" class="btn btn-danger" type="submit" name="action" value="rmshoppingcart">Remove from Shopping cart</button>
+                <button id="checkoutCart" class="btn btn-primary" type="submit" name="action" value="makeorder">Pay for select</button>
 		</div>
 	</div>
 
 	</form>
+
 	
 	<div class="pager">
 		<div class="">

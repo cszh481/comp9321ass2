@@ -80,16 +80,29 @@ public class CartService {
 		}
 		cartDao.saveOrUpdate(cart);
 	}
-	public void removeCart(int user_id, int item_id) {
-		Cart cart = cartDao.getCartByUserIdAndItemId(user_id, item_id);
+	public void removeCart(int id) {
+		Cart cart = cartDao.getCartById(id);
 		if (cart != null) {
 			cart.setRemoved(new Timestamp(System.currentTimeMillis()));
 			cartDao.saveOrUpdate(cart);
 		}
 	}
+    public void deleteCart(int id) {
+            cartDao.deletCart(id);
+    }
+    public void removeCart(int user_id, int item_id) {
+        Cart cart = cartDao.getCartByUserIdAndItemId(user_id, item_id);
+        if (cart != null) {
+            cart.setRemoved(new Timestamp(System.currentTimeMillis()));
+            cartDao.saveOrUpdate(cart);
+        }
+    }
 
 	public Cart getCartByUserIdAndItemId(int user_id, int item_id) {
 		return cartDao.getCartByUserIdAndItemId(user_id, item_id);
 	}
 
+    public Cart getCartById(int id){
+        return cartDao.getCartById(id);
+    }
 }

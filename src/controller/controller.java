@@ -1,10 +1,13 @@
 package controller;
+import dto.Cart;
 import dto.Item;
+import dto.Order;
 import dto.User;
 import exception.UserBannedException;
 import exception.UserUnVerifiedException;
 import service.CartService;
 import service.ItemService;
+import service.OrderService;
 import service.UserService;
 
 import java.io.IOException;
@@ -134,6 +137,27 @@ public class controller extends HttpServlet {
             }
             request.setAttribute("elements", elements);
             nextPage = "result.jsp";
+        }
+        else if(action.equals("rmshoppingcart")){
+            CartService cartService = new CartService();
+            String[] id_list = request.getParameterValues("pick");
+            for(String temp_int : id_list ) {
+                int id = Integer.parseInt(temp_int);
+                cartService.removeCart(id);
+            }
+            nextPage = "shoppingcart.jsp";
+        }
+        else if(action.equals("makeorder")){
+            CartService cartService = new CartService();
+            OrderService orderService = new OrderService();
+            String[] id_list = request.getParameterValues("pick");
+            for(String temp_int : id_list ) {
+                int id = Integer.parseInt(temp_int);
+                Cart cart = cartService.getCartById(id);
+
+
+                cartService.deleteCart(id);
+            }
         }
         RequestDispatcher rd = request.getRequestDispatcher("/"+nextPage);
         rd.forward(request, response);

@@ -46,6 +46,7 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 				c.setUser_id(user_id);
 				c.setAdded(rs.getTimestamp("added"));
 				c.setRemoved(rs.getTimestamp("removed"));
+                c.setId(rs.getInt("c.id"));
 				cartItems.add(c);
 			}
 
@@ -120,7 +121,7 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 		Connection connection = getConnection();
 		String sql = "SELECT i.*, c.* FROM "
 		        + "item i, user u, cart c where "
-		        + "c.user_id = u.id and c.item_id = i.id and u.id = ? and i.id = ? and c.removed = NULL ";
+		        + "c.user_id = u.id and c.item_id = i.id and u.id = ? and i.id = ? and c.removed is NULL ";
 
 		try {
 			PreparedStatement preparedStatement = connection
@@ -138,6 +139,7 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 				c.setUser_id(user_id);
 				c.setAdded(rs.getTimestamp("added"));
 				c.setRemoved(rs.getTimestamp("removed"));
+				c.setId(rs.getInt("c.id"));
 				return c;
 			}
 
@@ -147,4 +149,52 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 
 		return null;
 	}
+
+	public Cart getCartById(int id) {
+
+		Connection connection = getConnection();
+		String sql = "SELECT i.*, c.* FROM "
+				+ "item i, user u, cart c where "
+				+ "c.user_id = u.id and c.item_id = i.id and c.id = ? and c.removed is NULL ";
+
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				Cart c = new Cart();
+				Item item = itemDao.convertItem(rs);
+				c.setItem(item);
+				c.setItem_id(item.getId());
+				c.setCount(rs.getInt("count"));
+				c.setUser_id(rs.getInt("user_id"));
+				c.setAdded(rs.getTimestamp("added"));
+				c.setRemoved(rs.getTimestamp("removed"));
+				c.setId(rs.getInt("c.id"));
+				return c;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+    public void deletCart(int id){
+        Connection connection = getConnection();
+        String sql = "DELETE from `cart` where id = ?";
+
+        try {
+            PreparedStatement preparedStatement = connection
+                    .prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

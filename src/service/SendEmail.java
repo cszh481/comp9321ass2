@@ -58,8 +58,12 @@ public class SendEmail {
     }
     public static void sendSellMail(User user) throws MessagingException {
         String to = user.getEmail();
-        String title = "";
-        String content = "";
+        String title = "New Order!!";
+        String content = "<p>\n" +
+                "Congratulation, Sir!\n" +
+                "<br>\n" +
+                "</br>\n" +
+                "</p>";
         sendEmail(to,title,content);
     }
 }

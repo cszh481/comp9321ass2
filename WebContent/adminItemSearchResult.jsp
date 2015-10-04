@@ -66,8 +66,9 @@ input[type="checkbox"] {
 
 		 <div class="row" style="margin: 40px" align="center">
 		   <div class="col-md-8 col-md-offset-3">
-			<form class="form-inline">
+			<form class="form-inline" action="control" method="get">
 				<div class="col-md-10">
+
 					<input type="text" class="form-control" placeholder="search...">
 					<button type="submit" class="btn btn-success">Search</button>
 				</div>

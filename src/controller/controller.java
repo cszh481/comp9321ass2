@@ -188,6 +188,17 @@ public class controller extends HttpServlet {
             userService.unBanUser(request.getParameter("id"));
             nextPage = "adminUsers.jsp";
         }
+        else if(action.equals("adminsearch")){
+            ItemService itemService = new ItemService();
+            List<Item> elements = null;
+            try {
+                elements = itemService.advSearch(request);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            request.setAttribute("elements", elements);
+            nextPage = "adminItemSearchResult.jsp";
+        }
         RequestDispatcher rd = request.getRequestDispatcher("/"+nextPage);
         rd.forward(request, response);
         //        try {

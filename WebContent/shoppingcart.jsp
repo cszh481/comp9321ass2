@@ -104,6 +104,7 @@ input[type="checkbox"] {
 							<th>Author/Editor</th>
 							<th>Price</th>
 							<th>Quantity</th>
+							<th>Quantity Left</th>
 							<th>Seller</th>
 						</tr>
 					</thead>
@@ -117,6 +118,7 @@ input[type="checkbox"] {
 				<td><%=element.getItem().getAuthors().toString()%></td>
 				<td><%=element.getItem().getPrice()%></td>
 				<td><%=element.getCount()%></td>
+				<td><%=element.getItem().getQuantity()%></td>
 				<td><%=element.getItem().getSeller().getUsername()%></td>
 			</tr>
 		

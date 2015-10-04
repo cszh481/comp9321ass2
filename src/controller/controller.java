@@ -7,6 +7,7 @@ import service.*;
 import java.awt.event.AdjustmentEvent;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -146,11 +147,11 @@ public class controller extends HttpServlet {
             CartService cartService = new CartService();
             OrderService orderService = new OrderService();
             String[] id_list = request.getParameterValues("pick");
+            List<Cart> cartList = new ArrayList<>();
             for(String temp_int : id_list ) {
                 int id = Integer.parseInt(temp_int);
                 Cart cart = cartService.getCartById(id);
-
-
+                cartList.add(cart);
                 cartService.deleteCart(id);
             }
         }

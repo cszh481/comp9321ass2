@@ -1,12 +1,11 @@
 package service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
-import dao.OrderDao;
-import dao.OrderDaoImpl;
-import dao.OrderItemDao;
-import dao.OrderItemDaoImpl;
+import dao.*;
 import dto.Cart;
+import dto.Item;
 import dto.Order;
 import dto.OrderItem;
 
@@ -15,6 +14,7 @@ public class OrderService {
 	private OrderDao orderDao = OrderDaoImpl.getInstance();
 	private OrderItemDao orderItemDao = OrderItemDaoImpl.getInstance();
 	private CartService cartService = new CartService();
+	private ItemService itemService = new ItemService();
 
 	/**
 	 * create order
@@ -42,6 +42,37 @@ public class OrderService {
 		// step 4, send email
 		// TODO: send email
 		
+		return order;
+	}
+
+	public Order createOrder(List<Cart> cartList) {
+		// step 1, insert into order table
+		Cart temp = cartList.get(1);
+		Order order = new Order();
+		order.setUser_id(temp.getUser_id());
+		order.setCreated(new Timestamp(System.currentTimeMillis()));
+		orderDao.saveOrUpdate(order);
+
+		// step 2, move all shopping cart into orderItem
+		for (Cart c : cartList) {
+			OrderItem oi = new OrderItem();
+			oi.setOrder_id(order.getId());
+			oi.setItem_id(c.getItem_id());
+			oi.setCount(c.getCount());
+			orderItemDao.save(oi);
+		}
+
+		//step3, change the quantity of items
+		for (Cart c : cartList) {
+			Item item = c.getItem();
+			item.setQuantity(item.getQuantity()-c.getCount());
+			itemService.saveOrUpdate(item);
+		}
+
+
+		// step 4, send email
+		// TODO: send email
+
 		return order;
 	}
 

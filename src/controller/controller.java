@@ -58,10 +58,13 @@ public class controller extends HttpServlet {
                     session.setMaxInactiveInterval(60*60);
                     session.setAttribute("user", user);
                 }
+                else{
+                    nextPage = "noThisUser.jsp";
+                }
             } catch (UserBannedException e) {
-                e.printStackTrace();
+                nextPage = "userIsBanned.jsp";
             } catch (UserUnVerifiedException e) {
-                e.printStackTrace();
+                nextPage = "notActivated.jsp";
             }
         }
         else if(action.equals("logout")){

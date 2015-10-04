@@ -79,7 +79,10 @@ public class DblpSAXHandler extends DefaultHandler {
 		} else if (qName.equalsIgnoreCase("mastersthesis")) {
 			currentElement = new DblpElement();
 			currentElement.setType("masterthesis");
-		} 
+		} else if (qName.equalsIgnoreCase("www")) {
+			// currentElement = new DblpElement();
+			// currentElement.setType("masterthesis");
+		}
 
 		// reading attribtues
 		// possible attributes
@@ -162,7 +165,10 @@ public class DblpSAXHandler extends DefaultHandler {
 		} else if (qName.equalsIgnoreCase("masterthesis")) {
 			this.elements.add(currentElement);
 			this.currentElement = null;
-		} 
+		} else if (qName.equalsIgnoreCase("www")) {
+			// this.elements.add(currentElement);
+			this.currentElement = null;
+		}
 
 	}
 

@@ -16,11 +16,9 @@ public class DblpDao {
 	public static List<DblpElement> allElements;
 
 	// /Users/NewFolder/Desktop/sample.xml
-	public static String xmlFilePath;
+	public static String xmlFilePath = "/Users/NewFolder/Desktop/sample.xml";
 
-	public static void setXmlFilePath(String path) {
-		xmlFilePath = path;
-	}
+	
 
 	public static List<DblpElement> getAllElements() {
 
@@ -170,7 +168,7 @@ public class DblpDao {
 
 	public static List<DblpElement> getRandomTen() {
 		List<DblpElement> list = getAllElements();
-		System.out.print("total entries" + list.size() + "\n");
+		//System.out.print("total entries" + list.size() + "\n");
 		Collections.shuffle(list);
 		if (list.size() > 10) {
 			return list.subList(0, 10);

@@ -9,6 +9,7 @@ import java.util.List;
 
 import dto.Cart;
 import dto.Item;
+import dto.User;
 
 public class CartDaoImpl extends BaseDao implements CartDao {
 
@@ -114,7 +115,26 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 			e.printStackTrace();
 		}
 	}
+	public Cart getCartById(int cart_id){
+		Connection connection = getConnection();
+		String sql = "SELECT * FROM cart WHERE id = ?";
+		try {
+			PreparedStatement preparedStatement = connection
+			        .prepareStatement(sql);
+			preparedStatement.setInt(1, cart_id);
 
+			ResultSet rs = preparedStatement.executeQuery();
+			if (rs.next()) {
+				return convertCart(rs);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+	
 	public Cart getCartByUserIdAndItemId(int user_id, int item_id) {
 
 		Connection connection = getConnection();
@@ -147,4 +167,15 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 
 		return null;
 	}
+	private Cart convertCart(ResultSet rs) throws SQLException{
+		Cart cart = new Cart();
+		cart.setId(rs.getInt("id"));
+		cart.setUser_id(rs.getInt("user_id"));
+		cart.setItem_id(rs.getInt("item_id"));
+		cart.setCount(rs.getInt("count"));
+		cart.setAdded(rs.getTimestamp("added"));
+		cart.setRemoved(rs.getTimestamp("removed"));
+	    return cart;
+    }
+
 }

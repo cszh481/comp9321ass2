@@ -13,4 +13,6 @@ public interface CartDao {
 	public void clearCartByUserId(int user_id);
 
 	public Cart getCartByUserIdAndItemId(int user_id, int item_id);
+
+	public Cart getCartById(int cart_id);
 }

@@ -1,12 +1,10 @@
 package controller;
-import dto.Cart;
-import dto.Item;
-import dto.Order;
-import dto.User;
+import dto.*;
 import exception.UserBannedException;
 import exception.UserUnVerifiedException;
 import service.*;
 
+import java.awt.event.AdjustmentEvent;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
@@ -158,7 +156,14 @@ public class controller extends HttpServlet {
         }
         else if(action.equals("adminlogin")){
             AdminService adminService = new AdminService();
-//            adminService.login();
+            UserService userService = new UserService();
+            User user = userService.makeUserbyRequest(request);
+            Admin admin = adminService.login(user.getUsername(),user.getPassword());
+            if (admin != null){
+                HttpSession session = request.getSession();
+                session.setAttribute("adminlogin","true");
+                session.setMaxInactiveInterval(60*60);
+            }
         }
         RequestDispatcher rd = request.getRequestDispatcher("/"+nextPage);
         rd.forward(request, response);

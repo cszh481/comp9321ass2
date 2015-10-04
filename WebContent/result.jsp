@@ -153,8 +153,8 @@ input[type="checkbox"] {
 		
 	<div class="pager">
 		<div class="">
-			<a class="pull-left btn btn-success page-nav" data-action="prev">Prev</a>
-			<a class="pull-right btn btn-success page-nav" data-action="next">Next</a>
+			<a id="prev" class="pull-left btn btn-success page-nav" data-action="prev">Prev</a>
+			<a id="next" class="pull-right btn btn-success page-nav" data-action="next">Next</a>
 		</div>
 		<div class="">
 			<select id="page-select" class="form-control">
@@ -209,7 +209,11 @@ input[type="checkbox"] {
 		var btn = $(e.target);
 		var action = btn.data('action');
 		var currentIndex = parseInt($('#page-select').val());
-
+	    if (currentIndex > 0){
+	    	$('#prev').style.visibility = 'hidden';
+	    } else if (currentIndex == totalPage -1){
+	    	$('#next').style.visibility = 'hidden';
+	    }
 		if (action == "next") {
 			if (currentIndex < totalPage - 1) {
 				$('#page-select').val(currentIndex + 1);

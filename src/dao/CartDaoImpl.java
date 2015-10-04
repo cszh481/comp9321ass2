@@ -28,7 +28,7 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 		List<Cart> cartItems = new ArrayList<Cart>();
 
 		Connection connection = getConnection();
-		String sql = "SELECT i.*, c.* FROM " + "item i, user u, cart c where "
+		String sql = "SELECT i.*, c.* FROM " + "item i, user u, cart c WHERE "
 		        + "c.user_id = u.id and c.item_id = i.id and u.id = ?";
 
 		try {

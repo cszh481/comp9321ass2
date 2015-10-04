@@ -2,9 +2,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.*"%>
-<%@ page import="service.ItemService" %>
+<%@ page import="service.ItemService"%>
 
-	
+
 <%
 		String loginBool = (String) session.getAttribute("login");
 		List<Item> elements = (List<Item>) request.getAttribute("elements");
@@ -31,8 +31,8 @@
 }
 
 input[type="checkbox"] {
-  display: block;
-  margin: auto;
+	display: block;
+	margin: auto;
 }
 </style>
 
@@ -42,30 +42,33 @@ input[type="checkbox"] {
 
 	<!-- CHOOSE JSP DEPENDS ON AUTHORITY -->
 
-	<% if (loginBool == "true") {%>	
-		<!-- after login -->
-		<jsp:include page="adminheader.jsp" />		
+	<% if (adminLogin == "true") {%>
+	<!-- after login -->
+	<jsp:include page="adminheader.jsp" />
 	<%} else {%>
-		<!-- before login -->
-		<jsp:include page="adminloginheader.jsp" />
+	<!-- before login -->
+	<jsp:include page="adminloginheader.jsp" />
 	<% } %>
 
-        <div class="jumbotron">
-            <div class="container">
-                <div class="row">  
-                    <div class="col-md-8 col-md-offset-4">
-                        <br>
-                        <h1>Items Bought</h1>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
+	<div class="jumbotron">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-4">
+					<br>
+					<h1>Items Bought</h1>
 
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- after login -->
+	<% if (adminLogin == "true") {%>
 
 	<div class="container theme-showcase" role="main">
 
-	<%
+		<%
 		if (elements.isEmpty()) {
 	%>
 		<div class="row" style="margin: 40px" align="center">
@@ -77,79 +80,97 @@ input[type="checkbox"] {
 		<%
 			} else {
 		%>
-		
+
 
 		<!--  Search result: Title, Author,  Price, Quantity, Seller, Action(Remove) -->
 
 		<form action="do" method="get">
-		<div class="panel panel-info">
-			<div class="panel-heading">
-				<h3 class="panel-title"><%=getUsername()%></h3>
-			</div>
-			<div class="panel-body">
-			
-				<input type="hidden" name="servlet" value="onAdd" />
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th>Pub-Title</th>
-							<th>Timestamp</th>
-							<th>Price</th>
-							<th>Seller</th>
-						</tr>
-					</thead>
-					<tbody>
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title"><%=getUsername()%></h3>
+				</div>
+				<div class="panel-body">
 
-				<%
+					<input type="hidden" name="servlet" value="onAdd" />
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Pub-Title</th>
+								<th>Timestamp</th>
+								<th>Price</th>
+								<th>Seller</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<%
 					for (Item element : elements) {
 				%>
-				<tr class="dblp-item">
-				<!--  please link detail to 'adminDetail.jsp' -->
-					<!-- linke to adminDetail.jsp -->
-					<td><a href="control?action=showDetail&id=<%=element.getId()%>"> <%=element.getTitle()%></a></td>
-					<td><%=element.getTimestamp%></td>
-					<td><%=element.getPrice()%></td>
-					<td><%=element.getSeller()%></td>
-				</tr>
-			<%
+							<tr class="dblp-item">
+								<!--  please link detail to 'adminDetail.jsp' -->
+								<!-- linke to adminDetail.jsp -->
+								<td><a
+									href="control?action=showDetail&id=<%=element.getId()%>"> <%=element.getTitle()%></a></td>
+								<td><%=element.getTimestamp%></td>
+								<td><%=element.getPrice()%></td>
+								<td><%=element.getSeller()%></td>
+							</tr>
+							<%
 				}
 			%>
 
-					</tbody>
-				</table>
-				
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+
+
+		</form>
+
+
+		<div class="pager">
+			<div class="">
+				<a class="pull-left btn btn-success page-nav" data-action="prev">Prev</a>
+				<a class="pull-right btn btn-success page-nav" data-action="next">Next</a>
+			</div>
+			<div class="">
+				<select id="page-select" class="form-control">
+					<%
+					for (int i = 0; i < totalPage; i++) {
+				%>
+					<option value="<%=i%>" data-index="<%=i%>">page
+						<%=(i+1)%> out of
+						<%=totalPage%></option>
+					<%
+					}
+				%>
+				</select>
 			</div>
 		</div>
 
+		<% } %>
 
-	</form>
-	
-		
-	<div class="pager">
-		<div class="">
-			<a class="pull-left btn btn-success page-nav" data-action="prev">Prev</a>
-			<a class="pull-right btn btn-success page-nav" data-action="next">Next</a>
-		</div>
-		<div class="">
-			<select id="page-select" class="form-control">
-				<%
-					for (int i = 0; i < totalPage; i++) {
-				%>
-				<option value="<%=i%>" data-index="<%=i%>">page
-					<%=(i+1)%> out of
-					<%=totalPage%></option>
-				<%
-					}
-				%>
-			</select>
+	</div>
+
+	<% } else { %>
+
+	<div class="container theme-showcase" role="main">
+		<div class="col-md-10 col-md-offset-1" align="center">
+			<h1><span class="glyphicon glyphicon-exclamation-sign"></span> No authority: Please log in!</h1>
+			<a class="btn btn-primary" href="admin.jsp" title=""> <span
+				class="icon"></span> <span class="text">Admin Home</span>
+			</a>
 		</div>
 	</div>
+
+
 
 	<% } %>
-			
 
-	</div>
-	
+
+
+
 
 	<!-- Footer -->
 	<jsp:include page="footer.jsp" />

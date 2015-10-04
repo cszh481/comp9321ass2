@@ -44,7 +44,7 @@
 	
 	
 	<!-- after log in - same account can't see log in page again -->
- <% if (loginBool == "true") {%>
+ <% if (adminLogin == "true") {%>
     <!-- after login -->
         <div class="container theme-showcase" role="main">
             <div class="row" style="margin: 40px" align="center">

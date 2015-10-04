@@ -45,7 +45,9 @@
             </div>
         </div>
 
-
+	<!-- after login -->
+	<% if (adminLogin == "true") {%>
+	
 	<div class="container theme-showcase" role="main">
 
 		 <div class="row" style="margin: 40px" align="center">
@@ -143,7 +145,21 @@
 
 	</div>
 
+	<% } else { %>
 
+	<div class="container theme-showcase" role="main">
+		<div class="col-md-10 col-md-offset-1" align="center">
+			<h1><span class="glyphicon glyphicon-exclamation-sign"></span> No authority: Please log in!</h1>
+			<a class="btn btn-primary" href="admin.jsp" title=""> <span
+				class="icon"></span> <span class="text">Admin Home</span>
+			</a>
+		</div>
+	</div>
+
+
+
+	<% } %>
+	
 
 
 

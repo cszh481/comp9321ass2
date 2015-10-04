@@ -5,10 +5,7 @@ import dto.Order;
 import dto.User;
 import exception.UserBannedException;
 import exception.UserUnVerifiedException;
-import service.CartService;
-import service.ItemService;
-import service.OrderService;
-import service.UserService;
+import service.*;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -158,6 +155,10 @@ public class controller extends HttpServlet {
 
                 cartService.deleteCart(id);
             }
+        }
+        else if(action.equals("adminlogin")){
+            AdminService adminService = new AdminService();
+//            adminService.login();
         }
         RequestDispatcher rd = request.getRequestDispatcher("/"+nextPage);
         rd.forward(request, response);

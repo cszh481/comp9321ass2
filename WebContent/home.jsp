@@ -142,23 +142,23 @@
                     class=""></li>
 				<li data-target="#carousel-example-generic" data-slide-to="9"
 					class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="10"
-                    class="active"></li>
 			</ol>
 			<div class="carousel-inner" role="listbox">
-                <% for (Item temp : elements ){%>
+                <% for (int i = 0; i < 9 ; i++){%>
 				<div class="item">
-                    <a href="control?action=showDetail&id=<%=temp.getId()%>">  Title: <%=temp.getTitle()%>
+                    <a href="control?action=showDetail&id=<%=elements.get(i).getId()%>">  Title: <%=elements.get(i).getTitle()%>
 					<img
-						src="<%=temp.getImageURL()%>"
+						src="<%=elements.get(i).getImageURL()%>"
 						data-holder-rendered="true">
-                    </a>
+
 				</div>
                 <% } %>
 				<div class="item active">
+                    <a href="control?action=showDetail&id=<%=elements.get(9).getId()%>">  Title: <%=elements.get(9).getTitle()%>
 					<img
-						src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTE0MCIgaGVpZ2h0PSI1MDAiIHZpZXdCb3g9IjAgMCAxMTQwIDUwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvMTE0MHg1MDAvYXV0by8jNTU1OiMzMzMvdGV4dDpUaGlyZCBzbGlkZQpDcmVhdGVkIHdpdGggSG9sZGVyLmpzIDIuNi4wLgpMZWFybiBtb3JlIGF0IGh0dHA6Ly9ob2xkZXJqcy5jb20KKGMpIDIwMTItMjAxNSBJdmFuIE1hbG9waW5za3kgLSBodHRwOi8vaW1za3kuY28KLS0+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48IVtDREFUQVsjaG9sZGVyXzE0ZmY3ZjU4NzM5IHRleHQgeyBmaWxsOiMzMzM7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6NTdwdCB9IF1dPjwvc3R5bGU+PC9kZWZzPjxnIGlkPSJob2xkZXJfMTRmZjdmNTg3MzkiPjxyZWN0IHdpZHRoPSIxMTQwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iIzU1NSIvPjxnPjx0ZXh0IHg9IjM3Ny44NjcxODc1IiB5PSIyNzUuNSI+VGhpcmQgc2xpZGU8L3RleHQ+PC9nPjwvZz48L3N2Zz4="
+						src="<%=elements.get(9).getImageURL()%>"
 						data-holder-rendered="true">
+                    </a>
 				</div>
 			</div>
 			<a class="left carousel-control" href="#carousel-example-generic"

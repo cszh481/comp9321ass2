@@ -96,7 +96,7 @@ input[type="checkbox"] {
 
 		<!--  Search result: Title, Author,  Price, Quantity, Seller, Action(Remove) -->
 
-		<form action="do" method="get">
+		<form action="control" method="get">
 		<div class="panel panel-info">
 			<div class="panel-heading">
 				<h3 class="panel-title">Admin Search Result</h3>
@@ -121,13 +121,17 @@ input[type="checkbox"] {
 				%>
 				<tr class="dblp-item">
 				<!--  please link detail to 'adminDetail.jsp' -->
-					<td><a href="control?action=showDetail&id=<%=element.getId()%>"> <%=element.getTitle()%></a></td>
+					<td><a href="control?action=adminShowDetail&id=<%=element.getId()%>"> <%=element.getTitle()%></a></td>
 					<td><%=element.getAuthors().toString()%></td>
 					<td><%=element.getPrice()%></td>
 					<td><%=element.getQuantity()%></td>
 					<input type="hidden" name="id" value="<%=element.getId()%>">
-                    <input type="hidden" name="action" value="remove">
-                    <td><button type="submit" class="btn btn-xs btn-warning">Remove</button></td>
+                    <input type="hidden" name="action" value="banitem">
+					<%if (element.isBan()){%>
+					<td><button id="clearCart" class="btn btn-xs btn-success" type="submit" name="action" value="unbanitem">Restore</button></td>
+					<%}else {%>
+					<td><button id="clearCart" class="btn btn-xs btn-danger" type="submit" name="action" value="banitem">Remove</button></td>
+					<%}%>
 				</tr>
 			<%
 				}

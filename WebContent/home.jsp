@@ -51,7 +51,7 @@
                 <div class="row">  
                     <div class="col-md-8 col-md-offset-4">
                         <br>
-                        <h1>Welcome to ShimaKaze!</h1>
+                        <h1>ShimaKaze!</h1>
                         
                         <div class="row">
                             <form class="form-inline"method="get" action="control">

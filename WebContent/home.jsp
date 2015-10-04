@@ -78,7 +78,7 @@
        
        
         <div class="container theme-showcase" role="main">
-        
+        <%if (elements.size()>0){%>
         <div class="panel panel-info">
             <div class="panel-heading">
                 <h3 class="panel-title">Have a look!</h3>
@@ -105,7 +105,14 @@
                     </tbody>
                 </table>
             </div>
-        </div>  
+        </div>
+            <%}else {%>
+            <div class="row" style="margin: 40px" align="center">
+                <div class="col-md-8 col-md-offset-1">
+                    <h1>Sorry, no matching data found!</h1>
+                </div>
+            </div>
+            <%}%>
         
         
         

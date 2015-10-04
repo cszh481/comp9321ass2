@@ -92,7 +92,7 @@
     			</div>
     			
     			<div class="form-group form-group-md">
-    				<label class="col-md-3 control-label">Image</label>
+    				<label class="col-md-3 control-label">Image(URL)</label>
     				<div class="col-md-6">
       					<input class="form-control" type="text" id="#" name="image" placeholder="Input...">
     				</div>

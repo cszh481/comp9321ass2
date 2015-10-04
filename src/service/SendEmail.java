@@ -1,5 +1,8 @@
 package service;
 
+import dao.UserDao;
+import dao.UserDaoImpl;
+import dto.Cart;
 import dto.User;
 
 import java.util.Properties;
@@ -56,13 +59,16 @@ public class SendEmail {
                 "</p>";
         sendEmail(to,title,content);
     }
-    public static void sendSellMail(User user) throws MessagingException {
+    public static void sendSellMail(Cart cart) throws MessagingException {
+        UserDao userDao = new UserDaoImpl();
+        User user = userDao.getUserById(cart.getItem().getSeller_id());
         String to = user.getEmail();
         String title = "New Order!!";
         String content = "<p>\n" +
                 "Congratulation, Sir!\n" +
                 "<br>\n" +
                 "</br>\n" +
+                cart.getCount()+" <"+cart.getItem().getTitle()+"> is sold to " +user.getUsername()+
                 "</p>";
         sendEmail(to,title,content);
     }

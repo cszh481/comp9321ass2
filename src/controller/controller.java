@@ -154,6 +154,11 @@ public class controller extends HttpServlet {
                 cartList.add(cart);
                 cartService.deleteCart(id);
             }
+            try {
+                orderService.createOrder(cartList);
+            } catch (MessagingException e) {
+                e.printStackTrace();
+            }
         }
         else if(action.equals("adminlogin")){
             AdminService adminService = new AdminService();

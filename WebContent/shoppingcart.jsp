@@ -93,9 +93,10 @@ input[type="checkbox"] {
 		<%--<input type="hidden" name="servlet" value="onDel" />--%>
 		<table class="table table-striped">
 					<col width="5%" />
-					<col width="50%" />
+					<col width="40%" />
 					<col width="20%" />
 					<col width="10%" />
+			<col width="10%" />
 					<col width="15%" />
 					<thead>
 						<tr>

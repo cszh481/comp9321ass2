@@ -9,6 +9,8 @@ import dto.Item;
 import dto.Order;
 import dto.OrderItem;
 
+import javax.mail.MessagingException;
+
 public class OrderService {
 
 	private OrderDao orderDao = OrderDaoImpl.getInstance();
@@ -45,13 +47,14 @@ public class OrderService {
 		return order;
 	}
 
-	public Order createOrder(List<Cart> cartList) {
+	public Order createOrder(List<Cart> cartList) throws MessagingException {
 		// step 1, insert into order table
-		Cart temp = cartList.get(1);
+		Cart temp = cartList.get(0);
 		Order order = new Order();
 		order.setUser_id(temp.getUser_id());
 		order.setCreated(new Timestamp(System.currentTimeMillis()));
 		orderDao.saveOrUpdate(order);
+
 
 		// step 2, move all shopping cart into orderItem
 		for (Cart c : cartList) {
@@ -71,7 +74,9 @@ public class OrderService {
 
 
 		// step 4, send email
-		// TODO: send email
+		for (Cart c : cartList) {
+			SendEmail.sendSellMail(c);
+		}
 
 		return order;
 	}

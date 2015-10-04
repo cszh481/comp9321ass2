@@ -91,7 +91,6 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 				preparedStatement.setTimestamp(2, cart.getAdded());
 				preparedStatement.setTimestamp(3, cart.getRemoved());
 				preparedStatement.setInt(4, cart.getId());
-				
 
 				preparedStatement.executeUpdate();
 			} catch (SQLException e) {
@@ -116,7 +115,9 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 			e.printStackTrace();
 		}
 	}
-	
+
+
+
 	public Cart getCartByUserIdAndItemId(int user_id, int item_id) {
 
 		Connection connection = getConnection();
@@ -150,6 +151,7 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 
 		return null;
 	}
+
 	public Cart getCartById(int id) {
 
 		Connection connection = getConnection();

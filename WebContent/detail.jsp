@@ -81,7 +81,7 @@
 							<col width="70%" />
 							<tr>
 								<td>Title</td>
-								<td><%=detialItem.getTitle()%></td>
+								<td><%=detialItem.getType()%></td>
 							</tr>
 							<tr>
 								<td>Author</td>

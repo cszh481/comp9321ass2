@@ -191,6 +191,9 @@ public class controller extends HttpServlet {
                 session.setMaxInactiveInterval(60*60);
                 nextPage = "adminmain.jsp";
             }
+            else {
+                nextPage = "wrongpassword.jsp";
+            }
         }
         else if(action.equals("checkbought")){
             int userId = Integer.parseInt(request.getParameter("id"));

@@ -7,7 +7,7 @@
 <%
 	String loginBool = (String) session.getAttribute("login");
 	List<Item> elements = (List<Item>) request.getAttribute("elements");
-	int totalPage = (int) Math.ceil((elements.size() / 10) + 1);
+	int totalPage = (int) Math.ceil(((double)elements.size() / 10));
 %>
 
 

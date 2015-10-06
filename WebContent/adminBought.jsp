@@ -11,7 +11,7 @@
 	String loginBool = (String) session.getAttribute("login");
 	String username = (String) request.getAttribute("username");
 	List<OrderItem> elements = (List<OrderItem>) request.getAttribute("elements");
-	int totalPage = (int) Math.ceil((elements.size() / 10) + 1);
+	int totalPage = (int) Math.ceil(((double)elements.size() / 10) + 1);
 	//get username
 %>
 

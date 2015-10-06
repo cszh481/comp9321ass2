@@ -94,6 +94,12 @@
             </div>
 
         </div>
+        <div class="col-md-4 col-md-offset-4" align="center">
+            <a class="btn btn-primary" href="addItem.jsp" title="">
+                <span class="icon"></span>
+                <span class="text">Add New Item</span>
+            </a>
+        </div>
         <%} else {%>
         
         <div class="container theme-showcase" role="main">
@@ -103,7 +109,7 @@
                 </div>
             </div>
 
-        <div class="col-md-4 col-md-offset-4" align="center"> 
+        <div class="col-md-4 col-md-offset-4" align="center">
 			 <a class="btn btn-primary" href="addItem.jsp" title="">
                	<span class="icon"></span>
                	<span class="text">Add New Item</span>

@@ -230,7 +230,7 @@ public class controller extends HttpServlet {
             ItemService itemService = new ItemService();
             List<Item> elements = null;
             try {
-                elements = itemService.advSearch(request);
+                elements = itemService.adminAdvSearch(request);
             } catch (ParseException e) {
                 e.printStackTrace();
             }

@@ -44,7 +44,7 @@ public class ItemService {
 	public List<Item> getAllAvailibleItems() {
 		List<Item> resultList = new ArrayList<Item>();
 		for (Item i : getAllItems()) {
-			if (!i.isPaused() && i.isPaused()) {
+			if (!i.isPaused() && !i.isBan()) {
 				resultList.add(i);
 			}
 		}
@@ -178,7 +178,7 @@ public class ItemService {
 	}
 
 	public List<Item> basicSearch (String keywords){
-		List<Item> wholeList = getAllItems();
+		List<Item> wholeList = getAllAvailibleItems();
 		List<Item> resultList = new ArrayList<>();
 		for (Item element : wholeList){
 			if(element.getTitle().toLowerCase().indexOf(keywords) != -1){
@@ -194,7 +194,7 @@ public class ItemService {
 	}
 
 	public List<Item> advSearch (HttpServletRequest request) throws ParseException {
-		List<Item> wholeList = getAllItems();
+		List<Item> wholeList = getAllAvailibleItems();
 		List<Item> resultList = new ArrayList<>();
 		boolean typeSame;
 		boolean titleSame;
@@ -272,6 +272,98 @@ public class ItemService {
                 if (temp.getPublication_date().after(sdf.parse(request.getParameter("publicationdate1")))){
                     checkdate =true;
                 }
+			}
+			else if (temp.getPublication_date().after(sdf.parse(request.getParameter("publicationdate1")))
+					&& temp.getPublication_date().before(sdf.parse(request.getParameter("publicationdate2")))){
+				checkdate =true;
+			}
+
+			if (typeSame && titleSame && authorSame && venusSame && checkdate && checkPrice){
+				resultList.add(temp);
+			}
+		}
+		return resultList;
+	}
+
+	public List<Item> adminAdvSearch (HttpServletRequest request) throws ParseException {
+		List<Item> wholeList = getAllItems();
+		List<Item> resultList = new ArrayList<>();
+		boolean typeSame;
+		boolean titleSame;
+		boolean authorSame;
+		boolean venusSame;
+		boolean checkPrice;
+		boolean checkdate;
+		for (Item temp : wholeList) {
+			typeSame = false;
+			titleSame = false;
+			authorSame = false;
+			venusSame = false;
+			checkPrice = false;
+			checkdate = false;
+			if ( request.getParameter("type") == null||request.getParameter("type").equals("all")
+					|| request.getParameter("type").equals("")
+					|| request.getParameter("type").toLowerCase().equals(temp.getType().toLowerCase())) {
+				typeSame = true;
+			}
+			if ( request.getParameter("title") == null|| request.getParameter("title").equals("")) {
+				titleSame =true;
+			}
+			else {
+				if (temp.getTitle().toLowerCase().indexOf(request.getParameter("title").toLowerCase())!= -1){
+					titleSame = true;
+				}
+			}
+			if ( request.getParameter("author") == null||request.getParameter("author").equals("") ) {
+				authorSame =true;
+			}
+			else {
+				if (temp.getAuthors().toLowerCase().indexOf(request.getParameter("author").toLowerCase())!= -1) {
+					authorSame = true;
+				}
+
+			}
+			if (  request.getParameter("venues") == null||request.getParameter("venues").equals("")||request.getParameter("venues").equals("all")) {
+				venusSame =true;
+			}
+			else {
+				if (temp.getVenue().toLowerCase().indexOf(request.getParameter("venues").toLowerCase())!= -1){
+					venusSame = true;
+				}
+
+			}
+			if ((request.getParameter("price1") == null||request.getParameter("price1").equals(""))
+					&&(request.getParameter("price2") == null||request.getParameter("price2").equals(""))) {
+				checkPrice =true;
+			}
+			else if ((request.getParameter("price1") == null||request.getParameter("price1").equals(""))){
+				if ( temp.getPrice() <= Double.parseDouble(request.getParameter("price2"))) {
+					checkPrice = true;
+				}
+			}
+			else if ((request.getParameter("price2") == null||request.getParameter("price2").equals(""))){
+				if (temp.getPrice() >= Double.parseDouble(request.getParameter("price1"))) {
+					checkPrice = true;
+				}
+			}
+			else if (temp.getPrice() >= Double.parseDouble(request.getParameter("price1"))
+					&& temp.getPrice() <= Double.parseDouble(request.getParameter("price2"))){
+				checkPrice =true;
+			}
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyy");
+			if ((request.getParameter("publicationdate1") == null||request.getParameter("publicationdate1").equals(""))
+					&&(request.getParameter("publicationdate2") == null||request.getParameter("publicationdate2").equals(""))) {
+				checkdate =true;
+			}
+			else if ((request.getParameter("publicationdate1") == null||request.getParameter("publicationdate1").equals(""))){
+				if (temp.getPublication_date().before(sdf.parse(request.getParameter("publicationdate2")))){
+					checkdate =true;
+				}
+			}
+			else if ((request.getParameter("publicationdate2") == null||request.getParameter("publicationdate2").equals(""))){
+				if (temp.getPublication_date().after(sdf.parse(request.getParameter("publicationdate1")))){
+					checkdate =true;
+				}
 			}
 			else if (temp.getPublication_date().after(sdf.parse(request.getParameter("publicationdate1")))
 					&& temp.getPublication_date().before(sdf.parse(request.getParameter("publicationdate2")))){

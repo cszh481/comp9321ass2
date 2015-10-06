@@ -24,7 +24,7 @@
 <jsp:include page="headerjsp.jsp" />
 
 <style>
-.dblp-item {
+.itemToShow {
 	display: none;
 }
 
@@ -105,7 +105,7 @@ input[type="checkbox"] {
 				<%
 					for (Cart element : elements) {
 				%>
-				<tr class="dblp-item">
+				<tr class="itemToShow">
 				<!--  please link detail to 'adminDetail.jsp' -->
 					<!-- linke to adminDetail.jsp -->
 					<td><a href="control?action=adminShowDetail&id=<%=element.getItem().getId()%>"> <%=element.getItem().getTitle()%></a></td>
@@ -125,11 +125,11 @@ input[type="checkbox"] {
 
 	</form>
 	
-		
+
 	<div class="pager">
 		<div class="">
-			<a class="pull-left btn btn-success page-nav" data-action="prev">Prev</a>
-			<a class="pull-right btn btn-success page-nav" data-action="next">Next</a>
+			<a id="prev" class="pull-left btn btn-success page-nav" data-action="prev">Prev</a>
+			<a id="next" class="pull-right btn btn-success page-nav" data-action="next">Next</a>
 		</div>
 		<div class="">
 			<select id="page-select" class="form-control">
@@ -182,16 +182,31 @@ input[type="checkbox"] {
 	var totalPage = <%=totalPage%>;
 
 	function showCurrentPage() {
-		var dblps = $('.dblp-item');
+		var itemToShow = $('.itemToShow');
 		var select = $('#page-select');
 		var currentIndex = select.val();
 
-		dblps.hide();
+		itemToShow.hide();
 		var start = currentIndex * 10;
 		var i = 0;
 		for (i = start; i < start + 10; i++) {
-			var el = $(dblps[i]);
+			var el = $(itemToShow[i]);
 			el.show();
+		}
+		if (totalPage == 1){
+			$('#page-select').css('visibility','hidden');
+		}
+		if (currentIndex == 0){
+			$('#prev').css('visibility','hidden');
+		}
+		else{
+			$('#prev').css('visibility','visible');
+		}
+		if(currentIndex == totalPage - 1){
+			$('#next').css('visibility','hidden');
+		}
+		else{
+			$('#next').css('visibility','visible');
 		}
 	}
 
@@ -217,4 +232,3 @@ input[type="checkbox"] {
 
 	showCurrentPage();
 </script>
-

@@ -21,26 +21,16 @@
 	<jsp:include page="headerjsp.jsp" />
 
 	<style>
-		.dblp-item {
-			display: none;
-		}
-
 		#page-select {
 			display: inline-block;
 			width: 60%;
 		}
-
-		input[type="checkbox"] {
-			display: block;
-			margin: auto;
+		.itemToShow {
+			display: none;
 		}
-
-
 		.autoResizeImage {
 			max-width: 80%;
-
 		}
-
 	</style>
 
 	<title>The Book Store - Search Results</title>
@@ -98,8 +88,6 @@
 				<h3 class="panel-title">Search Result</h3>
 			</div>
 			<div class="panel-body">
-
-				<input type="hidden" name="servlet" value="onAdd" />
 				<table class="table table-striped">
 					<col width="5%" />
 					<col width="60%" />
@@ -120,7 +108,7 @@
 					<%
 						for (Item element : elements) {
 					%>
-					<tr>
+					<tr class="itemToShow">
 						<td><img
 								src="<%=element.getImageURL()%>"
 								alt="Responsive image" class="autoResizeImage"> </td>
@@ -181,16 +169,31 @@
 	var totalPage = <%=totalPage%>;
 
 	function showCurrentPage() {
-		var dblps = $('.dblp-item');
+		var itemToShow = $('.itemToShow');
 		var select = $('#page-select');
 		var currentIndex = select.val();
 
-		dblps.hide();
+		itemToShow.hide();
 		var start = currentIndex * 10;
 		var i = 0;
 		for (i = start; i < start + 10; i++) {
-			var el = $(dblps[i]);
+			var el = $(itemToShow[i]);
 			el.show();
+		}
+        if (totalPage == 1){
+            $('#page-select').css('visibility','hidden');
+        }
+		if (currentIndex == 0){
+			$('#prev').css('visibility','hidden');
+		}
+		else{
+			$('#prev').css('visibility','visible');
+		}
+		if(currentIndex == totalPage - 1){
+			$('#next').css('visibility','hidden');
+		}
+		else{
+			$('#next').css('visibility','visible');
 		}
 	}
 

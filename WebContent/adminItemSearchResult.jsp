@@ -21,7 +21,7 @@
 <jsp:include page="headerjsp.jsp" />
 
 <style>
-.dblp-item {
+.itemToShow {
 	display: none;
 }
 
@@ -123,7 +123,7 @@ input[type="checkbox"] {
 					for (Item element : elements) {
 				%>
 				<form action="control" method="get">
-				<tr class="dblp-item">
+				<tr class="itemToShow">
 				<!--  please link detail to 'adminDetail.jsp' -->
 					<td><img
 								src="<%=element.getImageURL()%>"
@@ -134,9 +134,9 @@ input[type="checkbox"] {
 					<td><%=element.getQuantity()%></td>
 					<input type="hidden" name="id" value="<%=element.getId()%>">
 					<%if (element.isBan()){%>
-					<td><button id="clearCart" class="btn btn-xs btn-success" type="submit" name="action" value="unbanitem">Restore</button></td>
+					<td><button class="btn btn-xs btn-success" type="submit" name="action" value="unbanitem">Restore</button></td>
 					<%}else {%>
-					<td><button id="clearCart" class="btn btn-xs btn-danger" type="submit" name="action" value="banitem">Remove</button></td>
+					<td><button class="btn btn-xs btn-danger" type="submit" name="action" value="banitem">Remove</button></td>
 					<%}%>
 				</tr>
 				</form>
@@ -153,8 +153,8 @@ input[type="checkbox"] {
 		
 	<div class="pager">
 		<div class="">
-			<a class="pull-left btn btn-success page-nav" data-action="prev">Prev</a>
-			<a class="pull-right btn btn-success page-nav" data-action="next">Next</a>
+			<a id="prev" class="pull-left btn btn-success page-nav" data-action="prev">Prev</a>
+			<a id="next" class="pull-right btn btn-success page-nav" data-action="next">Next</a>
 		</div>
 		<div class="">
 			<select id="page-select" class="form-control">
@@ -204,16 +204,31 @@ input[type="checkbox"] {
 	var totalPage = <%=totalPage%>;
 
 	function showCurrentPage() {
-		var dblps = $('.dblp-item');
+		var itemToShow = $('.itemToShow');
 		var select = $('#page-select');
 		var currentIndex = select.val();
 
-		dblps.hide();
+		itemToShow.hide();
 		var start = currentIndex * 10;
 		var i = 0;
 		for (i = start; i < start + 10; i++) {
-			var el = $(dblps[i]);
+			var el = $(itemToShow[i]);
 			el.show();
+		}
+		if (totalPage == 1){
+			$('#page-select').css('visibility','hidden');
+		}
+		if (currentIndex == 0){
+			$('#prev').css('visibility','hidden');
+		}
+		else{
+			$('#prev').css('visibility','visible');
+		}
+		if(currentIndex == totalPage - 1){
+			$('#next').css('visibility','hidden');
+		}
+		else{
+			$('#next').css('visibility','visible');
 		}
 	}
 
@@ -239,4 +254,3 @@ input[type="checkbox"] {
 
 	showCurrentPage();
 </script>
-

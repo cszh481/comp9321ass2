@@ -92,7 +92,7 @@ input[type="checkbox"] {
 
 		<!--  Search result: Title, Author,  Price, Quantity, Seller, Action(Remove) -->
 
-		<form action="control" method="get">
+
 		<div class="panel panel-info">
 			<div class="panel-heading">
 				<h3 class="panel-title">Admin Search Result</h3>
@@ -122,6 +122,7 @@ input[type="checkbox"] {
 				<%
 					for (Item element : elements) {
 				%>
+				<form action="control" method="get">
 				<tr class="dblp-item">
 				<!--  please link detail to 'adminDetail.jsp' -->
 					<td><img
@@ -132,16 +133,14 @@ input[type="checkbox"] {
 					<td><%=element.getPrice()%></td>
 					<td><%=element.getQuantity()%></td>
 					<input type="hidden" name="id" value="<%=element.getId()%>">
-                    <input type="hidden" name="action" value="banitem">
 					<%if (element.isBan()){%>
 					<td><button id="clearCart" class="btn btn-xs btn-success" type="submit" name="action" value="unbanitem">Restore</button></td>
 					<%}else {%>
 					<td><button id="clearCart" class="btn btn-xs btn-danger" type="submit" name="action" value="banitem">Remove</button></td>
 					<%}%>
 				</tr>
-			<%
-				}
-			%>
+				</form>
+			<%}%>
 
 					</tbody>
 				</table>
@@ -150,7 +149,6 @@ input[type="checkbox"] {
 		</div>
 
 
-	</form>
 	
 		
 	<div class="pager">

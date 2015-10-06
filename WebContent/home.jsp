@@ -146,9 +146,9 @@
                     </div>
                     <% } %>
                     <div class="item active">
-                        <a href="control?action=showDetail&id=<%=elements.get(9).getId()%>">  Title: <%=elements.get(9).getTitle()%>
+                        <a href="control?action=showDetail&id=<%=elements.get(elements.size()-1).getId()%>">  Title: <%=elements.get(elements.size()-1).getTitle()%>
                             <img
-                                    src="<%=elements.get(9).getImageURL()%>"
+                                    src="<%=elements.get(elements.size()-1).getImageURL()%>"
                                     data-holder-rendered="true">
                         </a>
                     </div>

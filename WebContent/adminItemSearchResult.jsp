@@ -34,6 +34,13 @@ input[type="checkbox"] {
   display: block;
   margin: auto;
 }
+
+
+		.autoResizeImage {
+			max-width: 80%;
+
+		}
+		
 </style>
 
 <title>The Book Store - Admin - Search Results</title>
@@ -52,7 +59,7 @@ input[type="checkbox"] {
         <div class="jumbotron">
             <div class="container">
                 <div class="row">  
-                    <div class="col-md-8 col-md-offset-4">
+                    <div class="col-md-8 col-md-offset-3">
                         <br>
                         <h1>Items Search Results</h1>
                         
@@ -65,18 +72,7 @@ input[type="checkbox"] {
 	<% if (adminLogin == "true") {%>
 	<div class="container theme-showcase" role="main">
 
-		 <div class="row" style="margin: 40px" align="center">
-		   <div class="col-md-8 col-md-offset-3">
-			<form class="form-inline" action="control" method="get">
-				<div class="col-md-10">
 
-					<input type="text" class="form-control" placeholder="search...">
-					<button type="submit" class="btn btn-success">Search</button>
-				</div>
-			</form>
-			<br>
-		  </div>
-		</div>
 		
 		
 		
@@ -105,8 +101,15 @@ input[type="checkbox"] {
 			
 				<input type="hidden" name="servlet" value="onAdd" />
 				<table class="table table-striped">
+					<col width="5%" />
+					<col width="55%" />
+					<col width="20%" />
+					<col width="5%" />
+					<col width="5%" />
+					<col width="10%" />
 					<thead>
 						<tr>
+							<th>#</th>
 							<th>Title</th>
 							<th>Author/Editor</th>
 							<th>Price</th>
@@ -121,6 +124,9 @@ input[type="checkbox"] {
 				%>
 				<tr class="dblp-item">
 				<!--  please link detail to 'adminDetail.jsp' -->
+					<td><img
+								src="<%=element.getImageURL()%>"
+								alt="Responsive image" class="autoResizeImage"> </td>
 					<td><a href="control?action=adminShowDetail&id=<%=element.getId()%>"> <%=element.getTitle()%></a></td>
 					<td><%=element.getAuthors().toString()%></td>
 					<td><%=element.getPrice()%></td>

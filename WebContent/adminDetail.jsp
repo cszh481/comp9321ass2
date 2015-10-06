@@ -59,9 +59,11 @@
 					<div class="panel-heading">
 						<h3 class="panel-title">Book Image</h3>
 					</div>
+					<div class="panel-body" align="center">
 					<img
 						src="<%=detialItem.getImageURL()%>"
-						alt="Responsive image" class="img-responsive"> </img>
+						alt="Responsive image" class="img-responsive" /> 
+					</div>
 				</div>
 			</div>
 

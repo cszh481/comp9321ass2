@@ -94,18 +94,12 @@ input[type="checkbox"] {
 			
 				<input type="hidden" name="servlet" value="onAdd" />
 				<table class="table table-striped">
-					<% if (loginBool == "true") { %>
-					<col width="5%" />
-					<% } %>
 					<col width="60%" />
-					<col width="25%" />
+					<col width="30%" />
 					<col width="5%" />
 					<col width="5%" />
 					<thead>
 						<tr>
-							<% if (loginBool == "true") { %>
-							<th>#</th>
-							<% } %>
 							<th>Title</th>
 							<th>Author/Editor</th>
 							<th>Price</th>
@@ -117,10 +111,6 @@ input[type="checkbox"] {
 				<%
 					for (Item element : elements) {
 				%>
-				<tr class="dblp-item">
-					<% if (loginBool == "true") { %>
-					<td><input type="checkbox" name="pick" value="<%=element.getId()%>"></td>
-					<% } %>
 					<td><a href="control?action=showDetail&id=<%=element.getId()%>"> <%=element.getTitle()%></a></td>
 					<td><%=element.getAuthors().toString()%></td>
 					<td><%=element.getPrice()%></td>
@@ -137,18 +127,6 @@ input[type="checkbox"] {
 			</div>
 		</div>
 
-		<%
-		if (loginBool == "true") {
-		%>
-
-		<div class="row" style="padding-top: 40px">
-			<div class="col-md-3 col-md-offset-4" align="center">
-					<input type="hidden" name="servlet" value="onAdd" />
-					<button class="btn btn-primary" type="submit">Add to Cart</button>
-			</div>
-		</div>
-		
-		<% } %>
 
 	</form>
 	

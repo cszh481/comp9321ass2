@@ -1,8 +1,11 @@
 package service;
 
+import dao.ItemDao;
+import dao.ItemDaoImpl;
 import dao.UserDao;
 import dao.UserDaoImpl;
 import dto.Cart;
+import dto.Item;
 import dto.User;
 
 import java.util.Properties;
@@ -56,7 +59,10 @@ public class SendEmail {
                 "</br>\n" +
                 "Help us secure your account by verifying your email \n" +
                 "<a href=\"http://localhost:8080/comp9321ass2/control?uuid="+ user.getUuid() +"&action=verify"+"\" target=\"_top\">http://localhost:8080/control?uuid="+ user.getUuid() +"&action=verify</a>\n" +
-                "</p>";
+                "</p>"+
+                "<br>\n" +
+                "</br>\n" +
+                "From ShimaKaze\n";
         sendEmail(to,title,content);
     }
     public static void sendSellMail(Cart cart) throws MessagingException {
@@ -65,11 +71,13 @@ public class SendEmail {
         String to = user.getEmail();
         String title = "New Order!!";
         String content = "<p>\n" +
-                "Congratulation, Sir!\n" +
+                "Congratulation, "+user.getUsername()+"\n" +
                 "<br>\n" +
                 "</br>\n" +
-                cart.getCount()+" <"+cart.getItem().getTitle()+"> is sold to " +user.getUsername()+
-                "</p>";
+                cart.getCount()+" "+cart.getItem().getTitle()+" is sold.</p>"+
+                "<br>\n" +
+                "</br>\n" +
+                "From ShimaKaze\n";
         sendEmail(to,title,content);
     }
 }

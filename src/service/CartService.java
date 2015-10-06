@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 
 import dao.CartDao;
 import dao.CartDaoImpl;
+import dao.ItemDao;
+import dao.ItemDaoImpl;
 import dto.Cart;
 import dto.Item;
 
@@ -116,6 +118,11 @@ public class CartService {
 	}
 
     public Cart getCartById(int id){
-        return cartDao.getCartById(id);
+		Cart cart = cartDao.getCartById(id);
+		ItemDao itemDao = new ItemDaoImpl();
+		Item item = itemDao.getItemById(cart.getItem_id());
+		cart.setItem(item);
+
+        return cart;
     }
 }

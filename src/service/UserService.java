@@ -197,8 +197,12 @@ public class UserService {
 		if (request.getParameter("username") != null && !request.getParameter("username").equals("")) {
 			user.setUsername(request.getParameter("username"));
 		}
+
 		if (request.getParameter("password") != null && !request.getParameter("password").equals("")) {
 			user.setPassword(request.getParameter("password"));
+		}
+		else {
+			user.setPassword("");
 		}
 		if (request.getParameter("firstname") != null && !request.getParameter("firstname").equals("")) {
 			user.setFirstname(request.getParameter("firstname"));

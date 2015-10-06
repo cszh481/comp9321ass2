@@ -187,7 +187,21 @@ input[type="checkbox"] {
 		var dblps = $('.dblp-item');
 		var select = $('#page-select');
 		var currentIndex = select.val();
-
+		if (totalPage == 1){
+			$('#page-select').css('visibility','hidden');
+		}
+		if (currentIndex == 0){
+			$('#prev').css('visibility','hidden');
+		}
+		else{
+			$('#prev').css('visibility','visible');
+		}
+		if(currentIndex == totalPage - 1){
+			$('#next').css('visibility','hidden');
+		}
+		else{
+			$('#next').css('visibility','visible');
+		}
 		dblps.hide();
 		var start = currentIndex * 10;
 		var i = 0;

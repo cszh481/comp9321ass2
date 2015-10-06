@@ -81,7 +81,7 @@
 							<col width="70%" />
 							<tr>
 								<td>Title</td>
-								<td><%=detialItem.getType()%></td>
+								<td><%=detialItem.getTitle()%></td>
 							</tr>
 							<tr>
 								<td>Author</td>
@@ -90,7 +90,7 @@
 
 							<tr>
 								<td>Publication Type</td>
-								<td><%=detialItem.getTitle()%></td>
+								<td><%=detialItem.getType()%></td>
 							</tr>
 							<tr>
 								<td>Year</td>

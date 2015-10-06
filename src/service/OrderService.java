@@ -56,12 +56,13 @@ public class OrderService {
 		orderDao.saveOrUpdate(order);
 
 
-		// step 2, move all shopping cart into orderItem
+		// step 2, move all shopping cart into orderItem and remove all cart in database
 		for (Cart c : cartList) {
 			OrderItem oi = new OrderItem();
 			oi.setOrder_id(order.getId());
 			oi.setItem_id(c.getItem_id());
 			oi.setCount(c.getCount());
+			cartService.deleteCart(c.getId());
 			orderItemDao.save(oi);
 		}
 

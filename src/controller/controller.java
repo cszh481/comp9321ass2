@@ -159,16 +159,25 @@ public class controller extends HttpServlet {
             OrderService orderService = new OrderService();
             String[] id_list = request.getParameterValues("pick");
             List<Cart> cartList = new ArrayList<>();
+            boolean outOrder = false;
             for(String temp_int : id_list ) {
                 int id = Integer.parseInt(temp_int);
                 Cart cart = cartService.getCartById(id);
                 cartList.add(cart);
-                cartService.deleteCart(id);
+                if (cart.getCount() > cart.getItem().getQuantity()){
+                    outOrder = true;
+                }
             }
-            try {
-                orderService.createOrder(cartList);
-            } catch (MessagingException e) {
-                e.printStackTrace();
+            if (!outOrder) {
+                try {
+                    orderService.createOrder(cartList);
+                    nextPage = "shoppingcart.jsp";
+                } catch (MessagingException e) {
+                    e.printStackTrace();
+                }
+            }
+            else {
+                nextPage = "outofOrder.jsp";
             }
         }
         else if(action.equals("adminlogin")){

@@ -136,7 +136,7 @@
                         class="active"></li>
                 </ol>
                 <div class="carousel-inner" role="listbox">
-                    <% for (int i = 0; i < 9 ; i++){%>
+                    <% for (int i = 0; i < elements.size()-1 ; i++){%>
                     <div class="item">
                         <a href="control?action=showDetail&id=<%=elements.get(i).getId()%>">  Title: <%=elements.get(i).getTitle()%>
                             <img

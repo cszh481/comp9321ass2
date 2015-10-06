@@ -102,13 +102,14 @@
                 	<h1>Store is empty :(</h1>
                 </div>
             </div>
-        </div>
+
         <div class="col-md-4 col-md-offset-4" align="center"> 
 			 <a class="btn btn-primary" href="addItem.jsp" title="">
                	<span class="icon"></span>
                	<span class="text">Add New Item</span>
              </a>
 		</div>
+        </div>
         <%}%>
     <%} else {%>
     <!-- before login -->

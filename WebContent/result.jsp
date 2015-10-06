@@ -94,7 +94,9 @@ input[type="checkbox"] {
 			
 				<input type="hidden" name="servlet" value="onAdd" />
 				<table class="table table-striped">
+					<% if (loginBool == "true") { %>
 					<col width="5%" />
+					<% } %>
 					<col width="60%" />
 					<col width="25%" />
 					<col width="5%" />

@@ -13,13 +13,7 @@
                         <splan class="icon-bar"></splan> 
                         <splan class="icon-bar"></splan> 
                     </button> 
-                    <a class="navbar-brand" href="home.jsp"><span class="glyphicon glyphicon-home"></span> Home</a> 
-                    <a class="navbar-brand" href="advsearch.jsp"><span class="glyphicon glyphicon-search"></span> Advance Search</a>
-                    <form class="navbar-form navbar-right"action="control" method="get">
-                        <input type="hidden" name="action" value="basicsearch"/>
-                        <input type="text" class="form-control" placeholder="search..."name="keyword">
-                        <button type="submit" class="btn btn-primary">Search</button> 
-                    </form>
+                    <a class="navbar-brand" href="home.jsp"><span class="glyphicon glyphicon-home"></span> Home</a>
                 </div>
             
                 <div id="navbar" class="navbar-collapse collapse"> 

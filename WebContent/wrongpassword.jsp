@@ -62,6 +62,7 @@
 				
 				<div class="row" style="padding-top: 40px">
 					<div class="col-md-3 col-md-offset-4" align="center">
+						<input type="hidden" name="action" value="login"/>
 						<button type="submit" class="btn btn-primary">Log In</button>
 					</div>
 				</div>

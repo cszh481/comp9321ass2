@@ -105,7 +105,63 @@
                     </tbody>
                 </table>
             </div>
+
         </div>
+
+
+            <!-- Picture Can remove -->
+
+            <div id="carousel-example-generic" class="carousel slide"
+                 data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0"
+                        class=""></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"
+                        class=""></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"
+                        class=""></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="3"
+                        class=""></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="4"
+                        class=""></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="5"
+                        class=""></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="6"
+                        class=""></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="7"
+                        class=""></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="8"
+                        class=""></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="9"
+                        class="active"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <% for (int i = 0; i < 9 ; i++){%>
+                    <div class="item">
+                        <a href="control?action=showDetail&id=<%=elements.get(i).getId()%>">  Title: <%=elements.get(i).getTitle()%>
+                            <img
+                                    src="<%=elements.get(i).getImageURL()%>"
+                                    data-holder-rendered="true">
+
+                    </div>
+                    <% } %>
+                    <div class="item active">
+                        <a href="control?action=showDetail&id=<%=elements.get(9).getId()%>">  Title: <%=elements.get(9).getTitle()%>
+                            <img
+                                    src="<%=elements.get(9).getImageURL()%>"
+                                    data-holder-rendered="true">
+                        </a>
+                    </div>
+                </div>
+                <a class="left carousel-control" href="#carousel-example-generic"
+                   role="button" data-slide="prev"> <span class="sr-only">Previous</span>
+                </a> <a class="right carousel-control" href="#carousel-example-generic"
+                        role="button" data-slide="next"> <span class="sr-only">Next</span>
+            </a>
+
+            </div>
+
+            <!-- Picture End -->
             <%}else {%>
             <div class="row" style="margin: 40px" align="center">
                 <div class="col-md-8 col-md-offset-1">
@@ -117,59 +173,7 @@
         
         
         
-    <!-- Picture Can remove -->
 
-		<div id="carousel-example-generic" class="carousel slide"
-			data-ride="carousel">
-			<ol class="carousel-indicators">
-				<li data-target="#carousel-example-generic" data-slide-to="0"
-					class=""></li>
-				<li data-target="#carousel-example-generic" data-slide-to="1"
-					class=""></li>
-                <li data-target="#carousel-example-generic" data-slide-to="2"
-                    class=""></li>
-                <li data-target="#carousel-example-generic" data-slide-to="3"
-                    class=""></li>
-                <li data-target="#carousel-example-generic" data-slide-to="4"
-                    class=""></li>
-                <li data-target="#carousel-example-generic" data-slide-to="5"
-                    class=""></li>
-                <li data-target="#carousel-example-generic" data-slide-to="6"
-                    class=""></li>
-                <li data-target="#carousel-example-generic" data-slide-to="7"
-                    class=""></li>
-                <li data-target="#carousel-example-generic" data-slide-to="8"
-                    class=""></li>
-				<li data-target="#carousel-example-generic" data-slide-to="9"
-					class="active"></li>
-			</ol>
-			<div class="carousel-inner" role="listbox">
-                <% for (int i = 0; i < 9 ; i++){%>
-				<div class="item">
-                    <a href="control?action=showDetail&id=<%=elements.get(i).getId()%>">  Title: <%=elements.get(i).getTitle()%>
-					<img
-						src="<%=elements.get(i).getImageURL()%>"
-						data-holder-rendered="true">
-
-				</div>
-                <% } %>
-				<div class="item active">
-                    <a href="control?action=showDetail&id=<%=elements.get(9).getId()%>">  Title: <%=elements.get(9).getTitle()%>
-					<img
-						src="<%=elements.get(9).getImageURL()%>"
-						data-holder-rendered="true">
-                    </a>
-				</div>
-			</div>
-			<a class="left carousel-control" href="#carousel-example-generic"
-				role="button" data-slide="prev"> <span class="sr-only">Previous</span>
-			</a> <a class="right carousel-control" href="#carousel-example-generic"
-				role="button" data-slide="next"> <span class="sr-only">Next</span>
-			</a>
-
-		</div>
-
-		<!-- Picture End -->
         
         
         

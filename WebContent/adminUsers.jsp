@@ -11,7 +11,7 @@
 	String adminLogin = (String) session.getAttribute("adminlogin");
 	UserService userService = new UserService();
 	List<User> users = (List<User>) userService.getAllUsers();   //all user names
-	int totalPage = (int) Math.ceil(((double)users.size() / 10) + 1);
+	int totalPage = (int) Math.ceil((double)users.size() / 10);
 %>
 
 

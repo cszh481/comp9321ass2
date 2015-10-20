@@ -37,6 +37,7 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
 				preparedStatement.setTimestamp(2, order.getCreated());
 				preparedStatement.setInt(3, order.getId());
 				preparedStatement.executeUpdate();
+				connection.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -56,7 +57,7 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
 					int id = rs.getInt(1);
 					order.setId(id);
 				}
-
+				connection.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -83,7 +84,7 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
 				o.setCreated(rs.getTimestamp("created"));
 				resultList.add(o);
 			}
-
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -109,7 +110,7 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
 				o.setCreated(rs.getTimestamp("created"));
 				return o;
 			}
-
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

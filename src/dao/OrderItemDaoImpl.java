@@ -35,6 +35,7 @@ public class OrderItemDaoImpl extends BaseDao implements OrderItemDao {
 			preparedStatement.setInt(2, orderItem.getItem_id());
 			preparedStatement.setInt(3, orderItem.getOrder_id());
 			preparedStatement.executeUpdate();
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -64,7 +65,7 @@ public class OrderItemDaoImpl extends BaseDao implements OrderItemDao {
 				o.setOrder(orderDao.getOrderByOrderId(o.getOrder_id()));
 				resultList.add(o);
 			}
-
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -90,7 +91,7 @@ public class OrderItemDaoImpl extends BaseDao implements OrderItemDao {
 				o.setCount(rs.getInt("count"));
 				return o;
 			}
-
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

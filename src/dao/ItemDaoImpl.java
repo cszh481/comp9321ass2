@@ -97,7 +97,7 @@ public class ItemDaoImpl extends BaseDao implements ItemDao {
 			if (rs.next()) {
 				return convertItem(rs);
 			}
-
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -121,7 +121,7 @@ public class ItemDaoImpl extends BaseDao implements ItemDao {
 				Item item = convertItem(rs);
 				items.add(item);
 			}
-
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -145,7 +145,7 @@ public class ItemDaoImpl extends BaseDao implements ItemDao {
 				Item item = convertItem(rs);
 				items.add(item);
 			}
-
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -170,7 +170,7 @@ public class ItemDaoImpl extends BaseDao implements ItemDao {
 				Item item = convertItem(rs);
 				items.add(item);
 			}
-
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

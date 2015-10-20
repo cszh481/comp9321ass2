@@ -95,7 +95,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 			if (rs.next()) {
 				return convertUser(rs);
 			}
-
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -117,7 +117,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 			if (rs.next()) {
 				return convertUser(rs);
 			}
-
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -139,7 +139,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 			if (rs.next()) {
 				return convertUser(rs);
 			}
-
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -161,7 +161,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 			if (rs.next()) {
 				return convertUser(rs);
 			}
-
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -185,7 +185,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 				User user = convertUser(rs);
 				users.add(user);
 			}
-
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

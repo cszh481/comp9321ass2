@@ -34,6 +34,7 @@ public class AdminDaoImpl extends BaseDao implements AdminDao {
 				preparedStatement.setString(2, admin.getPassword());
 				preparedStatement.setInt(3, admin.getId());
 				preparedStatement.executeUpdate();
+				connection.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -47,7 +48,7 @@ public class AdminDaoImpl extends BaseDao implements AdminDao {
 				preparedStatement.setString(1, admin.getUsername());
 				preparedStatement.setString(2, admin.getPassword());
 				preparedStatement.executeUpdate();
-
+				connection.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -70,7 +71,7 @@ public class AdminDaoImpl extends BaseDao implements AdminDao {
 			if (rs.next()) {
 				return convertAdmin(rs);
 			}
-
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -90,7 +91,7 @@ public class AdminDaoImpl extends BaseDao implements AdminDao {
 			if (rs.next()) {
 				return convertAdmin(rs);
 			}
-
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

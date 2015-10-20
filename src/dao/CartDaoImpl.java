@@ -50,7 +50,7 @@ public class CartDaoImpl extends BaseDao implements CartDao {
                 c.setId(rs.getInt("c.id"));
 				cartItems.add(c);
 			}
-
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -75,6 +75,7 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 				preparedStatement.setTimestamp(5, cart.getRemoved());
 
 				preparedStatement.executeUpdate();
+				connection.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -93,6 +94,7 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 				preparedStatement.setInt(4, cart.getId());
 
 				preparedStatement.executeUpdate();
+				connection.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -110,7 +112,7 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 			        .prepareStatement(sql);
 			preparedStatement.setInt(1, user_id);
 			preparedStatement.executeUpdate();
-
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -144,7 +146,7 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 				c.setId(rs.getInt("c.id"));
 				return c;
 			}
-
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -168,7 +170,7 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 			while (rs.next()) {
                 return convertCart(rs);
 			}
-
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -185,7 +187,7 @@ public class CartDaoImpl extends BaseDao implements CartDao {
                     .prepareStatement(sql);
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
-
+			connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

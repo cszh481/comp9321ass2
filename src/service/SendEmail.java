@@ -58,7 +58,7 @@ public class SendEmail {
                 "<br>\n" +
                 "</br>\n" +
                 "Help us secure your account by verifying your email \n" +
-                "<a href=\"http://localhost:8080/comp9321ass2/control?uuid="+ user.getUuid() +"&action=verify"+"\" target=\"_top\">http://localhost:8080/control?uuid="+ user.getUuid() +"&action=verify</a>\n" +
+                "<a href=\"http://localhost:8080/control?uuid="+ user.getUuid() +"&action=verify"+"\" target=\"_top\">http://localhost:8080/control?uuid="+ user.getUuid() +"&action=verify</a>\n" +
                 "</p>"+
                 "<br>\n" +
                 "</br>\n" +

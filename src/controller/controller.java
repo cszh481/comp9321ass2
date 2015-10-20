@@ -148,9 +148,11 @@ public class controller extends HttpServlet {
         else if(action.equals("rmshoppingcart")){
             CartService cartService = new CartService();
             String[] id_list = request.getParameterValues("pick");
-            for(String temp_int : id_list ) {
-                int id = Integer.parseInt(temp_int);
-                cartService.removeCart(id);
+            if (id_list !=null) {
+                for (String temp_int : id_list) {
+                    int id = Integer.parseInt(temp_int);
+                    cartService.removeCart(id);
+                }
             }
             nextPage = "shoppingcart.jsp";
         }
@@ -158,27 +160,29 @@ public class controller extends HttpServlet {
             CartService cartService = new CartService();
             OrderService orderService = new OrderService();
             String[] id_list = request.getParameterValues("pick");
-            List<Cart> cartList = new ArrayList<>();
-            boolean outOrder = false;
-            for(String temp_int : id_list ) {
-                int id = Integer.parseInt(temp_int);
-                Cart cart = cartService.getCartById(id);
-                cartList.add(cart);
-                if (cart.getCount() > cart.getItem().getQuantity()){
-                    outOrder = true;
+            if (id_list != null) {
+                List<Cart> cartList = new ArrayList<>();
+                boolean outOrder = false;
+                for (String temp_int : id_list) {
+                    int id = Integer.parseInt(temp_int);
+                    Cart cart = cartService.getCartById(id);
+                    cartList.add(cart);
+                    if (cart.getCount() > cart.getItem().getQuantity()) {
+                        outOrder = true;
+                    }
+                }
+                if (!outOrder || cartList.size() == 0) {
+                    try {
+                        orderService.createOrder(cartList);
+                        nextPage = "shoppingcart.jsp";
+                    } catch (MessagingException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    nextPage = "outofOrder.jsp";
                 }
             }
-            if (!outOrder) {
-                try {
-                    orderService.createOrder(cartList);
-                    nextPage = "shoppingcart.jsp";
-                } catch (MessagingException e) {
-                    e.printStackTrace();
-                }
-            }
-            else {
-                nextPage = "outofOrder.jsp";
-            }
+            nextPage = "shoppingcart.jsp";
         }
         else if(action.equals("adminlogin")){
             AdminService adminService = new AdminService();

@@ -69,6 +69,7 @@ public class AdminDaoImpl extends BaseDao implements AdminDao {
 
 			ResultSet rs = preparedStatement.executeQuery();
 			if (rs.next()) {
+				connection.close();
 				return convertAdmin(rs);
 			}
 			connection.close();
@@ -89,6 +90,7 @@ public class AdminDaoImpl extends BaseDao implements AdminDao {
 
 			ResultSet rs = preparedStatement.executeQuery();
 			if (rs.next()) {
+				connection.close();
 				return convertAdmin(rs);
 			}
 			connection.close();

@@ -144,6 +144,7 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 				c.setAdded(rs.getTimestamp("added"));
 				c.setRemoved(rs.getTimestamp("removed"));
 				c.setId(rs.getInt("c.id"));
+				connection.close();
 				return c;
 			}
 			connection.close();
@@ -168,6 +169,7 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
+				connection.close();
                 return convertCart(rs);
 			}
 			connection.close();

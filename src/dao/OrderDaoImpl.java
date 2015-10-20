@@ -108,6 +108,7 @@ public class OrderDaoImpl extends BaseDao implements OrderDao {
 				o.setId(rs.getInt("id"));
 				o.setUser_id(rs.getInt("user_id"));
 				o.setCreated(rs.getTimestamp("created"));
+				connection.close();
 				return o;
 			}
 			connection.close();

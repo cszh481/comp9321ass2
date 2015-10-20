@@ -89,6 +89,7 @@ public class OrderItemDaoImpl extends BaseDao implements OrderItemDao {
 				o.setItem_id(rs.getInt("item_id"));
 				o.setOrder_id(rs.getInt("order_id"));
 				o.setCount(rs.getInt("count"));
+				connection.close();
 				return o;
 			}
 			connection.close();

@@ -93,6 +93,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
 			ResultSet rs = preparedStatement.executeQuery();
 			if (rs.next()) {
+				connection.close();
 				return convertUser(rs);
 			}
 			connection.close();
@@ -115,6 +116,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
 			ResultSet rs = preparedStatement.executeQuery();
 			if (rs.next()) {
+				connection.close();
 				return convertUser(rs);
 			}
 			connection.close();
@@ -137,6 +139,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
 			ResultSet rs = preparedStatement.executeQuery();
 			if (rs.next()) {
+				connection.close();
 				return convertUser(rs);
 			}
 			connection.close();
@@ -159,6 +162,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
 			ResultSet rs = preparedStatement.executeQuery();
 			if (rs.next()) {
+				connection.close();
 				return convertUser(rs);
 			}
 			connection.close();

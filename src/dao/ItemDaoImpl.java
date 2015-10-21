@@ -95,8 +95,9 @@ public class ItemDaoImpl extends BaseDao implements ItemDao {
 
 			ResultSet rs = preparedStatement.executeQuery();
 			if (rs.next()) {
+				Item item = convertItem(rs);
 				connection.close();
-				return convertItem(rs);
+				return item;
 			}
 			connection.close();
 		} catch (SQLException e) {

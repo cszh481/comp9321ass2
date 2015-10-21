@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import dto.Admin;
+import dto.User;
 
 public class AdminDaoImpl extends BaseDao implements AdminDao {
 
@@ -69,8 +70,9 @@ public class AdminDaoImpl extends BaseDao implements AdminDao {
 
 			ResultSet rs = preparedStatement.executeQuery();
 			if (rs.next()) {
+				Admin rsAdmin = convertAdmin(rs);
 				connection.close();
-				return convertAdmin(rs);
+				return rsAdmin;
 			}
 			connection.close();
 		} catch (SQLException e) {
@@ -90,8 +92,9 @@ public class AdminDaoImpl extends BaseDao implements AdminDao {
 
 			ResultSet rs = preparedStatement.executeQuery();
 			if (rs.next()) {
+				Admin rsAdmin = convertAdmin(rs);
 				connection.close();
-				return convertAdmin(rs);
+				return rsAdmin;
 			}
 			connection.close();
 		} catch (SQLException e) {

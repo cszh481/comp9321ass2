@@ -169,8 +169,9 @@ public class CartDaoImpl extends BaseDao implements CartDao {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
+				Cart rsCart = convertCart(rs);
 				connection.close();
-                return convertCart(rs);
+                return rsCart;
 			}
 			connection.close();
 		} catch (SQLException e) {
